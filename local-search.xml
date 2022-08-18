@@ -344,8 +344,8 @@
   
   <entry>
     <title>日常vim配置</title>
-    <link href="/2020/01/19/%E6%97%A5%E5%B8%B8vim%E9%85%8D%E7%BD%AE/"/>
-    <url>/2020/01/19/%E6%97%A5%E5%B8%B8vim%E9%85%8D%E7%BD%AE/</url>
+    <link href="/2020/01/19/vim%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/"/>
+    <url>/2020/01/19/vim%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</url>
     
     <content type="html"><![CDATA[<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">set</span> guifont=Monaco\ <span class="hljs-number">11</span><br><span class="hljs-keyword">syntax</span> <span class="hljs-keyword">on</span><br><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span><br><span class="hljs-keyword">set</span> showmatch<br><span class="hljs-keyword">set</span> autoindent<br><span class="hljs-keyword">set</span> smartindent<br><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span><br><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span><br><span class="hljs-keyword">set</span> mouse=<span class="hljs-keyword">a</span><br><span class="hljs-keyword">set</span> autoread<br><span class="hljs-keyword">set</span> nowrap<br><span class="hljs-keyword">set</span> hlsearch<br><span class="hljs-keyword">map</span> <span class="hljs-symbol">&lt;F5&gt;</span> : <span class="hljs-keyword">call</span> Compile() <span class="hljs-symbol">&lt;CR&gt;</span><br>func! Compile()<br>  exec <span class="hljs-string">&#x27;w&#x27;</span><br>  exec <span class="hljs-string">&#x27;!g++ % -lm -Wall -std=c++11 -O2 -o %&lt;&#x27;</span><br>  exec <span class="hljs-string">&#x27;!time ./%&lt;&#x27;</span><br>endfunc<br><br><span class="hljs-keyword">autocmd</span> BufNewFile *.cpp,*.<span class="hljs-keyword">cc</span> exec <span class="hljs-string">&quot;:call SetTitle()&quot;</span> <br><br>func SetTitle() <br>    <span class="hljs-keyword">call</span> <span class="hljs-built_in">setline</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;#include &lt;bits/stdc++.h&gt;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">0</span>, <span class="hljs-string">&quot;using namespace std;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">1</span>, <span class="hljs-string">&quot;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">2</span>, <span class="hljs-string">&quot;int main() &#123;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">3</span>, <span class="hljs-string">&quot;#ifndef ONLINE_JUDGE&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">4</span>, <span class="hljs-string">&quot;freopen(\&quot;.in\&quot;, \&quot;r\&quot;, stdin);&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">5</span>, <span class="hljs-string">&quot;freopen(\&quot;.out\&quot;, \&quot;w\&quot;, stdout);&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">6</span>, <span class="hljs-string">&quot;#endif&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">7</span>, <span class="hljs-string">&quot;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">8</span>, <span class="hljs-string">&quot;return 0;&quot;</span>)<br><span class="hljs-keyword">call</span> <span class="hljs-keyword">append</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&quot;.&quot;</span>)+<span class="hljs-number">9</span>, <span class="hljs-string">&quot;&#125;&quot;</span>)<br><span class="hljs-keyword">autocmd</span> BufNewFile * <span class="hljs-keyword">normal</span> G<br>endfunc<br></code></pre></td></tr></table></figure>]]></content>
     
@@ -425,15 +425,15 @@
       
       <tag>二分图</tag>
       
-      <tag>AtCoder</tag>
-      
       <tag>省选</tag>
+      
+      <tag>AtCoder</tag>
       
       <tag>Codeforces</tag>
       
-      <tag>网络流</tag>
-      
       <tag>POI</tag>
+      
+      <tag>网络流</tag>
       
       <tag>二维数点</tag>
       
@@ -534,9 +534,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>LibreOJ</tag>
-      
       <tag>背包</tag>
+      
+      <tag>LibreOJ</tag>
       
     </tags>
     
@@ -1559,9 +1559,9 @@
       
       <tag>状压dp</tag>
       
-      <tag>质因数分解</tag>
-      
       <tag>组合数学</tag>
+      
+      <tag>质因数分解</tag>
       
       <tag>计数dp</tag>
       
@@ -1695,9 +1695,9 @@
       
       <tag>线段树</tag>
       
-      <tag>质因数分解</tag>
-      
       <tag>树形dp</tag>
+      
+      <tag>质因数分解</tag>
       
       <tag>优化建边</tag>
       
@@ -1763,11 +1763,11 @@
       
       <tag>期望dp</tag>
       
-      <tag>树形dp</tag>
-      
       <tag>组合数学</tag>
       
       <tag>背包dp</tag>
+      
+      <tag>树形dp</tag>
       
       <tag>分治</tag>
       

@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="kkkstra">
+  <meta name="keywords" content="blog, oi">
+  
+    <meta name="description" content="Description令 $p &#x3D; 998244353$。 给你整数 $n,c,d$ 。现有整数 $x_1,\dots,x_n$ 和 $b_1, \dots , b_n$ 满足 $0 \le x_1 , \dots , x_n , b_1 , \dots , b_n &lt; p$ ，且对于 $1\le i \le n$ 满足：$$\sum_{j &#x3D; 1}^{n} \gcd(i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演">
+<meta property="og:url" content="https://blog.kkkstra.cn/2020/06/14/UR-5%E6%80%8E%E6%A0%B7%E8%B7%91%E5%BE%97%E6%9B%B4%E5%BF%AB-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/index.html">
+<meta property="og:site_name" content="kkkstra&#39;s blog">
+<meta property="og:description" content="Description令 $p &#x3D; 998244353$。 给你整数 $n,c,d$ 。现有整数 $x_1,\dots,x_n$ 和 $b_1, \dots , b_n$ 满足 $0 \le x_1 , \dots , x_n , b_1 , \dots , b_n &lt; p$ ，且对于 $1\le i \le n$ 满足：$$\sum_{j &#x3D; 1}^{n} \gcd(i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-14T13:57:01.000Z">
+<meta property="article:modified_time" content="2022-08-18T10:21:28.188Z">
+<meta property="article:author" content="kkkstra">
+<meta property="article:tag" content="莫比乌斯反演">
+<meta property="article:tag" content="UOJ">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演 - kkkstra&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kkkstra&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-06-14 21:57" pubdate>
+          2020年6月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>令 $p &#x3D; 998244353$。</p>
+<p>给你整数 $n,c,d$ 。现有整数 $x_1,\dots,x_n$ 和 $b_1, \dots , b_n$ 满足 $0 \le x_1 , \dots , x_n , b_1 , \dots , b_n &lt; p$ ，且对于 $1\le i \le n$ 满足：<br>$$<br>\sum_{j &#x3D; 1}^{n} \gcd(i, j)^c \cdot \operatorname{lcm}(i, j)^d \cdot x_j \equiv b_i \pmod{p}<br>$$<br>有 $q$ 个询问，每次给出 $b_1, \dots, b_n$，请你解出 $x_1, \dots, x_n$ 的值。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>先丢两个链接：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cjyyb/p/11074280.html">怎样跑得更快（莫比乌斯反演） - yyb</a></p>
+<p><a target="_blank" rel="noopener" href="http://vfleaking.blog.uoj.ac/blog/62">UOJ Round #5 题解 - vfleaking的博客</a></p>
+</blockquote>
+<p>首先，根据小学奥数知识我们可以知道 $\operatorname{lcm}(i,j)&#x3D;\frac{ij}{\gcd(i,j)}$，于是原式子变为<br>$$<br>\sum_{j &#x3D; 1}^{n} \gcd(i, j)^{c-d} i^d j^d x_j \equiv b_i \pmod{p}<br>$$<br>其实写成函数的形式后这种解法都可用<br>$$<br>\sum_{j &#x3D; 1}^{n} f(\gcd(i, j)) h(i) h(j) x_j \equiv b_i \pmod{p}<br>$$<br>枚举 $gcd$<br>$$<br>\begin{split}<br>b_i &amp;&#x3D; \sum \limits_{d&#x3D;1}^{n}f(d) \sum \limits_{j&#x3D;1}^{n} \left[ gcd(i,j) &#x3D; d \right] h(i) h(j) x_j \<br>&amp;&#x3D; \sum \limits_{d&#x3D;1}^{n}f(d) \sum \limits_{j&#x3D;1}^{n} \left[ \frac{gcd(i,j)}{d} &#x3D; 1 \right] h(i) h(j) x_j \<br>&amp;&#x3D; \sum \limits_{d&#x3D;1}^{n}f(d) \sum \limits_{d \mid j}^{n} h(i) h(j) \sum \limits_{k\mid \frac{gcd(i,j)}{d}} \mu(k) x_j<br>\end{split}<br>$$<br>令 $T &#x3D; kd$，再变换求和顺序，则有<br>$$<br>\begin{split}<br>b_i &amp;&#x3D; \sum \limits_{d&#x3D;1}^{n}f(d) \sum \limits_{d \mid j}^{n} h(i) h(j) \sum \limits_{T\mid gcd(i,j)} \mu(\frac{T}{d}) x_j \<br>&amp;&#x3D; h(i) \sum \limits_{T \mid i} \sum \limits_{T \mid j} \sum \limits_{d \mid T} f(d) h(j) \mu(\frac{T}{d}) x_j \<br>&amp;&#x3D; h(i) \sum \limits_{T \mid i} \sum \limits_{T \mid j} h(j) x_j \sum \limits_{d \mid T} f(d)\mu(\frac{T}{d})<br>\end{split}<br>$$<br>后半部分可以提前预处理，记作 $f_r(T)$<br>$$<br>\begin{split}<br>b_i &amp;&#x3D; h(i) \sum \limits_{T \mid i} \sum \limits_{T \mid j} h(j) x_j f_r(T) \<br>&amp;&#x3D; h(i) \sum \limits_{T \mid i} f_r(T) \sum \limits_{T \mid j} h(j) x_j<br>\end{split}<br>$$<br>后面那部分可以提前算出来，记作 $g(T)$<br>$$<br>\begin{split}<br>b_i &amp;&#x3D; h(i) \sum \limits_{T \mid i} f_r(T) g(T)<br>\end{split}<br>$$<br>令 $g_r(T) &#x3D; f_r(T) g(T)$<br>$$<br>\begin{split}<br>b_i &amp;&#x3D; h(i) \sum \limits_{T \mid i} g_r(T)<br>\end{split}<br>$$<br>再莫比乌斯反演一次<br>$$<br>\begin{split}<br>\frac{b_i}{h(i)} &amp;&#x3D; \sum \limits_{T \mid i} g_r(T) \<br>g_r(i) &amp;&#x3D; \sum \limits_{T \mid i} \frac{b_T}{h(T)} \mu(\frac{i}{T})<br>\end{split}<br>$$<br>那么 $g_r$ 可以算出来，$f_r$ 也可以算出来，于是可以算出 $g$</p>
+<p>又由于 $g(T)&#x3D;\sum \limits_{T \mid j} h(j) x_j$，所以再进行一次莫比乌斯反演<br>$$<br>h(j)x_j &#x3D; \sum \limits_{T\mid j} g(T) \mu(\frac{j}{T})<br>$$<br>就可以把 $h(j)x_j$ 算出来，就求出了 $x_j$。</p>
+<p><strong>所以其实本质上就是用 $b_i$ 除以 $h(i)$ 然后莫比乌斯反演，然后再除以 $f$ 的莫比乌斯反演，再莫比乌斯反演，再除以 $h(j)$。</strong></p>
+<blockquote>
+<p>三个莫比乌斯反演掷地有声。XDXDXD<br>sto <a target="_blank" rel="noopener" href="https://uoj.ac/user/profile/vfleaking">vfleaking</a> orz</p>
+</blockquote>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><code>Talk is cheap. Show me the code. </code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-type">const</span> ll mod = <span class="hljs-number">998244353</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> N, c, d, Q, mu[_], b[_];<br>ll h[_], f[_], fr[_], invh[_], invfr[_], t[_], gr[_], g[_];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">ty</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, f = <span class="hljs-number">1</span>;<br>  <span class="hljs-type">char</span> ch = <span class="hljs-built_in">getchar</span>();<br>  <span class="hljs-keyword">while</span> (ch &lt; <span class="hljs-string">&#x27;0&#x27;</span> || ch &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<br>    <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27;-&#x27;</span>) f = <span class="hljs-number">-1</span>;<br>    ch = <span class="hljs-built_in">getchar</span>();<br>  &#125;<br>  <span class="hljs-keyword">while</span> (ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<br>    x = x * <span class="hljs-number">10</span> + ch - <span class="hljs-string">&#x27;0&#x27;</span>;<br>    ch = <span class="hljs-built_in">getchar</span>();<br>  &#125;<br>  <span class="hljs-keyword">return</span> x * f;<br>&#125;<br><br><span class="hljs-function">ll <span class="hljs-title">fastPow</span><span class="hljs-params">(ll a, ll b)</span> </span>&#123;<br>  ll ret = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (; b; b &gt;&gt;= <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) ret = ret * a % mod;<br>    a = a * a % mod;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getMu</span><span class="hljs-params">(<span class="hljs-type">int</span> lim = <span class="hljs-number">1e5</span>)</span> </span>&#123;<br>  <span class="hljs-type">static</span> <span class="hljs-type">int</span> cnt, p[_], vis[_];<br>  mu[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= lim; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) p[++cnt] = i, mu[i] = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= cnt &amp;&amp; i * p[j] &lt;= lim; ++j) &#123;<br>      vis[i * p[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % p[j] == <span class="hljs-number">0</span>) &#123;<br>        mu[i * p[j]] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>      mu[i * p[j]] = -mu[i];<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;run.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;run.out&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>  <span class="hljs-built_in">getMu</span>();<br>  N = <span class="hljs-built_in">ty</span>(), c = <span class="hljs-built_in">ty</span>(), d = <span class="hljs-built_in">ty</span>(), Q = <span class="hljs-built_in">ty</span>();<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) &#123;<br>    h[i] = <span class="hljs-built_in">fastPow</span>(i, d);<br>    invh[i] = <span class="hljs-built_in">fastPow</span>(h[i], mod - <span class="hljs-number">2</span>);<br>    f[i] = <span class="hljs-built_in">fastPow</span>(i, (c - d + (mod - <span class="hljs-number">1</span>)) % (mod - <span class="hljs-number">1</span>));  <span class="hljs-comment">// 扩展欧拉定理</span><br>  &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i)<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= N; j += i)<br>      fr[j] = (fr[j] + mu[j / i] * f[i] % mod) % mod;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) invfr[i] = <span class="hljs-built_in">fastPow</span>(fr[i], mod - <span class="hljs-number">2</span>);<br>  <span class="hljs-keyword">while</span> (Q--) &#123;<br>    <span class="hljs-type">bool</span> flag = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) b[i] = <span class="hljs-built_in">ty</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) &#123;<br>      t[i] = b[i] * invh[i] % mod;<br>      <span class="hljs-keyword">if</span> (b[i] &amp;&amp; !h[i]) flag = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-built_in">memset</span>(gr, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(ll) * (N + <span class="hljs-number">1</span>));<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i)<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= N; j += i)<br>        gr[j] = (gr[j] + mu[j / i] * t[i] % mod + mod) % mod;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) &#123;<br>      g[i] = gr[i] * invfr[i] % mod;<br>      <span class="hljs-keyword">if</span> (gr[i] &amp;&amp; !invfr[i]) flag = <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-built_in">memset</span>(t, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(ll) * (N + <span class="hljs-number">1</span>));<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i)<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= N; j += i)<br>        t[i] = (t[i] + mu[j / i] * g[j] % mod + mod) % mod;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) t[i] = t[i] * invh[i] % mod;<br>    <span class="hljs-keyword">if</span> (flag)<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; ++i) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld &quot;</span>, t[i]);<br>    <span class="hljs-keyword">else</span><br>      cout &lt;&lt; <span class="hljs-number">-1</span>;<br>    <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;&quot;</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
+      
+        <a href="/tags/UOJ/">#UOJ</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演</div>
+      <div>https://blog.kkkstra.cn/2020/06/14/UR-5怎样跑得更快-莫比乌斯反演/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>kkkstra</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年6月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/15/loj6094-%E5%BD%92%E4%B9%A1%E8%BF%B7%E9%80%94-CF814E-dp%E3%80%81%E8%AE%A1%E6%95%B0/" title="loj6094 归乡迷途 / CF814E - dp、计数">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">loj6094 归乡迷途 / CF814E - dp、计数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/14/HAOI2011Problem-b-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" title="HAOI2011Problem b - 莫比乌斯反演">
+                        <span class="hidden-mobile">HAOI2011Problem b - 莫比乌斯反演</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-c8dq1r12s-petrichor46.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

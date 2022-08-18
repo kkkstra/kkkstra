@@ -303,15 +303,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/01/09/20200109-WC%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95-%E8%A6%86%E7%9B%96-dp-%E8%AE%A1%E6%95%B0-bitset/" target="_blank">
-          20200109 WC模拟考试 覆盖 - dp + 计数 + bitset
+        <a href="/2020/06/18/ZJOI2019%E7%BA%BF%E6%AE%B5%E6%A0%91-%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%81dp/" target="_blank">
+          ZJOI2019线段树 - 线段树、dp
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/09/20200109-WC%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95-%E8%A6%86%E7%9B%96-dp-%E8%AE%A1%E6%95%B0-bitset/" target="_blank">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/18/ZJOI2019%E7%BA%BF%E6%AE%B5%E6%A0%91-%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%81dp/" target="_blank">
         <div>
-          Description求 $n$ 个节点的有相无环图使得最小点覆盖为 $k$ 的方案数，答案对 $2$ 取模。 Solution首先将最小点覆盖的模型转化为最大独立集。 由于答案对 $2$ 取模，所以解决这个问题的关键是对称性。 考虑钦定两个点，若两个点的连边情况不同，那么显然我们可以将两个点调换，这样新的图由于形态相同，所以最小点覆盖数一样，这样在模 $2$ 意义下就抵消了，对答案没有贡献。 所
+          Description现在可怜手上有一棵 $[1,n]$ 上的线段树，编号为 $1$。这棵线段树上的所有节点的 $tag$ 均为 $0$。接下来可怜进行了 $m$ 次操作，操作有两种：  $1\ l\ r$，假设可怜当前手上有 $t$ 棵线段树，可怜会把每棵线段树复制两份（$tag$ 数组也一起复制），原先编号为 $i$ 的线段树复制得到的两棵编号为 $2i-1$ 与 $2i$，在复制结束后，可怜
         </div>
       </a>
 
@@ -319,8 +319,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-09 22:08" pubdate>
-              2020-01-09
+            <time datetime="2020-06-18 08:23" pubdate>
+              2020-06-18
             </time>
           </div>
         
@@ -340,12 +340,89 @@
   
     <span>></span>
     
-  <a href="/categories/OI/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
     <span>></span>
     
-  <a href="/categories/OI/%E8%80%83%E8%AF%95/WC2020/" class="category-chain-item">WC2020</a>
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="category-chain-item">动态规划</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">#线段树</a>
+            
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/17/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E7%9A%AE%E9%85%8D-%E8%83%8C%E5%8C%85%E3%80%81dp%E3%80%81%E8%AE%A1%E6%95%B0/" target="_blank">
+          十二省联考2019皮配 - 背包、dp、计数
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/17/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E7%9A%AE%E9%85%8D-%E8%83%8C%E5%8C%85%E3%80%81dp%E3%80%81%E8%AE%A1%E6%95%B0/" target="_blank">
+        <div>
+          Description题面 简化版题面： 有 $c$ 个豆荚，共 $n$ 颗豆子，每颗豆子都有自己的重量，现在需要将给豆子设定为（黄色&#x2F;绿色，圆粒&#x2F;皱粒），要求满足以下条件：  给定这四种性状的阀值 $C0,C1,D0,D1$，要求为这种性状的豆子重量和不能超过该阀值。  与此同时，这 $n$ 颗豆子中存在 $k$ 颗顽皮豆，顽皮豆都有自己的想法，比如拒绝成为（黄圆&#x2F;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-17 08:04" pubdate>
+              2020-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="category-chain-item">动态规划</a>
   
   
 
@@ -366,7 +443,9 @@
             
               <a href="/tags/%E8%AE%A1%E6%95%B0dp/">#计数dp</a>
             
-              <a href="/tags/bitset/">#bitset</a>
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+            
+              <a href="/tags/%E8%83%8C%E5%8C%85/">#背包</a>
             
           </div>
         
@@ -380,15 +459,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/01/08/SPOJ-REPEATS-Repeats-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          SPOJ REPEATS - Repeats - 后缀数组
+        <a href="/2020/06/16/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E5%BC%82%E6%88%96%E7%B2%BD%E5%AD%90-%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96Trrie%E3%80%81%E5%A0%86/" target="_blank">
+          [十二省联考2019]异或粽子 - 可持久化Trie、堆
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/08/SPOJ-REPEATS-Repeats-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/16/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E5%BC%82%E6%88%96%E7%B2%BD%E5%AD%90-%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96Trrie%E3%80%81%E5%A0%86/" target="_blank">
         <div>
-          Description求一个字符串内重复次数最多的连续字串。 Solution丢一个hihocoder的链接 先考虑如何如何求一个串给定的串的最大重复次数，枚举一个可能的循环节长度 $l$，然后求原串和原串去掉前 $l$ 个字符后两个串的 $lcp$（最长公共前缀），如果能完全匹配上，就是一个循环节，且循环次数为 $lcp(l,i)&#x2F;l + 1$。 所以我们可以先枚举一个可能的长度 $l
+          Description小粽是一个喜欢吃粽子的好孩子。今天她在家里自己做起了粽子。 小粽面前有 $n$ 种互不相同的粽子馅儿，小粽将它们摆放为了一排，并从左至右编号为 $1$ 到 $n$。第 $i$ 种馅儿具有一个非负整数的属性值 $a_i$。每种馅儿的数量都足够多，即小粽不会因为缺少原料而做不出想要的粽子。小粽准备用这些馅儿来做出 $k$ 个粽子。 小粽的做法是：选两个整数数 $l$,  $r$，
         </div>
       </a>
 
@@ -396,8 +475,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-08 14:05" pubdate>
-              2020-01-08
+            <time datetime="2020-06-16 07:43" pubdate>
+              2020-06-16
             </time>
           </div>
         
@@ -422,7 +501,7 @@
   
     <span>></span>
     
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
   
   
 
@@ -441,11 +520,13 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
+              <a href="/tags/%E5%A0%86/">#堆</a>
             
-              <a href="/tags/SA/">#SA</a>
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
             
-              <a href="/tags/SPOJ/">#SPOJ</a>
+              <a href="/tags/Trie/">#Trie</a>
+            
+              <a href="/tags/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96/">#可持久化</a>
             
           </div>
         
@@ -459,15 +540,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/01/07/SDOI2008Sandy%E7%9A%84%E5%8D%A1%E7%89%87-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          [SDOI2008]Sandy的卡片 - 后缀数组
+        <a href="/2020/06/15/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E6%98%A5%E8%8A%82%E5%8D%81%E4%BA%8C%E5%93%8D-%E8%B4%AA%E5%BF%83%E3%80%81%E5%A0%86%E3%80%81%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/" target="_blank">
+          [十二省联考2019]春节十二响 - 贪心、堆、启发式合并
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/07/SDOI2008Sandy%E7%9A%84%E5%8D%A1%E7%89%87-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/15/%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E6%98%A5%E8%8A%82%E5%8D%81%E4%BA%8C%E5%93%8D-%E8%B4%AA%E5%BF%83%E3%80%81%E5%A0%86%E3%80%81%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/" target="_blank">
         <div>
-          Description$Sandy$ 和 $Sue$ 的热衷于收集干脆面中的卡片。 然而，$Sue$ 收集卡片是因为卡片上漂亮的人物形象，而 $Sandy$ 则是为了积攒卡片兑换超炫的人物模型。 每一张卡片都由一些数字进行标记，第 $i$ 张卡片的序列长度为 $M_i$，要想兑换人物模型，首先必须要集够 $N$ 张卡片，对于这 $N$ 张卡片，如果他们都有一个相同的子串长度为 $k$，则可以兑换一
+          Description给你一棵树，每个节点有点权，将这些节点分为若干段，要求每段中的节点不能有祖先-后代关系。每一段的大小为该段权值最大的点的点权大小，求所有段的最小总权值和。 Solution先考虑一条链的情况： $1$ 号节点一定将这条链分成了两条链，只要将两条链都排序一遍，再按从大到小的顺序对应两两分为一段即可。 正确性显然。（最大的两个若不合并则必然不是最优，因为它们会一直造成贡献） 再来
         </div>
       </a>
 
@@ -475,8 +556,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-07 14:45" pubdate>
-              2020-01-07
+            <time datetime="2020-06-15 20:40" pubdate>
+              2020-06-15
             </time>
           </div>
         
@@ -501,7 +582,244 @@
   
     <span>></span>
     
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%A0%86/">#堆</a>
+            
+              <a href="/tags/%E8%B4%AA%E5%BF%83/">#贪心</a>
+            
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+            
+              <a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/">#启发式合并</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/15/loj6094-%E5%BD%92%E4%B9%A1%E8%BF%B7%E9%80%94-CF814E-dp%E3%80%81%E8%AE%A1%E6%95%B0/" target="_blank">
+          loj6094 归乡迷途 / CF814E - dp、计数
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/15/loj6094-%E5%BD%92%E4%B9%A1%E8%BF%B7%E9%80%94-CF814E-dp%E3%80%81%E8%AE%A1%E6%95%B0/" target="_blank">
+        <div>
+          Description给出 $n$ 个点，和每个点的度构造出一张无向图满足以下两条性质：   点 $1$ 到点 $i$ 仅有唯一一条最短路 点 $1$ 到点 $i$ 的最短路长度大于等于点 $1$ 到点 $i-1$ 的最短路长度   求能构成满足条件的无向图的个数？ Solution咕咕咕。 传送门 Code123456789101112131415161718192021222324252627
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-15 16:11" pubdate>
+              2020-06-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E6%95%B0dp/">#计数dp</a>
+            
+              <a href="/tags/Codeforces/">#Codeforces</a>
+            
+              <a href="/tags/LibreOJ/">#LibreOJ</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/14/UR-5%E6%80%8E%E6%A0%B7%E8%B7%91%E5%BE%97%E6%9B%B4%E5%BF%AB-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
+          [UOJ Round 5]怎样跑得更快 - 莫比乌斯反演
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/14/UR-5%E6%80%8E%E6%A0%B7%E8%B7%91%E5%BE%97%E6%9B%B4%E5%BF%AB-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
+        <div>
+          Description令 $p &#x3D; 998244353$。 给你整数 $n,c,d$ 。现有整数 $x_1,\dots,x_n$ 和 $b_1, \dots , b_n$ 满足 $0 \le x_1 , \dots , x_n , b_1 , \dots , b_n &lt; p$ ，且对于 $1\le i \le n$ 满足：$$\sum_{j &#x3D; 1}^{n} \gcd(i
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-14 21:57" pubdate>
+              2020-06-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
+            
+              <a href="/tags/UOJ/">#UOJ</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/14/HAOI2011Problem-b-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
+          HAOI2011Problem b - 莫比乌斯反演
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/14/HAOI2011Problem-b-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
+        <div>
+          Description对于给出的 $n$ 个询问，每次求有多少个数对 $(x,y)$，满足 $a \le x \le b$，$c \le y \le d$，且 $\gcd(x,y) &#x3D; k$，$\gcd(x,y)$ 函数为 $x$ 和 $y$ 的最大公约数。 其中 $1 \le n,k \le 5 \times 10^4$，$1 \le a \le b \le 5 \times 10^4
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-14 19:01" pubdate>
+              2020-06-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
 
@@ -522,9 +840,7 @@
             
               <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
             
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
-            
-              <a href="/tags/SA/">#SA</a>
+              <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
             
           </div>
         
@@ -538,15 +854,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/01/07/POI2000%E5%85%AC%E5%85%B1%E4%B8%B2-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          [POI2000]公共串 - 后缀数组
+        <a href="/2020/06/13/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
+          莫比乌斯反演
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/07/POI2000%E5%85%AC%E5%85%B1%E4%B8%B2-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/13/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" target="_blank">
         <div>
-          Update 2018.1.8：sto lsy orz 给出了一个 $O(n)$ 的做法。 Description求若干个串的最长的公共子串的长度。 Solution考虑将这若干个串全部拼起来，中间用一些不在字符集内的符号隔开。 然后二分答案 $K$，如果连续的一段 $height$ 都大于等于 $K$，且每个串都出现了至少一次，则是可行的。 O(N)并没有必要二分答案，前面是二分长度，然后 $c
+          2020&#x2F;06&#x2F;13 开坑莫比乌斯反演（只是一个平平无奇的搬运工罢了）。 参考： 莫比乌斯反演 - OI Wiki 积性函数与Dirichlet卷积 - Rogn  前置知识引理1$$\forall a, b, c \in \mathbb{Z}, \lfloor \frac{a}{bc} \rfloor &#x3D; \lfloor \frac{\lfloor \frac{a}
         </div>
       </a>
 
@@ -554,324 +870,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-07 11:42" pubdate>
-              2020-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
-            
-              <a href="/tags/SA/">#SA</a>
-            
-              <a href="/tags/POI/">#POI</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/07/USACO5-1%E4%B9%90%E6%9B%B2%E4%B8%BB%E9%A2%98Musical-Themes-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          [USACO5.1]乐曲主题Musical Themes - 后缀数组
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/07/USACO5-1%E4%B9%90%E6%9B%B2%E4%B8%BB%E9%A2%98Musical-Themes-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-        <div>
-          Description求字符串的最长不可重叠重复子串。 Solution如果有两个子串相同，那么也就是有两个后缀的 $lcp$ 相同。 所以考虑二分答案 $K$，如果有连续一段的 $height$ 都不小于 $K$，那么这一段区间内，两两后缀的 $lcp$ 都不小于 $K$，那么记录一下区间的 $\max{sa_i}$ 和 $\min{sa_i}$，如果 $\max{sa_i}-\min{sa_i
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-07 10:36" pubdate>
-              2020-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
-            
-              <a href="/tags/SA/">#SA</a>
-            
-              <a href="/tags/USACO/">#USACO</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/07/USACO06DEC-%E7%89%9B%E5%A5%B6%E6%A8%A1%E5%BC%8FMilk-Patterns-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          [USACO06DEC]牛奶模式Milk Patterns - 后缀数组
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/07/USACO06DEC-%E7%89%9B%E5%A5%B6%E6%A8%A1%E5%BC%8FMilk-Patterns-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-        <div>
-          Description求字符串 $s$ 的最长可重叠重复 $k$ 次子串。 Solution重复出现了 $k$ 次，相当于我们选择了 $k$ 个后缀，求他们的 $lcp$。 显然 $k$ 个后缀的 $rank$ 是连续的，所以重复出现 $k$ 次的前缀就是 $min(height[l+1\dots l+k-1])$。 所以我们需枚举 $i$，然后用一个递增的单调队列维护 $height[i-k+2
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-07 08:59" pubdate>
-              2020-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
-            
-              <a href="/tags/SA/">#SA</a>
-            
-              <a href="/tags/USACO/">#USACO</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/06/POJ2774-Long-Long-Message-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-          POJ2774 Long Long Message - 后缀数组
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/06/POJ2774-Long-Long-Message-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" target="_blank">
-        <div>
-          Description求两个字符串的最长公共子串。 Solution把两个字符串拼起来，问题就转化为了求任意两个后缀的 $lcp$ 的最大长度。 显然这个最大长度是 $height_i$ 的值，$\text{SA}$ 求解即可。 需要注意的是，对于 $height_i$ 需要判断一下 $SA_i$ 和 $SA_{i-1}$ 是否在不同的串中。 Code12345678910111213141516
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-06 22:07" pubdate>
-              2020-01-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">字符串</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/">#后缀数组</a>
-            
-              <a href="/tags/SA/">#SA</a>
-            
-              <a href="/tags/POJ/">#POJ</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/06/Lyndon-Word%E7%9B%B8%E5%85%B3/" target="_blank">
-          Lyndon Word相关
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/06/Lyndon-Word%E7%9B%B8%E5%85%B3/" target="_blank">
-        <div>
-          Lyndon Word定义对于字符串 $S$，若 $S$ 的最小后缀为其本身，那么称 $S$ 为 $\text{Lyndon}$ 串（$\text{Lyndon Word}$） 即$$S \in L \Rightarrow \begin{cases} S是严格最小循环 \ minsuf(s)&#x3D;s \end{cases}$$ 性质$Border(S)&#x3D;\varnothing$ 推
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-06 19:12" pubdate>
-              2020-01-06
+            <time datetime="2020-06-13 10:13" pubdate>
+              2020-06-13
             </time>
           </div>
         
@@ -908,7 +908,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Lyndon-Word/">#Lyndon Word</a>
+              <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
             
           </div>
         
@@ -922,15 +922,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/01/05/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SAM%EF%BC%89/" target="_blank">
-          后缀自动机（SAM）
+        <a href="/2020/06/05/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/" target="_blank">
+          整除分块
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/05/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SAM%EF%BC%89/" target="_blank">
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/06/05/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/" target="_blank">
         <div>
-          本文大部分内容来自于 hihoCoder，侵删。本文只是将其用更好的格式进行展现，希望对读者有帮助。  定义后缀自动机（$\text{Suffix Automaton}$，简称 $\text{SAM}$）。对于一个字符串 $S$，它对应的后缀自动机是一个最小的确定有限状态自动机（$\text{DFA}$），接受且只接受 $S$ 的后缀。 比如对于字符串 $S &#x3D; \underline{
+          题外话一开始是在写洛谷月赛题的，后来发现需要用到整除分块，然后发现这东西似乎在莫比乌斯反演中会用到？所以就突然决定要学莫比鸟斯反演。 [CQOI2007]余数求和先来康康这道例题： 给出正整数 $n$ 和 $k$，请计算$$G(n, k) &#x3D; \sum_{i &#x3D; 1}^n k \bmod i$$其中 $k\bmod i$ 表示 $k$ 除以 $i$ 的余数。$1 \leq n,
         </div>
       </a>
 
@@ -938,8 +938,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-05 22:38" pubdate>
-              2020-01-05
+            <time datetime="2020-06-05 16:02" pubdate>
+              2020-06-05
             </time>
           </div>
         
@@ -976,9 +976,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/">#后缀自动机</a>
-            
-              <a href="/tags/SAM/">#SAM</a>
+              <a href="/tags/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/">#整除分块</a>
             
           </div>
         
@@ -990,7 +988,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="kkkstra">
+  <meta name="keywords" content="blog, oi">
+  
+    <meta name="description" content="[POI2015] Kinoman二维数点问题，常用套路是，枚举其中一个端点，然后维护到每个端点的区间的值。 设一部电影上一个播放日为 $pre_i$，下一个播放日为 $nxt_i$，发现每场电影 $i$ 只有在 $l &gt; pre_i,r&lt;nxt_i$ 的区间中对答案有贡献。 所以我们先将所有区间按照 $pre_i$ 从小到大排序，从左到右枚举左端点，维护一棵以右端点为下标的线段树，每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些数据结构杂题简要题解">
+<meta property="og:url" content="https://blog.kkkstra.cn/2020/01/18/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9D%82%E9%A2%98%E7%AE%80%E8%A6%81%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="kkkstra&#39;s blog">
+<meta property="og:description" content="[POI2015] Kinoman二维数点问题，常用套路是，枚举其中一个端点，然后维护到每个端点的区间的值。 设一部电影上一个播放日为 $pre_i$，下一个播放日为 $nxt_i$，发现每场电影 $i$ 只有在 $l &gt; pre_i,r&lt;nxt_i$ 的区间中对答案有贡献。 所以我们先将所有区间按照 $pre_i$ 从小到大排序，从左到右枚举左端点，维护一棵以右端点为下标的线段树，每">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-18T12:09:05.000Z">
+<meta property="article:modified_time" content="2022-08-18T10:13:29.491Z">
+<meta property="article:author" content="kkkstra">
+<meta property="article:tag" content="二分图">
+<meta property="article:tag" content="点分治">
+<meta property="article:tag" content="省选">
+<meta property="article:tag" content="POI">
+<meta property="article:tag" content="AtCoder">
+<meta property="article:tag" content="Codeforces">
+<meta property="article:tag" content="网络流">
+<meta property="article:tag" content="二维数点">
+<meta property="article:tag" content="树状数组">
+<meta property="article:tag" content="线段树优化连边">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>一些数据结构杂题简要题解 - kkkstra&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kkkstra&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="一些数据结构杂题简要题解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-01-18 20:09" pubdate>
+          2020年1月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">一些数据结构杂题简要题解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="POI2015-Kinoman"><a href="#POI2015-Kinoman" class="headerlink" title="[POI2015] Kinoman"></a>[POI2015] Kinoman</h1><p>二维数点问题，常用套路是，<strong>枚举其中一个端点，然后维护到每个端点的区间的值</strong>。</p>
+<p>设一部电影上一个播放日为 $pre_i$，下一个播放日为 $nxt_i$，发现每场电影 $i$ 只有在 $l &gt; pre_i,r&lt;nxt_i$ 的区间中对答案有贡献。</p>
+<p>所以我们先将所有区间按照 $pre_i$ 从小到大排序，从左到右枚举左端点，维护一棵以右端点为下标的线段树，每次将 $pre_i&lt;l$ 的点在区间 $[i,nxt_i)$ 加入贡献，并将 $pre_i&lt;l$ 的点的贡献删除，每次取全局最大值即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29192875">代码</a></p>
+<h1 id="ARC068E-Snuke-Line"><a href="#ARC068E-Snuke-Line" class="headerlink" title="ARC068E Snuke Line"></a>ARC068E Snuke Line</h1><p>对于每个 $d$，如果一个商品的区间长度 $\ge d$，那么这个商品一定会至少覆盖一个为 $d$ 的倍数的点，所以直接计入贡献，而对于那些区间长度 $&lt;d$ 的商品，最多只会覆盖一个点，所以不会算重，直接树状数组进行区间修改、单点查询即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29195828">代码</a></p>
+<h1 id="CF749E-Inversions-After-Shuffle"><a href="#CF749E-Inversions-After-Shuffle" class="headerlink" title="CF749E Inversions After Shuffle"></a>CF749E Inversions After Shuffle</h1><p><strong>题意</strong>：给出一个 $1 \sim n$ 的排列，从中等概率的选取一个连续段 $[l,r]$，设其长度为 $l$。对连续段重新进行等概率的全排列，求排列后整个原序列的逆序对的期望个数。</p>
+<p>直接计算区间的期望不太好计算，由于期望的线性性，考虑计算每一组点对 $(i,j)$ 的贡献。</p>
+<ol>
+<li><p>$[l,r]$ 完全包含 $(i,j)$，逆序对的期望个数为 $0.5$。对答案的贡献为<br>$$<br>\frac{\sum \limits_{i&#x3D;1}^{n} \sum \limits_{j&#x3D;i+1}^{n} 0.5\times i (n-j+1)}{\frac{n(n+1)}{2}}<br>&#x3D; \frac{\sum \limits_{i&#x3D;1}^{n} \frac{i(n-i+1)(n-i)}{2}}{n(n+1)}<br>$$<br>于是就可以 $O(n)$ 地算出来了。</p>
+</li>
+<li><p>$[l,r]$ 不完全包含 $(i,j)$。若 $w_i &lt; w_j$ ，则对答案的贡献为 $0$。若 $w_i &gt; w_j$ ，逆序对的期望个数则为 $1$，所以对答案的贡献为<br>$$<br>\frac{\sum \limits_{i&#x3D;1}^{n} \sum \limits_{j&#x3D;i+1}^{n} \frac{n(n+1)}{2} - i (n-j+1)}{\frac{n(n+1)}{2}} \<br>&#x3D; 1- \frac{\sum \limits_{i&#x3D;1}^{n} \sum \limits_{j&#x3D;i+1}^{n} i (n-j+1)}{\frac{n(n-1)}{2}} \<br>&#x3D; 1- \frac{\sum \limits_{i&#x3D;1}^{n} i\sum \limits_{j&#x3D;i+1}^{n}(n+1-j)}{\frac{n(n+1)}{2}},且w_i&gt;w_j<br>$$<br>所以这部分只需要对每个位置用树状数组维护其后面比它小的数的数量以及位置的和即可。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29199533">代码</a></p>
+<h1 id="CF901C-Bipartite-Segments"><a href="#CF901C-Bipartite-Segments" class="headerlink" title="CF901C Bipartite Segments"></a>CF901C Bipartite Segments</h1><p>首先，“不含偶环的无向图”是仙人掌，而二分图的充要条件是不含奇环，所以诱导子图必须是不含环。</p>
+<p>先用 $\text{Tarjan}$ 缩点，求出每个环的编号范围 $[l,r]$，那么考虑对每个端点求出最大的合法的右端点 $nxt_i$。</p>
+<p>对于每个询问，二分出使得 $nxt_i$ 大于 $y$ 的临界点。然后在临界点后的肯定无论如何都是合法的，直接计算即可。在临界点前的，利用 $nxt_i$ 加个前缀和进行计算即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29207891">代码</a></p>
+<h1 id="CF903G-Yet-Another-Maxflow-Problem"><a href="#CF903G-Yet-Another-Maxflow-Problem" class="headerlink" title="CF903G Yet Another Maxflow Problem"></a>CF903G Yet Another Maxflow Problem</h1><p>首先将最大流转化为最小割。</p>
+<p>显然 $A_i$ 和 $B_i$ 都最多只会割一条边，枚举割 $A_i$，如果割 $B_j$，那么对于所有的边 $(x,y),x\le i, y\ge j$ 都必须割掉。那么我们可以枚举 $A_i$，然后维护一棵以 $B_j$ 为下标的线段树，依次将与 $A_i$相连的边加入线段树中，查询每一个 $A_i$ 的答案取 $\min$ 即可。</p>
+<p>然后对于修改操作，由于只修改 $A_i$ 的边，所以每个 $A_i$ 所对应的最优的 $B_j$ 是不会变的，所以只需要将每个 $A_i$ 的答案用线段树维护，单点修改，查询全局最小值即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29229279">代码</a></p>
+<h1 id="HEOI2016-x2F-TJOI2016-排序"><a href="#HEOI2016-x2F-TJOI2016-排序" class="headerlink" title="[HEOI2016&#x2F;TJOI2016] 排序"></a>[HEOI2016&#x2F;TJOI2016] 排序</h1><p>考虑二分，每次二分出一个 $mid$ 时，将大于等于 $mid$ 的数记为 $1$，小于 $mid$ 的数记为 $0$，这样对于 $01$ 串每次排序就只是 $\log n$ 的了。最后再看一下第 $q$ 位是否为 $1$，如果为 $1$ 说明答案可以更大。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29220818">代码</a></p>
+<h1 id="SCOI2016-萌萌哒"><a href="#SCOI2016-萌萌哒" class="headerlink" title="[SCOI2016] 萌萌哒"></a>[SCOI2016] 萌萌哒</h1><p>第一想法是线段树优化连边，但是由于线段树的可能会让两个对应区间的切割方式不一样，所以还是 $O(N^2)$ 的。</p>
+<p>考虑用 $ST$ 表优化连边，令 $fa[i][j]$ 表示 $i$ 往后长度为 $j$ 的区间在并查集上的父亲。然后标记下放即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/29242283">代码</a></p>
+<h1 id="2017-山东二轮集训-Day7-国王"><a href="#2017-山东二轮集训-Day7-国王" class="headerlink" title="[2017 山东二轮集训 Day7] 国王"></a>[2017 山东二轮集训 Day7] 国王</h1><p>设 $A$ 为两个端点都在 $[l,r]$ 中的合法路径条数，$B$ 为两个端点都不在 $[l,r]$ 中的合法路径的条数，$C$ 为两个端点不在同一个区间内的合法条数。</p>
+<p>我们这里要求的是 $A-B$，显然直接求不太好求，考虑我们求出 $f_i$ 表示以 $i$ 为其中一个端点的路径数，$sum$ 表示总路径数，那么<br>$$<br>2A + C &#x3D; \sum\limits_{i&#x3D;l}^{r} f_i \<br>2B + C &#x3D; 2 \times sum - \sum\limits_{i&#x3D;l}^{r} f_i<br>$$<br>所以<br>$$<br>A - B &#x3D; \sum \limits_{i&#x3D;l}^{r} f_i - sum<br>$$<br>还是枚举左端点，显然合法的右端点是单调递增的。然后 $f_i$ 可以利用点分治求。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">#二分图</a>
+      
+        <a href="/tags/%E7%82%B9%E5%88%86%E6%B2%BB/">#点分治</a>
+      
+        <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+      
+        <a href="/tags/POI/">#POI</a>
+      
+        <a href="/tags/AtCoder/">#AtCoder</a>
+      
+        <a href="/tags/Codeforces/">#Codeforces</a>
+      
+        <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/">#网络流</a>
+      
+        <a href="/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%82%B9/">#二维数点</a>
+      
+        <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">#树状数组</a>
+      
+        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E8%BF%9E%E8%BE%B9/">#线段树优化连边</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>一些数据结构杂题简要题解</div>
+      <div>https://blog.kkkstra.cn/2020/01/18/一些数据结构杂题简要题解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>kkkstra</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年1月18日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/18/SCOI2015%E5%B0%8F%E5%87%B8%E7%8E%A9%E7%9F%A9%E9%98%B5-%E4%BA%8C%E5%88%86-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D-%E6%9C%80%E5%A4%A7%E6%B5%81/" title="’[SCOI2015]小凸玩矩阵 - 二分 + 二分图最大匹配 + 最大流&#39;">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">’[SCOI2015]小凸玩矩阵 - 二分 + 二分图最大匹配 + 最大流&#39;</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/01/18/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/" title="网络流24题">
+                        <span class="hidden-mobile">网络流24题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-c8dq1r12s-petrichor46.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

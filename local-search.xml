@@ -972,9 +972,9 @@
       
       <tag>矩阵快速幂</tag>
       
-      <tag>kmp</tag>
-      
       <tag>省选</tag>
+      
+      <tag>kmp</tag>
       
     </tags>
     
@@ -1036,9 +1036,9 @@
     
     <tags>
       
-      <tag>哈希</tag>
-      
       <tag>省选</tag>
+      
+      <tag>哈希</tag>
       
       <tag>splay</tag>
       
@@ -1220,11 +1220,11 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>NTT</tag>
       
       <tag>斯特林数</tag>
+      
+      <tag>省选</tag>
       
     </tags>
     
@@ -1280,9 +1280,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>NTT</tag>
+      
+      <tag>省选</tag>
       
       <tag>生成函数</tag>
       

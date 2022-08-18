@@ -1557,9 +1557,9 @@
     
     <tags>
       
-      <tag>组合数学</tag>
-      
       <tag>状压dp</tag>
+      
+      <tag>组合数学</tag>
       
       <tag>质因数分解</tag>
       
@@ -1631,9 +1631,9 @@
       
       <tag>贪心</tag>
       
-      <tag>NOIP</tag>
-      
       <tag>树上差分</tag>
+      
+      <tag>NOIP</tag>
       
     </tags>
     
@@ -1761,11 +1761,11 @@
     
     <tags>
       
+      <tag>期望dp</tag>
+      
       <tag>组合数学</tag>
       
       <tag>背包dp</tag>
-      
-      <tag>期望dp</tag>
       
       <tag>树形dp</tag>
       

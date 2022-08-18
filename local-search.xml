@@ -13,6 +13,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -39,6 +41,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>题解</category>
       
@@ -67,6 +71,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>笔记</category>
       
     </categories>
@@ -94,6 +100,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>笔记</category>
       
     </categories>
@@ -119,11 +127,11 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>多项式</category>
-      
-      <category>组合数学</category>
       
     </categories>
     
@@ -150,6 +158,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>笔记</category>
       
     </categories>
@@ -175,11 +185,11 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>多项式</category>
-      
-      <category>组合数学</category>
       
     </categories>
     
@@ -206,6 +216,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>笔记</category>
       
     </categories>
@@ -230,6 +242,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>笔记</category>
       
@@ -256,9 +270,11 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
-      <category>数据结构</category>
+      <category>动态规划</category>
       
     </categories>
     
@@ -266,6 +282,8 @@
     <tags>
       
       <tag>线段树</tag>
+      
+      <tag>NOIP</tag>
       
     </tags>
     
@@ -283,6 +301,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -292,9 +312,9 @@
     
     <tags>
       
-      <tag>单调队列优化dp</tag>
+      <tag>NOIP</tag>
       
-      <tag>最优化问题</tag>
+      <tag>单调队列</tag>
       
     </tags>
     
@@ -312,20 +332,24 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
-      
-      <category>组合数学</category>
       
     </categories>
     
     
     <tags>
       
+      <tag>组合数学</tag>
+      
       <tag>线性dp</tag>
       
       <tag>容斥</tag>
+      
+      <tag>NOIP</tag>
       
     </tags>
     
@@ -368,6 +392,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -403,6 +429,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -429,6 +457,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -463,6 +493,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -496,9 +528,9 @@
     
     <categories>
       
-      <category>题解</category>
+      <category>OI</category>
       
-      <category>基础算法</category>
+      <category>题解</category>
       
       <category>图论</category>
       
@@ -529,6 +561,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -555,6 +589,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -589,6 +625,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -617,6 +655,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -653,6 +693,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -684,6 +726,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -704,6 +748,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -736,6 +782,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -766,6 +814,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -800,6 +850,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -833,6 +885,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>考试</category>
       
       <category>2019CSP</category>
@@ -853,6 +907,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       
@@ -887,6 +943,8 @@
     
     <categories>
       
+      <category>OI</category>
+      
       <category>题解</category>
       
       <category>动态规划</category>
@@ -913,6 +971,8 @@
     
     
     <categories>
+      
+      <category>OI</category>
       
       <category>考试</category>
       

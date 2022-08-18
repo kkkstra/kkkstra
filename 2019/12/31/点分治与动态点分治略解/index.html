@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/patricklai46/img/fluid.png">
+  <link rel="icon" href="/patricklai46/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,7 +21,7 @@
     <meta name="description" content="暑假的时候学的算法，太久不用就忘记了代码怎么写。 点分治就大概的讲一下ba。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点分治与动态点分治略解">
-<meta property="og:url" content="http://example.com/2019/12/31/%E7%82%B9%E5%88%86%E6%B2%BB%E4%B8%8E%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB%E7%95%A5%E8%A7%A3/index.html">
+<meta property="og:url" content="https://github.com/patricklai46/patricklai46.git/2019/12/31/%E7%82%B9%E5%88%86%E6%B2%BB%E4%B8%8E%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB%E7%95%A5%E8%A7%A3/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="暑假的时候学的算法，太久不用就忘记了代码怎么写。 点分治就大概的讲一下ba。">
 <meta property="og:locale" content="zh_CN">
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/patricklai46/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/patricklai46/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/patricklai46/css/highlight-dark.css" />
   
 
 
@@ -75,15 +75,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"github.com","root":"/patricklai46/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/patricklai46/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/patricklai46/js/utils.js" ></script>
+  <script  src="/patricklai46/js/color-schema.js" ></script>
   
 
 
@@ -100,7 +100,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/patricklai46/">
       <strong>kkkstra&#39;s blog</strong>
     </a>
 
@@ -119,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/patricklai46/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -131,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/patricklai46/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -143,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/patricklai46/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -155,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/patricklai46/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -167,7 +167,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/patricklai46/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -179,7 +179,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/patricklai46/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -208,7 +208,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/patricklai46/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -338,9 +338,9 @@
 <p>还是动态点分治的套路，对于每个点开两棵动态开点的线段树或是树状数组，以距离为下标，分别存储到点$x$距离为$y$的增量，以及到点$fa[x]$距离为$y$的增量（用于容斥）。</p>
 <p>查询和修改不断在点分树上暴跳父亲即可。</p>
 <p>最后，由于上次<a target="_blank" rel="noopener" href="https://www.lydsy.com/JudgeOnline/problem.php?id=3730">震波</a>的惨痛教训，我决定写树状数组：</p>
-<p><img src="https://i.loli.net/2020/01/01/bP3o7jVLdTexnsN.png" srcset="/img/loading.gif" lazyload alt="2020-01-01 18-39-45屏幕截图.png"></p>
+<p><img src="https://i.loli.net/2020/01/01/bP3o7jVLdTexnsN.png" srcset="/patricklai46/img/loading.gif" lazyload alt="2020-01-01 18-39-45屏幕截图.png"></p>
 <p>树状数组跑的飞快，开心！</p>
-<p><img src="https://i.loli.net/2020/01/01/PuB34yD69jhgSnz.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.loli.net/2020/01/01/PuB34yD69jhgSnz.png" srcset="/patricklai46/img/loading.gif" lazyload></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br><span class="hljs-type">bool</span> xxx;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">ty</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-type">char</span> ch = <span class="hljs-built_in">getchar</span>();<br>  <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, f = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span> (ch &lt; <span class="hljs-string">&#x27;0&#x27;</span> || ch &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<br>    <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27;-&#x27;</span>) f = <span class="hljs-number">-1</span>;<br>    ch = <span class="hljs-built_in">getchar</span>();<br>  &#125;<br>  <span class="hljs-keyword">while</span> (ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<br>    x = x * <span class="hljs-number">10</span> + ch - <span class="hljs-string">&#x27;0&#x27;</span>;<br>    ch = <span class="hljs-built_in">getchar</span>();<br>  &#125;<br>  <span class="hljs-keyword">return</span> x * f;<br>&#125;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> __ = <span class="hljs-number">1e7</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-type">int</span> N, M, tot, head[_], to[_ &lt;&lt; <span class="hljs-number">1</span>], nxt[_ &lt;&lt; <span class="hljs-number">1</span>];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">adde</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  to[++tot] = y;<br>  nxt[tot] = head[x];<br>  head[x] = tot;<br>&#125;<br><br><span class="hljs-keyword">namespace</span> lca &#123;<br><span class="hljs-type">int</span> fa[_], son[_], dep[_], siz[_], top[_];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs1</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f)</span> </span>&#123;<br>  siz[x] = <span class="hljs-number">1</span>;<br>  <span class="hljs-type">int</span> maxx = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = nxt[i]) &#123;<br>    <span class="hljs-type">int</span> y = to[i];<br>    <span class="hljs-keyword">if</span> (y == f) <span class="hljs-keyword">continue</span>;<br>    fa[y] = x, dep[y] = dep[x] + <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">dfs1</span>(y, x);<br>    siz[x] += siz[y];<br>    <span class="hljs-keyword">if</span> (siz[y] &gt; maxx) maxx = siz[y], son[x] = y;<br>  &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs2</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> topf)</span> </span>&#123;<br>  top[x] = topf;<br>  <span class="hljs-keyword">if</span> (!son[x]) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-built_in">dfs2</span>(son[x], topf);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = nxt[i]) &#123;<br>    <span class="hljs-type">int</span> y = to[i];<br>    <span class="hljs-keyword">if</span> (y == fa[x] || y == son[x]) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-built_in">dfs2</span>(y, y);<br>  &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>  dep[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>, <span class="hljs-built_in">dfs1</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>  <span class="hljs-built_in">dfs2</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">while</span> (top[x] != top[y]) &#123;<br>    <span class="hljs-keyword">if</span> (dep[top[x]] &lt; dep[top[y]]) <span class="hljs-built_in">swap</span>(x, y);<br>    x = fa[top[x]];<br>  &#125;<br>  <span class="hljs-keyword">return</span> dep[x] &lt; dep[y] ? x : y;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dis</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123; <span class="hljs-keyword">return</span> dep[x] + dep[y] - <span class="hljs-number">2</span> * dep[<span class="hljs-built_in">query</span>(x, y)]; &#125;<br>&#125;  <span class="hljs-comment">// namespace lca</span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">BIT</span> &#123;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> lowbit(x) (x &amp; -x)</span><br>  vector&lt;<span class="hljs-type">int</span>&gt; tr;<br>  <span class="hljs-type">int</span> lim;<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>    ++x;<br>    <span class="hljs-comment">// assert(x&lt;=lim);</span><br>    x = <span class="hljs-built_in">min</span>(x, lim);<br>    <span class="hljs-keyword">for</span> (; x &lt;= lim; x += <span class="hljs-built_in">lowbit</span>(x)) tr[x] += y;<br>  &#125;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    ++x;<br>    x = <span class="hljs-built_in">min</span>(x, lim);<br>    <span class="hljs-type">int</span> ret = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (; x; x -= <span class="hljs-built_in">lowbit</span>(x)) ret += tr[x];<br>    <span class="hljs-keyword">return</span> ret;<br>  &#125;<br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> lowbit</span><br>&#125; dist[_], sub[_];<br><br><span class="hljs-type">int</span> mxsiz, totsiz, root, vis[_], fa[_], siz[_];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getroot</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f)</span> </span>&#123;<br>  siz[x] = <span class="hljs-number">1</span>;<br>  <span class="hljs-type">int</span> maxx = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = nxt[i]) &#123;<br>    <span class="hljs-type">int</span> y = to[i];<br>    <span class="hljs-keyword">if</span> (vis[y] || y == f) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-built_in">getroot</span>(y, x);<br>    siz[x] += siz[y];<br>    maxx = <span class="hljs-built_in">max</span>(maxx, siz[y]);<br>  &#125;<br>  maxx = <span class="hljs-built_in">max</span>(maxx, totsiz - siz[x]);<br>  <span class="hljs-keyword">if</span> (maxx &lt; mxsiz) mxsiz = maxx, root = x;<br>&#125;<br><br><span class="hljs-type">int</span> mxdep;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f, <span class="hljs-type">int</span> d)</span> </span>&#123;<br>  mxdep = <span class="hljs-built_in">max</span>(mxdep, d);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = nxt[i]) &#123;<br>    <span class="hljs-type">int</span> y = to[i];<br>    <span class="hljs-keyword">if</span> (vis[y] || y == f) <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-built_in">dfs</span>(y, x, d + <span class="hljs-number">1</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">divide</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  vis[x] = <span class="hljs-number">1</span>;<br>  <span class="hljs-type">int</span> nowsiz = totsiz;<br>  mxdep = <span class="hljs-number">0</span>, <span class="hljs-built_in">dfs</span>(x, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>  dist[x].lim = mxdep + <span class="hljs-number">1</span>;<br>  <span class="hljs-comment">// printf(&quot;%d %d %d\n&quot;, x, mxdep, dist[x].lim);</span><br>  dist[x].tr.<span class="hljs-built_in">resize</span>(mxdep + <span class="hljs-number">3</span>);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = head[x]; i; i = nxt[i]) &#123;<br>    <span class="hljs-type">int</span> y = to[i];<br>    <span class="hljs-keyword">if</span> (vis[y]) <span class="hljs-keyword">continue</span>;<br>    mxsiz = INF, root = <span class="hljs-number">0</span>;<br>    totsiz = siz[y] &gt; siz[x] ? nowsiz - siz[x] : siz[y];<br>    <span class="hljs-built_in">getroot</span>(y, <span class="hljs-number">0</span>);<br>    mxdep = <span class="hljs-number">0</span>, <span class="hljs-built_in">dfs</span>(y, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>    sub[root].lim = mxdep + <span class="hljs-number">1</span>;<br>    sub[root].tr.<span class="hljs-built_in">resize</span>(mxdep + <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);<br>    fa[root] = x;<br>    <span class="hljs-built_in">divide</span>(root);<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>  <span class="hljs-type">int</span> ret = dist[x].<span class="hljs-built_in">query</span>(dist[x].lim);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; fa[i]; i = fa[i]) &#123;<br>    <span class="hljs-type">int</span> len = lca::<span class="hljs-built_in">dis</span>(x, fa[i]);<br>    ret += dist[fa[i]].<span class="hljs-built_in">query</span>(dist[fa[i]].lim) - dist[fa[i]].<span class="hljs-built_in">query</span>(len - <span class="hljs-number">1</span>);<br>    ret -= sub[i].<span class="hljs-built_in">query</span>(sub[i].lim) - sub[i].<span class="hljs-built_in">query</span>(len - <span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> d, <span class="hljs-type">int</span> v)</span> </span>&#123;<br>  dist[x].<span class="hljs-built_in">insert</span>(d, v);<br>  <span class="hljs-comment">// assert(d &lt;= dist[x].lim);</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; fa[i]; i = fa[i]) &#123;<br>    <span class="hljs-type">int</span> len = lca::<span class="hljs-built_in">dis</span>(x, fa[i]);<br>    <span class="hljs-keyword">if</span> (d &lt; len) <span class="hljs-keyword">continue</span>;<br>    dist[fa[i]].<span class="hljs-built_in">insert</span>(d - len, v);<br>    <span class="hljs-comment">// assert(d - len &lt;= dist[fa[i]].lim);</span><br>    sub[i].<span class="hljs-built_in">insert</span>(d - len, v);<br>    <span class="hljs-comment">// assert(d - len &lt;= sub[i].lim);</span><br>  &#125;<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br><span class="hljs-type">bool</span> yyy;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;game.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;game.out&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>  N = <span class="hljs-built_in">ty</span>(), M = <span class="hljs-built_in">ty</span>();<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; N; ++i) &#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-built_in">ty</span>(), y = <span class="hljs-built_in">ty</span>();<br>    <span class="hljs-built_in">adde</span>(x, y);<br>    <span class="hljs-built_in">adde</span>(y, x);<br>  &#125;<br>  lca::<span class="hljs-built_in">init</span>();<br><br>  mxsiz = INF, totsiz = N, root = <span class="hljs-number">0</span>;<br>  <span class="hljs-built_in">getroot</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>  <span class="hljs-built_in">divide</span>(<span class="hljs-number">1</span>);<br><br>  <span class="hljs-keyword">while</span> (M--) &#123;<br>    <span class="hljs-type">char</span> op[<span class="hljs-number">5</span>];<br>    <span class="hljs-type">int</span> x, y, z;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, op), x = <span class="hljs-built_in">ty</span>();<br>    <span class="hljs-keyword">if</span> (op[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;Q&#x27;</span>)<br>      <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, <span class="hljs-built_in">query</span>(x));<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (op[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;M&#x27;</span>) &#123;<br>      y = <span class="hljs-built_in">ty</span>(), z = <span class="hljs-built_in">ty</span>();<br>      <span class="hljs-built_in">modify</span>(x, y, z);<br>    &#125;<br>  &#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br>  cerr &lt;&lt; (&amp;yyy - &amp;xxx) / <span class="hljs-number">1048576.0</span> &lt;&lt; <span class="hljs-string">&quot;MB&quot;</span> &lt;&lt; endl;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="WC2014-紫荆花之恋"><a href="#WC2014-紫荆花之恋" class="headerlink" title="[WC2014]紫荆花之恋"></a>[WC2014]紫荆花之恋</h2><p>事实上，我学动态点分治就是为了写这道题，<a target="_blank" rel="noopener" href="https://kkkstra.cn/2020/01/01/WC2014-%E7%B4%AB%E8%8D%86%E8%8A%B1%E4%B9%8B%E6%81%8B-%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB-%E5%B9%B3%E8%A1%A1%E6%A0%91/#more">链接</a>。</p>
@@ -362,7 +362,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/patricklai46/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
 
@@ -377,9 +377,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB/">#动态点分治</a>
+        <a href="/patricklai46/tags/%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB/">#动态点分治</a>
       
-        <a href="/tags/%E7%82%B9%E5%88%86%E6%B2%BB/">#点分治</a>
+        <a href="/patricklai46/tags/%E7%82%B9%E5%88%86%E6%B2%BB/">#点分治</a>
       
     </div>
   
@@ -392,7 +392,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>点分治与动态点分治略解</div>
-      <div>http://example.com/2019/12/31/点分治与动态点分治略解/</div>
+      <div>https://github.com/patricklai46/patricklai46.git/2019/12/31/点分治与动态点分治略解/</div>
     </div>
     <div class="license-meta">
       
@@ -434,7 +434,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/01/01/ZJOI2015-%E5%B9%BB%E6%83%B3%E4%B9%A1%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB/" title="[ZJOI2015]幻想乡战略游戏 - 动态点分治">
+                      <a href="/patricklai46/2020/01/01/ZJOI2015-%E5%B9%BB%E6%83%B3%E4%B9%A1%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E7%82%B9%E5%88%86%E6%B2%BB/" title="[ZJOI2015]幻想乡战略游戏 - 动态点分治">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">[ZJOI2015]幻想乡战略游戏 - 动态点分治</span>
                         <span class="visible-mobile">上一篇</span>
@@ -444,7 +444,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/12/28/Splay%E8%AF%A6%E8%A7%A3/" title="Splay详解">
+                      <a href="/patricklai46/2019/12/28/Splay%E8%AF%A6%E8%A7%A3/" title="Splay详解">
                         <span class="hidden-mobile">Splay详解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -606,8 +606,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/patricklai46/js/events.js" ></script>
+<script  src="/patricklai46/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -629,7 +629,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/patricklai46/js/img-lazyload.js" ></script>
   
 
 
@@ -735,7 +735,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/patricklai46/js/local-search.js" ></script>
 
 
 
@@ -743,7 +743,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/patricklai46/js/boot.js" ></script>
 
 
   

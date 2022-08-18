@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/patricklai46/img/fluid.png">
+  <link rel="icon" href="/patricklai46/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,7 +21,7 @@
     <meta name="description" content="定义多项式系数表示法设$A(x)$表示一个$n-1$次多项式，则所有项的系数组成的$n$维向量$(a_0,a_1,a_2,\dots,a_{n-1})$唯一确定了这个多项式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速傅里叶变换(FFT)学习笔记">
-<meta property="og:url" content="http://example.com/2019/12/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="https://github.com/patricklai46/patricklai46.git/2019/12/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="定义多项式系数表示法设$A(x)$表示一个$n-1$次多项式，则所有项的系数组成的$n$维向量$(a_0,a_1,a_2,\dots,a_{n-1})$唯一确定了这个多项式。">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/patricklai46/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/patricklai46/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/patricklai46/css/highlight-dark.css" />
   
 
 
@@ -74,15 +74,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"github.com","root":"/patricklai46/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/patricklai46/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/patricklai46/js/utils.js" ></script>
+  <script  src="/patricklai46/js/color-schema.js" ></script>
   
 
 
@@ -99,7 +99,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/patricklai46/">
       <strong>kkkstra&#39;s blog</strong>
     </a>
 
@@ -118,7 +118,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/patricklai46/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/patricklai46/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/patricklai46/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/patricklai46/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/patricklai46/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -178,7 +178,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/patricklai46/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -207,7 +207,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/patricklai46/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -318,7 +318,7 @@
 <p>那么如何计算他们的值呢？</p>
 <p><a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/8.html">欧拉公式</a>解决了这个问题：</p>
 <p>$$\omega_n^k&#x3D;\cos k\frac{2\pi}{n}+ i\sin k\frac{2\pi}{n}$$</p>
-<p><img src="https://i.loli.net/2019/12/21/2kNs6HYptB7Snoe.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.loli.net/2019/12/21/2kNs6HYptB7Snoe.png" srcset="/patricklai46/img/loading.gif" lazyload></p>
 <p>如图，向量$\overrightarrow{AB}$表示的复数为$8$次单位根，单位根的幅角为$\frac{\pi}{n}$</p>
 <blockquote>
 <p>代数中，若$z^n&#x3D;1$，则称$z$为$n$次单位根。</p>
@@ -400,7 +400,7 @@
 
 <h2 id="迭代实现"><a href="#迭代实现" class="headerlink" title="迭代实现"></a>迭代实现</h2><p>递归实现的$FFT$效率不高，实际当中一般用迭代实现。</p>
 <h3 id="二进制翻转"><a href="#二进制翻转" class="headerlink" title="二进制翻转"></a>二进制翻转</h3><p>考虑递归 FFT 分治到边界时，每个数的顺序，及其二进制位。</p>
-<p><img src="https://i.loli.net/2019/12/21/pPKY3WnuSl98GjA.png" srcset="/img/loading.gif" lazyload alt="1101696-20180212074250859-1560811086.png"></p>
+<p><img src="https://i.loli.net/2019/12/21/pPKY3WnuSl98GjA.png" srcset="/patricklai46/img/loading.gif" lazyload alt="1101696-20180212074250859-1560811086.png"></p>
 <p>观察一下原序列和翻转后序列的联系，可以发现翻转后的序列下标其实就是原序列下标的二进制翻转。</p>
 <p>因此对下标进行奇偶性分类其实是没有必要的，只需要$O(n)$求出翻转后的序列，然后不断进行向上合并即可。</p>
 <h3 id="蝴蝶操作"><a href="#蝴蝶操作" class="headerlink" title="蝴蝶操作"></a>蝴蝶操作</h3><p>具体见代码。</p>
@@ -429,7 +429,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/patricklai46/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
 
@@ -444,7 +444,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/FFT/">#FFT</a>
+        <a href="/patricklai46/tags/FFT/">#FFT</a>
       
     </div>
   
@@ -457,7 +457,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>快速傅里叶变换(FFT)学习笔记</div>
-      <div>http://example.com/2019/12/21/快速傅里叶变换-FFT-学习笔记/</div>
+      <div>https://github.com/patricklai46/patricklai46.git/2019/12/21/快速傅里叶变换-FFT-学习笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -499,7 +499,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/12/22/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%88%B0%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2-NTT/" title="从傅里叶变换(FFT)到数论变换(NTT)">
+                      <a href="/patricklai46/2019/12/22/%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%88%B0%E6%95%B0%E8%AE%BA%E5%8F%98%E6%8D%A2-NTT/" title="从傅里叶变换(FFT)到数论变换(NTT)">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">从傅里叶变换(FFT)到数论变换(NTT)</span>
                         <span class="visible-mobile">上一篇</span>
@@ -509,7 +509,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/12/14/%E3%80%90CSP-SJX-2019%E3%80%91T4-%E6%95%A3%E6%AD%A5/" title="【CSP-SJX 2019】T4 散步">
+                      <a href="/patricklai46/2019/12/14/%E3%80%90CSP-SJX-2019%E3%80%91T4-%E6%95%A3%E6%AD%A5/" title="【CSP-SJX 2019】T4 散步">
                         <span class="hidden-mobile">【CSP-SJX 2019】T4 散步</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -671,8 +671,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/patricklai46/js/events.js" ></script>
+<script  src="/patricklai46/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -694,7 +694,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/patricklai46/js/img-lazyload.js" ></script>
   
 
 
@@ -800,7 +800,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/patricklai46/js/local-search.js" ></script>
 
 
 
@@ -808,7 +808,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/patricklai46/js/boot.js" ></script>
 
 
   

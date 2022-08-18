@@ -425,11 +425,11 @@
       
       <tag>二分图</tag>
       
-      <tag>省选</tag>
-      
       <tag>AtCoder</tag>
       
       <tag>Codeforces</tag>
+      
+      <tag>省选</tag>
       
       <tag>POI</tag>
       
@@ -534,9 +534,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>背包</tag>
-      
       <tag>LibreOJ</tag>
+      
+      <tag>背包</tag>
       
     </tags>
     
@@ -1220,11 +1220,11 @@
     
     <tags>
       
+      <tag>斯特林数</tag>
+      
       <tag>省选</tag>
       
       <tag>NTT</tag>
-      
-      <tag>斯特林数</tag>
       
     </tags>
     
@@ -1482,7 +1482,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1550,7 +1550,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1585,7 +1585,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1686,7 +1686,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1754,7 +1754,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1791,7 +1791,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1824,7 +1824,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1847,7 +1847,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1880,7 +1880,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1913,16 +1913,16 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>状压dp</tag>
-      
       <tag>图论</tag>
+      
+      <tag>状压dp</tag>
       
       <tag>哥德巴赫猜想</tag>
       
@@ -1948,7 +1948,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -1983,7 +1983,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -2006,7 +2006,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     
@@ -2072,7 +2072,7 @@
       
       <category>考试</category>
       
-      <category>2019CSP</category>
+      <category>CSP2019</category>
       
     </categories>
     

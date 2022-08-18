@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/patricklai46/img/fluid.png">
-  <link rel="icon" href="/patricklai46/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,7 +21,7 @@
     <meta name="description" content="这是一场不自闭的考试。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20191024 CSP模拟联考题解">
-<meta property="og:url" content="https://patricklai46.github.io/2019/10/25/20191024-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:url" content="https://blog.kkkstra.cn/2019/10/25/20191024-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="这是一场不自闭的考试。">
 <meta property="og:locale" content="zh_CN">
@@ -63,12 +63,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/patricklai46/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/patricklai46/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/patricklai46/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -77,15 +77,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"patricklai46.github.io","root":"/patricklai46/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/patricklai46/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/patricklai46/js/utils.js" ></script>
-  <script  src="/patricklai46/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -102,7 +102,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/patricklai46/">
+    <a class="navbar-brand" href="/">
       <strong>kkkstra&#39;s blog</strong>
     </a>
 
@@ -121,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -181,7 +181,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/patricklai46/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -210,7 +210,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/patricklai46/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -294,7 +294,7 @@
               <div class="markdown-body">
                 
                 <p>这是一场不自闭的考试。</p>
-<p><img src="https://i.loli.net/2019/10/25/TFvmnI5eBD18Oso.png" srcset="/patricklai46/img/loading.gif" lazyload></p>
+<p><img src="https://i.loli.net/2019/10/25/TFvmnI5eBD18Oso.png" srcset="/img/loading.gif" lazyload></p>
 <span id="more"></span>
 
 <h2 id="T1-ioday1"><a href="#T1-ioday1" class="headerlink" title="T1 ioday1"></a>T1 ioday1</h2><h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>“这是一道送分题。”</p>
@@ -404,7 +404,7 @@
 <h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-type">const</span> ll mod = <span class="hljs-number">998244353</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">10000</span> + <span class="hljs-number">10</span>;<br>ll n, m, c, p[_];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lld%lld%lld&quot;</span>, &amp;n, &amp;m, &amp;c);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i) <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lld&quot;</span>, &amp;p[i]);<br>&#125;<br><br><span class="hljs-keyword">namespace</span> task1 &#123;<br><br><span class="hljs-type">int</span> vis[<span class="hljs-number">20</span>];<br>ll ans;<br>vector&lt;<span class="hljs-type">int</span>&gt; pos;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> now, <span class="hljs-type">int</span> last)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (now == pos.<span class="hljs-built_in">size</span>()) &#123;<br>    <span class="hljs-type">int</span> len = n - last;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= c; ++i)<br>      <span class="hljs-keyword">if</span> (!(len % i)) ans = (ans + <span class="hljs-number">1</span>) % mod;<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <span class="hljs-built_in">dfs</span>(now + <span class="hljs-number">1</span>, last);<br>  <span class="hljs-type">int</span> len = pos[now] - last;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= c; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!(len % i)) <span class="hljs-built_in">dfs</span>(now + <span class="hljs-number">1</span>, pos[now]);<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i) vis[p[i] + <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i)<br>    <span class="hljs-keyword">if</span> (!vis[i]) pos.<span class="hljs-built_in">push_back</span>(i);<br><br>  <span class="hljs-built_in">dfs</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, ans);<br>&#125;<br>&#125;  <span class="hljs-comment">// namespace task1</span><br><br><span class="hljs-function">ll <span class="hljs-title">ksm</span><span class="hljs-params">(ll a, ll b)</span> </span>&#123;<br>  ll ans = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (; b; b &gt;&gt;= <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) ans = ans * a % mod;<br>    a = a * a % mod;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;paper.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>  <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;paper.out&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br>  <span class="hljs-built_in">read</span>();<br>  <span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span> &amp;&amp; c == <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, <span class="hljs-built_in">ksm</span>(<span class="hljs-number">2ll</span>, n - <span class="hljs-number">1</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">10</span>) &#123;<br>    task1::<span class="hljs-built_in">solve</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (c == <span class="hljs-number">1</span>) &#123;<br>    ll cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> vis[<span class="hljs-number">1000010</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i)<br>      <span class="hljs-keyword">if</span> (!vis[p[i]] &amp;&amp; p[i] &lt; n - <span class="hljs-number">1</span>) &#123;<br>        vis[p[i]] = <span class="hljs-number">1</span>;<br>        ++cnt;<br>      &#125;<br>    cnt = <span class="hljs-built_in">max</span>(n - cnt - <span class="hljs-number">1</span>, <span class="hljs-number">1ll</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, <span class="hljs-built_in">ksm</span>(<span class="hljs-number">2ll</span>, cnt));<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="T3-ioday2"><a href="#T3-ioday2" class="headerlink" title="T3 ioday2"></a>T3 ioday2</h2><p>$T3$我不会证明，所以直接把题解蒯过来好了，感性理解下，代码照着写就好了。。。</p>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p><img src="https://i.loli.net/2019/10/25/GHyuh1elAOESfKp.png" srcset="/patricklai46/img/loading.gif" lazyload></p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p><img src="https://i.loli.net/2019/10/25/GHyuh1elAOESfKp.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-type">const</span> ll mod = <span class="hljs-number">998244353</span>;<br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>, ll&gt; PIL;<br><span class="hljs-keyword">typedef</span> pair&lt;ll, <span class="hljs-type">int</span>&gt; PLI;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">1000</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n, vis[_];<br>ll p[_];<br>vector&lt;PIL&gt; E[_];<br>vector&lt;PLI&gt; d, d1;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">input</span><span class="hljs-params">()</span> </span>&#123;<br>	cin &gt;&gt; n;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) cin &gt;&gt; p[i];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i) &#123;<br>		<span class="hljs-type">int</span> x, y; ll z;<br>		cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;<br>		E[x].<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(y, z));<br>		E[y].<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(x, z));<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa, ll s)</span> </span>&#123;<br>	d.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(s, x));<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : E[x]) &#123;<br>		<span class="hljs-type">int</span> y = p.first;<br>		ll z = p.second;<br>		<span class="hljs-keyword">if</span> (y == fa) <span class="hljs-keyword">continue</span>;<br>		<span class="hljs-built_in">dfs</span>(y, x, s + z);<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs1</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> fa, ll s)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (vis[x]) d1.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">make_pair</span>(s, x));<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : E[x]) &#123;<br>		<span class="hljs-type">int</span> y = p.first;<br>		ll z = p.second;<br>		<span class="hljs-keyword">if</span> (y == fa) <span class="hljs-keyword">continue</span>;<br>		<span class="hljs-built_in">dfs1</span>(y, x, s + z);<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;ioday2.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br><span class="hljs-comment">//	freopen(&quot;ioday2.out&quot;, &quot;w&quot;, stdout);</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>	<span class="hljs-built_in">input</span>();<br>	<span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>	<span class="hljs-built_in">sort</span>(d.<span class="hljs-built_in">begin</span>(), d.<span class="hljs-built_in">end</span>());<br>	vis[d[<span class="hljs-number">0</span>].second] = <span class="hljs-number">1</span>;<br>	ll ans = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i) &#123;<br>		<span class="hljs-type">int</span> x = d[i].second; vis[x] = <span class="hljs-number">1</span>;<br>		d1.<span class="hljs-built_in">clear</span>();<br>		<span class="hljs-built_in">dfs1</span>(x, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>		<span class="hljs-built_in">sort</span>(d1.<span class="hljs-built_in">begin</span>(), d1.<span class="hljs-built_in">end</span>());<br>		ll tmp = p[x]; <span class="hljs-type">int</span> f = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> s : d1) &#123;<br>			<span class="hljs-keyword">if</span> (f) &#123; f = <span class="hljs-number">0</span>; <span class="hljs-keyword">continue</span>; &#125;<br>			<span class="hljs-type">int</span> y = s.second;<br>			ans = (ans + s.first * p[y] % mod * tmp % mod) % mod;<br>			tmp = tmp * (<span class="hljs-number">1</span> - p[y] + mod) % mod;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, ans);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
@@ -424,12 +424,12 @@
     
       <span class="category-chain">
         
-  <a href="/patricklai46/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
+  <a href="/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
   
   
     <span>></span>
     
-  <a href="/patricklai46/categories/%E8%80%83%E8%AF%95/2019CSP/" class="category-chain-item">2019CSP</a>
+  <a href="/categories/%E8%80%83%E8%AF%95/2019CSP/" class="category-chain-item">2019CSP</a>
   
   
 
@@ -446,13 +446,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/patricklai46/tags/%E6%9C%9F%E6%9C%9B/">#期望</a>
+        <a href="/tags/%E6%9C%9F%E6%9C%9B/">#期望</a>
       
-        <a href="/patricklai46/tags/%E6%A6%82%E7%8E%87/">#概率</a>
+        <a href="/tags/%E6%A6%82%E7%8E%87/">#概率</a>
       
-        <a href="/patricklai46/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/">#矩阵快速幂</a>
+        <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/">#矩阵快速幂</a>
       
-        <a href="/patricklai46/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">#最小生成树</a>
+        <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">#最小生成树</a>
       
     </div>
   
@@ -465,7 +465,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>20191024 CSP模拟联考题解</div>
-      <div>https://patricklai46.github.io/2019/10/25/20191024-CSP模拟联考题解/</div>
+      <div>https://blog.kkkstra.cn/2019/10/25/20191024-CSP模拟联考题解/</div>
     </div>
     <div class="license-meta">
       
@@ -507,7 +507,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/patricklai46/2019/10/25/20191025-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83%E9%A2%98%E8%A7%A3/" title="20191025 CSP模拟联考题解">
+                      <a href="/2019/10/25/20191025-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83%E9%A2%98%E8%A7%A3/" title="20191025 CSP模拟联考题解">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">20191025 CSP模拟联考题解</span>
                         <span class="visible-mobile">上一篇</span>
@@ -517,7 +517,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/patricklai46/2019/10/23/NOIP2018-%E8%B5%9B%E9%81%93%E4%BF%AE%E5%BB%BA-%E8%B4%AA%E5%BF%83%E3%80%81%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" title="[NOIP2018]赛道修建 - 贪心 + 二分答案">
+                      <a href="/2019/10/23/NOIP2018-%E8%B5%9B%E9%81%93%E4%BF%AE%E5%BB%BA-%E8%B4%AA%E5%BF%83%E3%80%81%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" title="[NOIP2018]赛道修建 - 贪心 + 二分答案">
                         <span class="hidden-mobile">[NOIP2018]赛道修建 - 贪心 + 二分答案</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -679,8 +679,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/patricklai46/js/events.js" ></script>
-<script  src="/patricklai46/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -702,7 +702,7 @@
 
 
   
-    <script  src="/patricklai46/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -808,7 +808,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/patricklai46/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -816,7 +816,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/patricklai46/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

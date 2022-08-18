@@ -427,9 +427,9 @@
       
       <tag>AtCoder</tag>
       
-      <tag>Codeforces</tag>
-      
       <tag>省选</tag>
+      
+      <tag>Codeforces</tag>
       
       <tag>POI</tag>
       
@@ -1220,9 +1220,9 @@
     
     <tags>
       
-      <tag>斯特林数</tag>
-      
       <tag>省选</tag>
+      
+      <tag>斯特林数</tag>
       
       <tag>NTT</tag>
       
@@ -1557,9 +1557,9 @@
     
     <tags>
       
-      <tag>状压dp</tag>
-      
       <tag>组合数学</tag>
+      
+      <tag>状压dp</tag>
       
       <tag>质因数分解</tag>
       
@@ -1695,9 +1695,9 @@
       
       <tag>线段树</tag>
       
-      <tag>质因数分解</tag>
-      
       <tag>树形dp</tag>
+      
+      <tag>质因数分解</tag>
       
       <tag>优化建边</tag>
       
@@ -1761,11 +1761,11 @@
     
     <tags>
       
-      <tag>期望dp</tag>
-      
       <tag>组合数学</tag>
       
       <tag>背包dp</tag>
+      
+      <tag>期望dp</tag>
       
       <tag>树形dp</tag>
       

@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="kkkstra">
+  <meta name="keywords" content="blog, oi">
+  
+    <meta name="description" content="Description传送门 Solution算法1 32pts枚举每个时刻，并枚举所有发生的时间，暴力进行更新。发现最多只需要枚举到第 $L$ 个时刻，因为是一个环，所以最多到第L个时刻，所有人就会回到原位。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【CSP-SJX 2019】T4 散步">
+<meta property="og:url" content="http://example.com/2019/12/14/%E3%80%90CSP-SJX-2019%E3%80%91T4-%E6%95%A3%E6%AD%A5/index.html">
+<meta property="og:site_name" content="kkkstra&#39;s blog">
+<meta property="og:description" content="Description传送门 Solution算法1 32pts枚举每个时刻，并枚举所有发生的时间，暴力进行更新。发现最多只需要枚举到第 $L$ 个时刻，因为是一个环，所以最多到第L个时刻，所有人就会回到原位。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-14T07:52:55.000Z">
+<meta property="article:modified_time" content="2022-08-18T02:08:49.501Z">
+<meta property="article:author" content="kkkstra">
+<meta property="article:tag" content="线段树">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【CSP-SJX 2019】T4 散步 - kkkstra&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kkkstra&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【CSP-SJX 2019】T4 散步"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-12-14 15:52" pubdate>
+          2019年12月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【CSP-SJX 2019】T4 散步</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5688">传送门</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="算法1-32pts"><a href="#算法1-32pts" class="headerlink" title="算法1 32pts"></a>算法1 32pts</h2><p>枚举每个时刻，并枚举所有发生的时间，暴力进行更新。发现最多只需要枚举到第 $L$ 个时刻，因为是一个环，所以最多到第L个时刻，所有人就会回到原位。</p>
+<span id="more"></span>
+
+<h2 id="算法2-52pts"><a href="#算法2-52pts" class="headerlink" title="算法2 52pts"></a>算法2 52pts</h2><p>发现在上面的过程中，并没有必要枚举每个时刻，因为很多时刻都是没有任何事件发生的。容易想到先预处理出距离每个人最近的出口，以及到出口的距离，那么每次取<strong>到出口距离最小</strong>的人，必定从那个出口出去。</p>
+<p>设$rest_i$表示每个出口剩余可以通过的人数，当一个人从某个出口$i$出去后，则$rest_i-1$，那么当一个出口的$rest_i&#x3D;0$时，那么这个出口就没有了存在的意义，可以直接删掉。</p>
+<p>不难想到通过某种数据结构来维护每个出口的前驱和后继，我这里用的是环状链表，当然机房大佬也有用并查集以及$set$实现的。所以先预处理出每个出口的前驱和后继，分别记为$lst_i$和$nxt_i$</p>
+<p>考虑当一个人从出口$i$出去后，那么对于所有原本要从$i$出去的人，逆时针走的人的出口都变成了$nxt_i$，顺时针走的人的出口都变成了$lst_i$。</p>
+<p>于是得到一个做法，用堆维护每个人到离他最近的出口的距离和编号，堆里以距离为第一关键字、人的编号为第二关键字进行排序，每次取出堆顶。若当前记录的出口已经被删除，那么就将关于这个人的新的出口、距离信息插入到堆中；否则将这个人计入到答案的贡献中，并更新出口是否被删除以及前驱$lst_i$和后继$nxt_i$的相关信息。</p>
+<p>因为每个人最坏情况下可能会被插入堆中$n$次，因此时间复杂度是$O(n^2\log n)$</p>
+<h2 id="算法3-100pts"><a href="#算法3-100pts" class="headerlink" title="算法3 100pts"></a>算法3 100pts</h2><p>考虑优化算法2，发现主要的时间都花费在更新每个人到出口的距离信息上</p>
+<p>记出口$i$的位置为$pos_i$。可以发现，当一个出口被删除后，那么所有位置在$(pos_{lst_i},pos_{i}]$之间且逆时针行走的人，其出口都变成了$nxt_i$，且距离的增量都是$pos_{nxt_i}-pos_i$；同样的，对于所有位置在$[pos_i, pos_{nxt_i})$之间的且顺时针行走的人，其出口都变成了$lst_i$，且距离的增量都是$pos_i-pos_{lst_i}$</p>
+<p>于是想到用线段树来维护，进行区间修改，具体实现为：在算法2的基础上，以每个人的位置为关键字进行排序，原来取堆顶的操作改成查询线段树的最小值，而距离的更新则先用二分查找查找出需要更新的位置对应的线段树区间，并按照上述过程进行更新即可。</p>
+<p>至于区分逆时针顺时针行走的人，既可以建立两棵线段树，也可以在按每个人的位置为关键字之前先按找行走方向为关键字进行排序，然后将线段树一分为二。</p>
+<p>具体的实现细节以及技巧可以参照下面的代码：</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">ty</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-type">char</span> ch = <span class="hljs-built_in">getchar</span>(); <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, f = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (ch &lt; <span class="hljs-string">&#x27;0&#x27;</span> || ch &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123; <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27;-&#x27;</span>) f = <span class="hljs-number">-1</span>; ch = <span class="hljs-built_in">getchar</span>(); &#125;<br>	<span class="hljs-keyword">while</span> (ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) &#123; x = x * <span class="hljs-number">10</span> + ch - <span class="hljs-string">&#x27;0&#x27;</span>; ch = <span class="hljs-built_in">getchar</span>(); &#125;<br>	<span class="hljs-keyword">return</span> x * f;<br>&#125;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n, m, L, ct1, ct2, pos[_], lim[_], nxt[_], lst[_], num[_];<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br>	<span class="hljs-type">int</span> id, dir, pos, dis, tar;<br>	<span class="hljs-built_in">node</span>(<span class="hljs-type">int</span> _id = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _dir = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _pos = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _dis = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _tar = <span class="hljs-number">0</span>) &#123;<br>		id = _id, dir = _dir, pos = _pos, dis = _dis, tar = _tar;<br>	&#125;<br>	<span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> node &amp;rhs) <span class="hljs-type">const</span> &#123;<br>		<span class="hljs-keyword">if</span> (dir == rhs.dir) <span class="hljs-keyword">return</span> pos &lt; rhs.pos;<br>		<span class="hljs-keyword">return</span> dir &lt; rhs.dir;<br>	&#125;<br>&#125; sta[_];<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ls (p &lt;&lt; 1)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> rs (p &lt;&lt; 1 | 1)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">data</span> &#123;<br>	<span class="hljs-type">int</span> dis, tar, id;<br>	<span class="hljs-built_in">data</span>(<span class="hljs-type">int</span> _dis = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _tar = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _id = <span class="hljs-number">0</span>) &#123;<br>		dis = _dis, tar = _tar, id = _id;<br>	&#125;<br>	<span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>&lt;(<span class="hljs-type">const</span> data &amp;rhs) <span class="hljs-type">const</span> &#123;<br>		<span class="hljs-keyword">if</span> (dis == rhs.dis) <span class="hljs-keyword">return</span> id &lt; rhs.id;<br>		<span class="hljs-keyword">return</span> dis &lt; rhs.dis;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">TAG</span> &#123;<br>	<span class="hljs-type">int</span> dis, tar;<br>	<span class="hljs-built_in">TAG</span>(<span class="hljs-type">int</span> _dis = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> _tar = <span class="hljs-number">0</span>) &#123; dis = _dis, tar = _tar; &#125;<br>	TAG&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-type">const</span> TAG &amp;rhs) &#123;<br>		dis += rhs.dis;<br>		<span class="hljs-keyword">if</span> (rhs.tar) tar = rhs.tar;<br>		<span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SegmentTree</span> &#123;<br>	data val[_ &lt;&lt; <span class="hljs-number">2</span>];<br>	TAG tag[_ &lt;&lt; <span class="hljs-number">2</span>];<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> p, TAG x)</span> </span>&#123;<br>		val[p].dis += x.dis;<br>		<span class="hljs-keyword">if</span> (x.tar) val[p].tar = x.tar;<br>		tag[p] += x;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">down</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (tag[p].dis || tag[p].tar) &#123;<br>			<span class="hljs-built_in">add</span>(ls, tag[p]);<br>			<span class="hljs-built_in">add</span>(rs, tag[p]);<br>			tag[p] = <span class="hljs-built_in">TAG</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">up</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span> </span>&#123; val[p] = <span class="hljs-built_in">min</span>(val[ls], val[rs]); &#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (l == r) &#123;<br>			val[p] = <span class="hljs-built_in">data</span>(sta[l].dis, sta[l].tar, sta[l].id);<br>			<span class="hljs-keyword">return</span>;<br>		&#125;<br>		<span class="hljs-built_in">build</span>(ls, l, mid);<br>		<span class="hljs-built_in">build</span>(rs, mid + <span class="hljs-number">1</span>, r);<br>		<span class="hljs-built_in">up</span>(p);<br>	&#125;<br>	<span class="hljs-function">data <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y) <span class="hljs-keyword">return</span> val[p];<br>		<span class="hljs-built_in">down</span>(p);<br>		<span class="hljs-keyword">if</span> (y &lt;= mid) <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(ls, l, mid, x, y);<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x &gt; mid) <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(rs, mid + <span class="hljs-number">1</span>, r, x, y);<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(<span class="hljs-built_in">query</span>(ls, l, mid, x, mid), <span class="hljs-built_in">query</span>(rs, mid + <span class="hljs-number">1</span>, r, mid + <span class="hljs-number">1</span>, y));<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (l == r) &#123;<br>			val[p].dis = <span class="hljs-number">0x3f3f3f3f</span>;<br>			<span class="hljs-keyword">return</span>;<br>		&#125;<br>		<span class="hljs-built_in">down</span>(p);<br>		<span class="hljs-keyword">if</span> (x &lt;= mid) <span class="hljs-built_in">change</span>(ls, l, mid, x);<br>		<span class="hljs-keyword">else</span> <span class="hljs-built_in">change</span>(rs, mid + <span class="hljs-number">1</span>, r, x);<br>		<span class="hljs-built_in">up</span>(p);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, TAG z)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y) &#123;<br>			<span class="hljs-built_in">add</span>(p, z);<br>			<span class="hljs-keyword">return</span>;<br>		&#125;<br>		<span class="hljs-built_in">down</span>(p);	<br>		<span class="hljs-keyword">if</span> (y &lt;= mid) <span class="hljs-built_in">modify</span>(ls, l, mid, x, y, z);<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x &gt; mid) <span class="hljs-built_in">modify</span>(rs, mid + <span class="hljs-number">1</span>, r, x, y, z);<br>		<span class="hljs-keyword">else</span> <span class="hljs-built_in">modify</span>(ls, l, mid, x, mid, z), <span class="hljs-built_in">modify</span>(rs, mid + <span class="hljs-number">1</span>, r, mid + <span class="hljs-number">1</span>, y, z);<br>		<span class="hljs-built_in">up</span>(p);<br>	&#125;<br>&#125; tr;<br><br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> ls</span><br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> rs</span><br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> mid</span><br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">getdis</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> dir)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (dir == <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-keyword">if</span> (pos[x] &lt; pos[y]) <span class="hljs-keyword">return</span> pos[y] - pos[x];<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> L - pos[x] + pos[y];<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">if</span> (pos[x] &gt; pos[y]) <span class="hljs-keyword">return</span> pos[x] - pos[y];<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> pos[x] + L - pos[y];<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">judge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> sta[x].pos &gt;= l &amp;&amp; sta[x].pos &lt;= r &amp;&amp; sta[y].pos &gt;= l &amp;&amp; sta[y].pos &lt;= r;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> dis, <span class="hljs-type">int</span> tar, <span class="hljs-type">int</span> dir)</span> </span>&#123;<br>	node tmp;<br>	<span class="hljs-type">int</span> L = (dir == <span class="hljs-number">0</span>) ? <span class="hljs-number">1</span> : ct1 + <span class="hljs-number">1</span>;<br>	<span class="hljs-type">int</span> R = (dir == <span class="hljs-number">0</span>) ? ct1 + <span class="hljs-number">1</span> : n + <span class="hljs-number">1</span>;<br>	tmp.dir = dir, tmp.pos = l;<br>	<span class="hljs-type">int</span> st = <span class="hljs-built_in">lower_bound</span>(sta + L, sta + R, tmp) - sta;<br>	tmp.pos = r;<br>	<span class="hljs-type">int</span> ed = <span class="hljs-built_in">upper_bound</span>(sta + L, sta + R, tmp) - sta - <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">judge</span>(st, ed, l, r))<br>		tr.<span class="hljs-built_in">modify</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n, st, ed, <span class="hljs-built_in">TAG</span>(dis, tar));<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">update1</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> dis, <span class="hljs-type">int</span> tar, <span class="hljs-type">int</span> dir)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (l &gt; r) &#123;<br>		<span class="hljs-built_in">modify</span>(l + <span class="hljs-number">1</span>, L, dis, tar, dir);<br>		<span class="hljs-built_in">modify</span>(<span class="hljs-number">0</span>, r, dis, tar, dir);<br>	&#125; <span class="hljs-keyword">else</span> <span class="hljs-built_in">modify</span>(l + <span class="hljs-number">1</span>, r, dis, tar, dir);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">update2</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> dis, <span class="hljs-type">int</span> tar, <span class="hljs-type">int</span> dir)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (l &gt; r) &#123;<br>		<span class="hljs-built_in">modify</span>(l, L, dis, tar, dir);<br>		<span class="hljs-built_in">modify</span>(<span class="hljs-number">0</span>, r - <span class="hljs-number">1</span>, dis, tar, dir);<br>	&#125; <span class="hljs-keyword">else</span> <span class="hljs-built_in">modify</span>(l, r - <span class="hljs-number">1</span>, dis, tar, dir);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE</span><br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;walk.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;walk.out&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>	n = <span class="hljs-built_in">ty</span>(), m = <span class="hljs-built_in">ty</span>(), L = <span class="hljs-built_in">ty</span>();<br>	pos[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>, lst[<span class="hljs-number">1</span>] = m, nxt[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= m; ++i) &#123;<br>		pos[i] = <span class="hljs-built_in">ty</span>();<br>		nxt[i] = i == m ? <span class="hljs-number">1</span> : i + <span class="hljs-number">1</span>;<br>		lst[i] = i - <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; ++i) lim[i] = <span class="hljs-built_in">ty</span>();<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>		<span class="hljs-type">int</span> s = <span class="hljs-built_in">ty</span>(), b = <span class="hljs-built_in">ty</span>(), d, t;<br>		<span class="hljs-keyword">if</span> (s == <span class="hljs-number">0</span>) &#123;<br>			++ct1;<br>			t = <span class="hljs-built_in">lower_bound</span>(pos + <span class="hljs-number">1</span>, pos + m + <span class="hljs-number">1</span>, b) - pos;<br>			<span class="hljs-keyword">if</span> (t &gt; m) t = <span class="hljs-number">1</span>, d = L - b;<br>			<span class="hljs-keyword">else</span> d = pos[t] - b;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			++ct2;<br>			t = <span class="hljs-built_in">upper_bound</span>(pos + <span class="hljs-number">1</span>, pos + m + <span class="hljs-number">1</span>, b) - pos;<br>			--t;<br>			d = b - pos[t];<br>		&#125;<br>		sta[i] = <span class="hljs-built_in">node</span>(i, s, b, d, t);<br>	&#125;<br>	<span class="hljs-built_in">sort</span>(sta + <span class="hljs-number">1</span>, sta + n + <span class="hljs-number">1</span>);<br><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) num[sta[i].id] = i;<br>	tr.<span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n);<br>	<span class="hljs-type">int</span> out = m, pp = n;<br>	<span class="hljs-type">long</span> <span class="hljs-type">long</span> ans = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span> (out &amp;&amp; pp) &#123;<br>		data x = tr.<span class="hljs-built_in">query</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n, <span class="hljs-number">1</span>, n);<br>		<span class="hljs-type">int</span> id = x.id, tar = x.tar;<br>		tr.<span class="hljs-built_in">change</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n, num[id]);<br>		ans ^= (<span class="hljs-number">1ll</span> * id * tar);<br>		--pp, --lim[tar];<br>		<span class="hljs-keyword">if</span> (!lim[tar]) &#123;<br>			<span class="hljs-type">int</span> l = pos[lst[tar]] % L, r = pos[nxt[tar]] % L, now = pos[tar] % L;<br><br>			<span class="hljs-built_in">update1</span>(l, now, <span class="hljs-built_in">getdis</span>(tar, nxt[tar], <span class="hljs-number">0</span>), nxt[tar], <span class="hljs-number">0</span>);<br>			<span class="hljs-built_in">update2</span>(now, r, <span class="hljs-built_in">getdis</span>(tar, lst[tar], <span class="hljs-number">1</span>), lst[tar], <span class="hljs-number">1</span>);<br><br>			nxt[lst[tar]] = nxt[tar];<br>			lst[nxt[tar]] = lst[tar];<br>			--out;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, ans);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A2%98%E8%A7%A3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">#线段树</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【CSP-SJX 2019】T4 散步</div>
+      <div>http://example.com/2019/12/14/【CSP-SJX-2019】T4-散步/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>kkkstra</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年12月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/12/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="快速傅里叶变换(FFT)学习笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">快速傅里叶变换(FFT)学习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/12/12/%E3%80%90CSP-S-2019%E3%80%91D2T2-%E5%88%92%E5%88%86/" title="【CSP-S 2019】D2T2 划分">
+                        <span class="hidden-mobile">【CSP-S 2019】D2T2 划分</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-c8dq1r12s-petrichor46.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

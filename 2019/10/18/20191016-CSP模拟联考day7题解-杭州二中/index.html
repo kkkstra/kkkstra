@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="kkkstra">
+  <meta name="keywords" content="blog, oi">
+  
+    <meta name="description" content="T1 唱跳T1写不出来我真的是zz了。 把数列分成$x &gt; \lfloor \frac{n}{k} \rfloor$和$x \le \lfloor \frac{n}{k} \rfloor$的两部分进行考虑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20191016 CSP模拟联考day7题解(杭州二中)">
+<meta property="og:url" content="http://example.com/2019/10/18/20191016-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83day7%E9%A2%98%E8%A7%A3-%E6%9D%AD%E5%B7%9E%E4%BA%8C%E4%B8%AD/index.html">
+<meta property="og:site_name" content="kkkstra&#39;s blog">
+<meta property="og:description" content="T1 唱跳T1写不出来我真的是zz了。 把数列分成$x &gt; \lfloor \frac{n}{k} \rfloor$和$x \le \lfloor \frac{n}{k} \rfloor$的两部分进行考虑。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-18T05:57:05.000Z">
+<meta property="article:modified_time" content="2020-01-23T10:29:35.982Z">
+<meta property="article:author" content="kkkstra">
+<meta property="article:tag" content="期望dp">
+<meta property="article:tag" content="组合数学">
+<meta property="article:tag" content="背包dp">
+<meta property="article:tag" content="树形dp">
+<meta property="article:tag" content="分治">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>20191016 CSP模拟联考day7题解(杭州二中) - kkkstra&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kkkstra&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="20191016 CSP模拟联考day7题解(杭州二中)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-18 13:57" pubdate>
+          2019年10月18日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">20191016 CSP模拟联考day7题解(杭州二中)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="T1-唱跳"><a href="#T1-唱跳" class="headerlink" title="T1 唱跳"></a>T1 唱跳</h2><p>T1写不出来我真的是zz了。</p>
+<p>把数列分成$x &gt; \lfloor \frac{n}{k} \rfloor$和$x \le \lfloor \frac{n}{k} \rfloor$的两部分进行考虑。</p>
+<span id="more"></span>
+
+<p>首先，对于$x &gt; \lfloor \frac{n}{k} \rfloor$的部分，它们后继的数没有任何限制，因此对答案的贡献为</p>
+<p>$$(n-\lfloor \frac{n}{k} \rfloor)!$$</p>
+<p>然后，对于$x \le \lfloor \frac{n}{k} \rfloor$的部分，它们后继的数必须$\ge x \times k$，再加上也可以选择后继没有数，即放在最末尾，然后因为对于$x$而言，$\left[x+1,\lfloor \frac{n}{k} \rfloor \right]$这部分的数会占去$\lfloor \frac{n}{k} \rfloor-x$个位置，因此这部分对答案的贡献就是</p>
+<p>$$n-x \times k + 2 - (\lfloor \frac{n}{k} \rfloor-x)$$</p>
+<p>预处理一下阶乘，复杂度$O(n+T\frac{n}{k})$。</p>
+<h2 id="T2-rap"><a href="#T2-rap" class="headerlink" title="T2 rap"></a>T2 rap</h2><p>这道题考验的是选手的分类讨论能力，在这里$sto \text{ } Itst \text{ } orz$！$tql$辣！</p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>我们可以以一个点的父边被怎样经过为状态进行$dp$，先设以下$4$个$dp$数组：</p>
+<p>（设$fa_i$表示点$i$的父亲）</p>
+<ul>
+<li>$g$：$i \rightarrow$ 子树 $\rightarrow i \rightarrow fa_i$ 的<strong>概率</strong></li>
+<li>$f1$：$fa_i$可走，$i$可走，$i \rightarrow$ 子树，并在子树中某一点停下 人数的<strong>期望</strong></li>
+<li>$f2$：$fa_i$不可走，$i$可走，$i \rightarrow$ 子树，并在子树中某一点停下 人数的<strong>期望</strong></li>
+<li>$f3$：$fa_i$和$i$都不可走，$i \rightarrow$ 子树，并在子树中某一点停下 人数的<strong>期望</strong></li>
+</ul>
+<h3 id="初值"><a href="#初值" class="headerlink" title="初值"></a>初值</h3><p>初值肯定是在叶子节点，因为叶子结点没有儿子，所以$g_x&#x3D;0$，对于剩下的几种$dp$状态的期望，$f1$因为父边可走，因此$f1_x&#x3D;0$，$f2$和$f3$因为父边不可走，因此$f2&#x3D;f3&#x3D;val_x$</p>
+<h3 id="转移："><a href="#转移：" class="headerlink" title="转移："></a>转移：</h3><p>（前方高能！如果看文字说明不懂的话建议自己动手画图）</p>
+<p>设$deg_x$表示节点$x$的度数</p>
+<p>先考虑$g_x$的转移，有以下两种情况：</p>
+<ol>
+<li>走到某一个子节点$y$，再回到$x$，再回到$fa_x$</li>
+<li>走到某一个子节点$y$，再走到$y$的子树，回到$y$，回到$x$，再回到$fa_x$。注意，这时因为$y$被经过两次，所以从$x$回到$fa_x$时，就有一条边不能走了</li>
+</ol>
+<p>因此转移方程为：</p>
+<p>$$g_x &#x3D; \sum \limits_{y \in son_x} \frac{1}{deg_x} \cdot \frac{1}{deg_y} \cdot \frac{1}{deg_x} + \frac{1}{deg_x} \cdot g_y \cdot \frac{1}{deg_x-1}$$</p>
+<p>接下来是$f1$的转移，有以下三种情况：</p>
+<ol>
+<li>从$x$直接走到某个子节点$y$，此时$y$的状态为$f1$</li>
+<li>从$x$走到除$y$以外的其他儿子，再回到$x$，再走到$y$，此时$y$的状态为$f2$<br>其中，这里的<strong>“从$x$走到除$y$以外的其他儿子”</strong>，也分两种情况</li>
+</ol>
+<ul>
+<li>从$x$走到除$y$以外的其他儿子，再回到$x$，此时$x$的所有边依然是可走的</li>
+<li>从$x$走到除$y$以外的其他儿子，再走到它的子树，再回到这个儿子，回到$x$，此时$x$的有一条边不可走</li>
+</ul>
+<ol start="3">
+<li>从$x$走到$y$，再回到$x$，再走到$y$，此时$y$的状态为$f2$</li>
+</ol>
+<p>因此转移方程为：</p>
+<p>$$f1_x &#x3D; \sum \limits_{y \in son_x} \left[ \frac{1}{deg_x} \cdot f1_y + (\frac{1}{deg_x} \cdot \sum \limits_{t \in son_x,t \neq y} \frac{1}{deg_y} \cdot \frac{1}{deg_x} + \frac{1}{deg_x} \cdot \sum \limits_{t \in son_x,t \neq y} g_t \cdot \frac{1}{deg_x - 1}) \cdot f2_y + \frac{1}{deg_x} \cdot \frac{1}{deg_y} \cdot \frac{1}{deg_x} \cdot f3_y \right]$$</p>
+<p>$f2$的转移和$f1$类似，只是因为父边不能走，度数会减一，在此不再赘述，转移方程为：</p>
+<p>$$f2_x &#x3D; \sum \limits_{y \in son_x} \left[ \frac{1}{deg_x - 1} \cdot f1_y + (\frac{1}{deg_x - 1} \cdot \sum \limits_{t \in son_x,t \neq y} \frac{1}{deg_y} \cdot \frac{1}{deg_x - 1} + \frac{1}{deg_x - 1} \cdot \sum \limits_{t \in son_x,t \neq y} g_t \cdot \frac{1}{deg_x - 2}) \cdot f2_y + \frac{1}{deg_x - 1} \cdot \frac{1}{deg_y} \cdot \frac{1}{deg_x - 1} \cdot f3_y \right]$$</p>
+<p>另外，如果$x$的度数为$2$，如果从点$x$走到儿子$y$以及$y$的子树，再回到$y$回到$x$，那么点$x$就成为了最后一个点，此时转移方程还要加上：</p>
+<p>$$f2_x &#x3D; f2_x + g_y \cdot val_x$$</p>
+<p>最后是$f3$的转移，只有一种情况：</p>
+<p>因为$x$和$fa_x$都不能走了，因此只能直接向子树走，并且不能再回来，因此转移方程就为：</p>
+<p>$$f3_x &#x3D; \frac{1}{deg_x - \left[ \text{x has father} \right]} \sum \limits_{y \in son_x} f2_y$$</p>
+<p>$dfs$进行树上$dp$，最终的答案就为$f2_1$</p>
+<h2 id="T3-篮球"><a href="#T3-篮球" class="headerlink" title="T3 篮球"></a>T3 篮球</h2><p>我是zz，这道题居然背包都没写？？？</p>
+<h3 id="30pts"><a href="#30pts" class="headerlink" title="30pts"></a>30pts</h3><p>直接背包就行了。用$m\sum c_i$的复杂度扔进背包，因为$c_i \le m$，故总复杂度为$O(nm^2)$</p>
+<h3 id="60pts"><a href="#60pts" class="headerlink" title="60pts"></a>60pts</h3><p>首先，需要发现一个性质，最多只有一种物品没有被选完，其他物品要么不选，要么全部选。</p>
+<p>假设若有两种物品没有被选完，设	两种物品的最后一个的价格分别是$a$、$b$，不妨设$a &lt; b$，那么，多选一个前一个物品，少选一个后一个物品，一定会使得答案更优。</p>
+<p>所以只需要枚举没有被选完的物品，其他物品整个扔进背包即可。</p>
+<h3 id="90pts"><a href="#90pts" class="headerlink" title="90pts"></a>90pts</h3><p>斜率优化。因为常数太大而挂掉$10pts$。</p>
+<h3 id="100pts"><a href="#100pts" class="headerlink" title="100pts"></a>100pts</h3><p>继续考虑$60pts$的做法，可以搞一个<strong>分治背包</strong>（？？？）。</p>
+<p>每次把物品分成两堆，分别跑背包。合并的时候考虑到最多只有一个物品没有被全部选完，因此就把左边的物品整个扔进右边跑出来的数组，同样的再将右边的物品整个扔进左边跑出来的数组，最后对于每个容量对左右两边取个$min$即可。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%80%83%E8%AF%95/2019CSP/" class="category-chain-item">2019CSP</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%9F%E6%9C%9Bdp/">#期望dp</a>
+      
+        <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">#组合数学</a>
+      
+        <a href="/tags/%E8%83%8C%E5%8C%85dp/">#背包dp</a>
+      
+        <a href="/tags/%E6%A0%91%E5%BD%A2dp/">#树形dp</a>
+      
+        <a href="/tags/%E5%88%86%E6%B2%BB/">#分治</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>20191016 CSP模拟联考day7题解(杭州二中)</div>
+      <div>http://example.com/2019/10/18/20191016-CSP模拟联考day7题解-杭州二中/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>kkkstra</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月18日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/18/HNOI2012-%E9%9B%86%E5%90%88%E9%80%89%E6%95%B0%20-%20%E7%8A%B6%E5%8E%8Bdp/" title="[HNOI2012]集合选数 - 状压dp">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[HNOI2012]集合选数 - 状压dp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/15/20191015-CSP%E6%A8%A1%E6%8B%9F%E8%81%94%E8%80%83day6%E9%A2%98%E8%A7%A3-%E8%A1%A1%E9%98%B3%E5%85%AB%E4%B8%AD/" title="20191015 CSP模拟联考day6题解(衡阳八中)">
+                        <span class="hidden-mobile">20191015 CSP模拟联考day6题解(衡阳八中)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline-c8dq1r12s-petrichor46.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

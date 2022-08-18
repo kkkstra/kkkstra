@@ -224,9 +224,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>莫比乌斯反演</tag>
+      
+      <tag>省选</tag>
       
     </tags>
     
@@ -343,7 +343,7 @@
   
   
   <entry>
-    <title>日常vim配置</title>
+    <title>vim日常配置</title>
     <link href="/2020/01/19/vim%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/"/>
     <url>/2020/01/19/vim%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</url>
     
@@ -427,13 +427,13 @@
       
       <tag>AtCoder</tag>
       
-      <tag>省选</tag>
-      
       <tag>Codeforces</tag>
       
-      <tag>POI</tag>
+      <tag>省选</tag>
       
       <tag>网络流</tag>
+      
+      <tag>POI</tag>
       
       <tag>二维数点</tag>
       
@@ -1036,9 +1036,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>哈希</tag>
+      
+      <tag>省选</tag>
       
       <tag>splay</tag>
       
@@ -1220,11 +1220,11 @@
     
     <tags>
       
-      <tag>NTT</tag>
-      
       <tag>斯特林数</tag>
       
       <tag>省选</tag>
+      
+      <tag>NTT</tag>
       
     </tags>
     
@@ -1280,9 +1280,9 @@
     
     <tags>
       
-      <tag>NTT</tag>
-      
       <tag>省选</tag>
+      
+      <tag>NTT</tag>
       
       <tag>生成函数</tag>
       

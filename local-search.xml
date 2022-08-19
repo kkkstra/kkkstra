@@ -81,9 +81,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -427,9 +427,9 @@
       
       <tag>Codeforces</tag>
       
-      <tag>省选</tag>
-      
       <tag>AtCoder</tag>
+      
+      <tag>省选</tag>
       
       <tag>POI</tag>
       
@@ -930,9 +930,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -1036,9 +1036,9 @@
     
     <tags>
       
-      <tag>哈希</tag>
-      
       <tag>省选</tag>
+      
+      <tag>哈希</tag>
       
       <tag>splay</tag>
       
@@ -1920,9 +1920,9 @@
     
     <tags>
       
-      <tag>图论</tag>
-      
       <tag>状压dp</tag>
+      
+      <tag>图论</tag>
       
       <tag>哥德巴赫猜想</tag>
       

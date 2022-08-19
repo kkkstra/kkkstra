@@ -425,11 +425,11 @@
       
       <tag>二分图</tag>
       
-      <tag>AtCoder</tag>
-      
       <tag>Codeforces</tag>
       
       <tag>省选</tag>
+      
+      <tag>AtCoder</tag>
       
       <tag>POI</tag>
       
@@ -534,9 +534,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>背包</tag>
-      
       <tag>LibreOJ</tag>
+      
+      <tag>背包</tag>
       
     </tags>
     
@@ -1036,9 +1036,9 @@
     
     <tags>
       
-      <tag>哈希</tag>
-      
       <tag>省选</tag>
+      
+      <tag>哈希</tag>
       
       <tag>splay</tag>
       
@@ -1631,9 +1631,9 @@
       
       <tag>贪心</tag>
       
-      <tag>NOIP</tag>
-      
       <tag>树上差分</tag>
+      
+      <tag>NOIP</tag>
       
     </tags>
     

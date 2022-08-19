@@ -21,7 +21,7 @@
     <meta name="description" content="Description求一个字符串内重复次数最多的连续字串。 Solution丢一个hihocoder的链接 先考虑如何如何求一个串给定的串的最大重复次数，枚举一个可能的循环节长度 $l$，然后求原串和原串去掉前 $l$ 个字符后两个串的 $lcp$（最长公共前缀），如果能完全匹配上，就是一个循环节，且循环次数为 $lcp(l,i)&#x2F;l + 1$。 所以我们可以先枚举一个可能的长度 $l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPOJ REPEATS - Repeats - 后缀数组">
-<meta property="og:url" content="https://qiniu.kkkstra.cn/2020/01/08/SPOJ-REPEATS-Repeats-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:url" content="https://blog.kkkstra.cn/2020/01/08/SPOJ-REPEATS-Repeats-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="Description求一个字符串内重复次数最多的连续字串。 Solution丢一个hihocoder的链接 先考虑如何如何求一个串给定的串的最大重复次数，枚举一个可能的循环节长度 $l$，然后求原串和原串去掉前 $l$ 个字符后两个串的 $lcp$（最长公共前缀），如果能完全匹配上，就是一个循环节，且循环次数为 $lcp(l,i)&#x2F;l + 1$。 所以我们可以先枚举一个可能的长度 $l">
 <meta property="og:locale" content="zh_CN">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"qiniu.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -359,7 +359,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>SPOJ REPEATS - Repeats - 后缀数组</div>
-      <div>https://qiniu.kkkstra.cn/2020/01/08/SPOJ-REPEATS-Repeats-后缀数组/</div>
+      <div>https://blog.kkkstra.cn/2020/01/08/SPOJ-REPEATS-Repeats-后缀数组/</div>
     </div>
     <div class="license-meta">
       

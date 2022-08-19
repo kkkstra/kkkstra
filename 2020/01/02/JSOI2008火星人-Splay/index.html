@@ -21,7 +21,7 @@
     <meta name="description" content="Description维护一个字符串，支持插入字符，修改字符，以及求两个后缀的$lcp$。 Solution建立一棵$Splay$来维护整个串，每个节点维护整个子树的哈希值。对于插入，直接在对应的位置插入；修改也直接修改就好；然后一路$update$。对于查询，考虑二分，然后每次查询对应区间的哈希值，$O(1)$判断即可。 查询某个区间的哈希值，用$Splay$写的话比较方便，对于区间$[l,r]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JSOI2008]火星人 - Splay、哈希">
-<meta property="og:url" content="https://qiniu.kkkstra.cn/2020/01/02/JSOI2008%E7%81%AB%E6%98%9F%E4%BA%BA-Splay/index.html">
+<meta property="og:url" content="https://blog.kkkstra.cn/2020/01/02/JSOI2008%E7%81%AB%E6%98%9F%E4%BA%BA-Splay/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="Description维护一个字符串，支持插入字符，修改字符，以及求两个后缀的$lcp$。 Solution建立一棵$Splay$来维护整个串，每个节点维护整个子树的哈希值。对于插入，直接在对应的位置插入；修改也直接修改就好；然后一路$update$。对于查询，考虑二分，然后每次查询对应区间的哈希值，$O(1)$判断即可。 查询某个区间的哈希值，用$Splay$写的话比较方便，对于区间$[l,r]">
 <meta property="og:locale" content="zh_CN">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"qiniu.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kkkstra.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -356,7 +356,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>[JSOI2008]火星人 - Splay、哈希</div>
-      <div>https://qiniu.kkkstra.cn/2020/01/02/JSOI2008火星人-Splay/</div>
+      <div>https://blog.kkkstra.cn/2020/01/02/JSOI2008火星人-Splay/</div>
     </div>
     <div class="license-meta">
       

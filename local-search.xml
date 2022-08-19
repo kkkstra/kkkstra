@@ -81,9 +81,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -224,9 +224,9 @@
     
     <tags>
       
-      <tag>莫比乌斯反演</tag>
-      
       <tag>省选</tag>
+      
+      <tag>莫比乌斯反演</tag>
       
     </tags>
     
@@ -427,9 +427,9 @@
       
       <tag>二分图</tag>
       
-      <tag>Codeforces</tag>
-      
       <tag>省选</tag>
+      
+      <tag>Codeforces</tag>
       
       <tag>POI</tag>
       
@@ -930,9 +930,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -1220,11 +1220,11 @@
     
     <tags>
       
+      <tag>NTT</tag>
+      
       <tag>斯特林数</tag>
       
       <tag>省选</tag>
-      
-      <tag>NTT</tag>
       
     </tags>
     
@@ -1280,9 +1280,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>NTT</tag>
+      
+      <tag>省选</tag>
       
       <tag>生成函数</tag>
       
@@ -1561,9 +1561,9 @@
       
       <tag>组合数学</tag>
       
-      <tag>计数dp</tag>
-      
       <tag>质因数分解</tag>
+      
+      <tag>计数dp</tag>
       
     </tags>
     
@@ -1631,9 +1631,9 @@
       
       <tag>贪心</tag>
       
-      <tag>树上差分</tag>
-      
       <tag>NOIP</tag>
+      
+      <tag>树上差分</tag>
       
     </tags>
     
@@ -1920,9 +1920,9 @@
     
     <tags>
       
-      <tag>图论</tag>
-      
       <tag>状压dp</tag>
+      
+      <tag>图论</tag>
       
       <tag>哥德巴赫猜想</tag>
       

@@ -81,9 +81,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -425,11 +425,11 @@
       
       <tag>二分图</tag>
       
+      <tag>AtCoder</tag>
+      
       <tag>Codeforces</tag>
       
       <tag>省选</tag>
-      
-      <tag>AtCoder</tag>
       
       <tag>POI</tag>
       
@@ -534,9 +534,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>LibreOJ</tag>
-      
       <tag>背包</tag>
+      
+      <tag>LibreOJ</tag>
       
     </tags>
     
@@ -930,9 +930,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -1631,9 +1631,9 @@
       
       <tag>贪心</tag>
       
-      <tag>树上差分</tag>
-      
       <tag>NOIP</tag>
+      
+      <tag>树上差分</tag>
       
     </tags>
     

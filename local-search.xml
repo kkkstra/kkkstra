@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>冰岩2022秋招实习日记 - 1001</title>
+    <link href="/2022/10/01/bingyan2022autumn-1001/"/>
+    <url>/2022/10/01/bingyan2022autumn-1001/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>熟悉 <code>django</code> 框架的基本构造以及操作</li><li>将 <code>django</code> 项目连接到 <code>MySQL</code> 数据库</li><li>实现阶段一的基础功能</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>新建并初始化 <code>django</code> 项目 <code>oidc</code></li><li>将项目 <code>oidc</code> 连接到 <code>MySQL</code> 数据库中</li><li>完成 <code>user</code> 应用中 <code>User</code> 类的构建，包括 <code>id</code>, <code>username</code>, <code>password</code>, <code>email</code>, <code>intro</code> 五个字段</li><li>完成 <code>注册</code>，<code>登录</code> 和 <code>修改信息</code> 三个基本操作的 <code>api</code></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li><code>django</code> 的一个项目中包含了若干个应用，每个应用相对独立，可以迁移到不同项目中，例如项目 <code>oidc</code> 中包含 <code>user</code> 这个应用</li><li><code>django</code> 的基本核心是 <code>urls.py</code>, <code>models.py</code> 和 <code>views.py</code><blockquote><p><code>urls.py</code> 负责识别发送过来的 <code>request</code>，并把这些请求分派给 <code>views.py</code> 中相应的请求相应函数。而在 <code>views.py</code> 中函数的执行过程中，可能会调用到数据库的数据，这时候就会调用 <code>models.py</code>。</p></blockquote></li><li>三个基本操作的 <code>api</code> 详见 <a href="https://github.com/patricklai46/bangumoe">bangumoe</a> 的 <code>README.md</code></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>冰岩2022秋招实习日记 - 0930</title>
+    <link href="/2022/09/30/bingyan2022autumn-0930/"/>
+    <url>/2022/09/30/bingyan2022autumn-0930/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li><p>学习git的基本使用：<code>commit</code>, <code>push</code> 等</p></li><li><p>速通python基本语法</p></li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li><p>确定选题 <code>OIDC服务</code></p></li><li><p>新建github项目 <code>bangumoe</code> （新建文件夹）</p></li><li><p>确定项目框架 <code>python</code> + <code>django</code></p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>git命令总结</title>
     <link href="/2022/09/20/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
     <url>/2022/09/20/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
@@ -108,9 +150,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -959,9 +1001,9 @@
       
       <category>题解</category>
       
-      <category>字符串</category>
-      
       <category>数据结构</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -1251,9 +1293,9 @@
       
       <tag>省选</tag>
       
-      <tag>斯特林数</tag>
-      
       <tag>NTT</tag>
+      
+      <tag>斯特林数</tag>
       
     </tags>
     
@@ -1885,11 +1927,11 @@
     
     <tags>
       
-      <tag>线段树</tag>
-      
       <tag>数论分块</tag>
       
       <tag>二分</tag>
+      
+      <tag>线段树</tag>
       
     </tags>
     
@@ -1990,9 +2032,9 @@
       
       <tag>图论</tag>
       
-      <tag>堆</tag>
-      
       <tag>线段树</tag>
+      
+      <tag>堆</tag>
       
     </tags>
     

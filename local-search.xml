@@ -5,6 +5,27 @@
   
   <entry>
     <title>冰岩2022秋招实习日记 - 1001</title>
+    <link href="/2022/10/12/bingyan2022autumn-1002/"/>
+    <url>/2022/10/12/bingyan2022autumn-1002/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>阅读文档，了解 <code>Oauth2.0</code> 服务的原理</li><li>进行 <code>Oauth2.0</code> 服务的实现设计</li><li>完成阶段二：实现使用 Authorization Code模式的OAuth2.0服务</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>在 <code>django</code> 中新建应用 <code>oauth</code></li><li>实现了 <code>Oauth2.0</code> 服务的几个基本功能：<code>Authorization Grant</code>, <code>Access Token</code>, <code>Verify Token</code></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li><p><code>OAuth 2.0</code> 是目前最流行的授权机制，用来授权第三方应用，获取用户数据。</p></li><li><p><code>Oauth 2.0</code> 有获得令牌的四种授权方式（authorization grant）： </p><blockquote><ul><li>授权码（authorization-code）</li><li>隐藏式（implicit）</li><li>密码式（password）：</li><li>客户端凭证（client credentials）</li></ul></blockquote></li><li><p>阶段二任务中实现的是第一种授权方式：授权码（authorization code）。其完整的授权流程主要包括以下几个步骤：</p><blockquote><ol><li>A 打开 B 的授权页面</li><li>验证用户是合法的之后，生成一个 authorization code，然后通过 302 跳转的方式，把这个 code 发送给 A</li><li>A 用这个 code 调用 B 的 api，获得 access token</li><li>A 用 access token 访问资源</li></ol></blockquote></li><li><p>本项目中实现了使用authorization code模式的Oauth2.0服务的几个api， 详见 <a href="https://github.com/patricklai46/bangumoe">bangumoe</a> 的 <code>README.md</code>。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>冰岩2022秋招实习日记 - 1001</title>
     <link href="/2022/10/01/bingyan2022autumn-1001/"/>
     <url>/2022/10/01/bingyan2022autumn-1001/</url>
     
@@ -150,9 +171,9 @@
       
       <category>题解</category>
       
-      <category>数据结构</category>
-      
       <category>字符串</category>
+      
+      <category>数据结构</category>
       
     </categories>
     
@@ -293,9 +314,9 @@
     
     <tags>
       
-      <tag>莫比乌斯反演</tag>
-      
       <tag>省选</tag>
+      
+      <tag>莫比乌斯反演</tag>
       
     </tags>
     
@@ -498,9 +519,9 @@
       
       <tag>AtCoder</tag>
       
-      <tag>省选</tag>
-      
       <tag>Codeforces</tag>
+      
+      <tag>省选</tag>
       
       <tag>POI</tag>
       
@@ -1001,9 +1022,9 @@
       
       <category>题解</category>
       
-      <category>数据结构</category>
-      
       <category>字符串</category>
+      
+      <category>数据结构</category>
       
     </categories>
     
@@ -1291,11 +1312,11 @@
     
     <tags>
       
-      <tag>省选</tag>
+      <tag>斯特林数</tag>
       
       <tag>NTT</tag>
       
-      <tag>斯特林数</tag>
+      <tag>省选</tag>
       
     </tags>
     
@@ -1351,9 +1372,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>NTT</tag>
+      
+      <tag>省选</tag>
       
       <tag>生成函数</tag>
       
@@ -1927,11 +1948,11 @@
     
     <tags>
       
+      <tag>线段树</tag>
+      
       <tag>数论分块</tag>
       
       <tag>二分</tag>
-      
-      <tag>线段树</tag>
       
     </tags>
     
@@ -2032,9 +2053,9 @@
       
       <tag>图论</tag>
       
-      <tag>线段树</tag>
-      
       <tag>堆</tag>
+      
+      <tag>线段树</tag>
       
     </tags>
     

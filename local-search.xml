@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>冰岩2022秋招实习记 - 1003</title>
+    <link href="/2022/10/03/bingyan2022autumn-1003/"/>
+    <url>/2022/10/03/bingyan2022autumn-1003/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>完整阅读文档，了解 <code>Oauth2.0</code> 的设计规范</li><li>完成 <code>Refresh Token</code> 相关协议</li><li>根据文档将协议修改的符合规范</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>实现了 <code>refresh token</code> 的协议内容</li><li>根据文档内容，“尽可能”使 <code>request</code> 和 <code>response</code> 符合规范</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天花了一上午外加下午的部分时间把 <code>Oauth2.0</code> 的官方文档基本上通览了一遍（除了 <code>Authorization Code</code> 模式以外剩下的三种模式没有读），虽然都是英文有点艰难，也不是所有地方都读懂了，但是读完还是感觉收获很大，一方面比较完整地了解了设计规范，也尽可能地去完善了自己的协议；另一方面，阅读官方文档过程中，也解答了一些之前的疑惑，因为发现官方文档讲的比较清楚，也比较严谨。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>冰岩2022秋招实习日记 - 1002</title>
     <link href="/2022/10/02/bingyan2022autumn-1002/"/>
     <url>/2022/10/02/bingyan2022autumn-1002/</url>

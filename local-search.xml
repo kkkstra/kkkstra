@@ -4,6 +4,69 @@
   
   
   <entry>
+    <title>冰岩2022秋招实习记 - 1006</title>
+    <link href="/2022/10/06/bingyan2022autumn-1006/"/>
+    <url>/2022/10/06/bingyan2022autumn-1006/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>完成阶段六：实现从对bangumi的api调用</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>完成阶段六，用户可以从bangumi同步数据库</li><li>为阶段六的功能配套了一个前端</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天基本完成了阶段六的功能：实现从对bangumi的api调用使用户可以从bangumi同步数据库。bangumi使用的是 <code>Authorization Code</code> 模式的 <code>Oauth</code> 服务，所以阶段六实质上是做一个 <code>Oauth Client</code>。因为有了前面的铺垫，所以实现起来还是比较顺利。只是一开始没找到bangumi的api调用地址，然后对参数也翻了好一会才找全。总的来说，最后成功导入的时候，还是成就感满满的。做到阶段六，也基本把前面做的东西串联起来了，所以一步一步做下来，就把本来完全不敢想象的项目，一点点做下来啦！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>冰岩2022秋招实习记 - 1005</title>
+    <link href="/2022/10/05/bingyan2022autumn-1005/"/>
+    <url>/2022/10/05/bingyan2022autumn-1005/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>完成 OIDC 的 <code>Userinfo Request</code> 部分</li><li>完成阶段五：实现番剧收藏功能</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>完成了 OIDC 的 <code>Userinfo Request</code> 部分，同时还修复了一些bug</li><li>基本完成了番剧收藏功能的开发，并配了一个前端界面</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天主要完成了两部分的内容，一部分是将 OIDC 完整的实现了，另一部分是实现了阶段五的核心功能——番剧收藏。</p><p>关于番剧收藏的这部分功能，为了方便起见，粗略地写了一个前端，但是因为自己前后端开发都没什么经验，所以用户体验可能比较糟糕……比如，因为没有做登录状态验证，所以需要一直输入账号和密码……</p><p><strong>update:</strong> 昨天晚上0点以后断网了，所以没传上来。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>冰岩2022秋招实习记 - 1004</title>
+    <link href="/2022/10/04/bingyan2022autumn-1004/"/>
+    <url>/2022/10/04/bingyan2022autumn-1004/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>学习 OIDC (OpenID Connect)  的协议内容</li><li>实现 OIDC 身份认证（核心部分）</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>完善了 <code>OAuth2.0</code> ，加入了用户授权的部分</li><li>实现了 <code>OIDC</code> 的核心部分的大部分内容，<code>Userinfo Request</code> 的部分还未实现，<del>留做习题</del>，预计明天完成</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天的学习过程和前几个阶段差不多，第一眼接触到全新的协议也比较懵，于是选择了阅读<del>文档</del>博客园，大概花了一上午的时间（感觉在课上干这些效率不是那么高？）。</p><p>在基本理解协议内容后，感觉 <code>OIDC</code> 的实现基本还是可做的，很大程度上都是基于 <code>Oauth</code> 的内容，因此在细节方面，以及 api 的调用方面（进行了比较多的摸索）进行修改，<code>OIDC</code> 基本上就实现了。</p><p>另外说说 <code>OIDC</code> 和 <code>OAuth</code> 的区别（个人理解），<code>Oauth</code> 主要解决了授权方面的服务的问题，但无法进行身份认证，<code>OIDC</code> 在 <code>Oauth</code> 的基础之上增加了用户认证的功能，主要是引入 <code>id token</code> ，从而将用户信息传给客户端，实现身份认证的目的。</p><p><strong>附：</strong>总的来说，实习四天下来，感觉收获还是非常大的，从一开始的两眼茫然，完全不觉得自己能做出来，到逐渐习惯查文档、搜罗资料，理解之后再逐步进行实现的过程，发现当把一个事情分解成很多小任务逐一完成之后，就变得容易了很多。现在回头看这几天的成果，不知不觉已经实现了很多东西，还是很有成就感的。有一个缺点就是，因为这几天是速成，加上之前也没有任何工程经验，且时间也不允许去阅读很多其他人的工程代码，所以很多是靠着自己的理解来实现，可能代码质量不是很高，而且也带来了很多之前不好的编程习惯（但是至少能跑哈哈哈）。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>冰岩2022秋招实习记 - 1003</title>
     <link href="/2022/10/03/bingyan2022autumn-1003/"/>
     <url>/2022/10/03/bingyan2022autumn-1003/</url>

@@ -18,15 +18,15 @@
   <meta name="author" content="kkkstra">
   <meta name="keywords" content="blog, oi">
   
-    <meta name="description" content="学习计划 完整阅读文档，了解 Oauth2.0 的设计规范 完成 Refresh Token 相关协议 根据文档将协议修改的符合规范  项目进程 实现了 refresh token 的协议内容 根据文档内容，“尽可能”使 request 和 response 符合规范  总结今天花了一上午外加下午的部分时间把 Oauth2.0 的官方文档基本上通览了一遍（除了 Authorization Code">
+    <meta name="description" content="学习计划 完成 OIDC 的 Userinfo Request 部分 完成阶段五：实现番剧收藏功能  项目进程 完成了 OIDC 的 Userinfo Request 部分，同时还修复了一些bug 基本完成了番剧收藏功能的开发，并配了一个前端界面  总结今天主要完成了两部分的内容，一部分是将 OIDC 完整的实现了，另一部分是实现了阶段五的核心功能——番剧收藏。 关于番剧收藏的这部分功能，为了方便">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冰岩2022秋招实习记 - 1003">
-<meta property="og:url" content="https://blog.kkkstra.cn/2022/10/03/bingyan2022autumn-1003/index.html">
+<meta property="og:title" content="冰岩2022秋招实习记 - 1005">
+<meta property="og:url" content="https://blog.kkkstra.cn/2022/10/05/bingyan2022autumn-1005/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
-<meta property="og:description" content="学习计划 完整阅读文档，了解 Oauth2.0 的设计规范 完成 Refresh Token 相关协议 根据文档将协议修改的符合规范  项目进程 实现了 refresh token 的协议内容 根据文档内容，“尽可能”使 request 和 response 符合规范  总结今天花了一上午外加下午的部分时间把 Oauth2.0 的官方文档基本上通览了一遍（除了 Authorization Code">
+<meta property="og:description" content="学习计划 完成 OIDC 的 Userinfo Request 部分 完成阶段五：实现番剧收藏功能  项目进程 完成了 OIDC 的 Userinfo Request 部分，同时还修复了一些bug 基本完成了番剧收藏功能的开发，并配了一个前端界面  总结今天主要完成了两部分的内容，一部分是将 OIDC 完整的实现了，另一部分是实现了阶段五的核心功能——番剧收藏。 关于番剧收藏的这部分功能，为了方便">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-03T15:28:20.000Z">
-<meta property="article:modified_time" content="2022-10-06T15:56:26.484Z">
+<meta property="article:published_time" content="2022-10-05T15:58:47.000Z">
+<meta property="article:modified_time" content="2022-10-06T15:56:55.496Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="blog, oi">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>冰岩2022秋招实习记 - 1003 - kkkstra&#39;s blog</title>
+  <title>冰岩2022秋招实习记 - 1005 - kkkstra&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="冰岩2022秋招实习记 - 1003"></span>
+            <span id="subtitle" data-typed-text="冰岩2022秋招实习记 - 1005"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-03 23:28" pubdate>
-          2022年10月3日 晚上
+        <time datetime="2022-10-05 23:58" pubdate>
+          2022年10月5日 晚上
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          306 字
+          280 字
         
       </span>
     
@@ -301,21 +301,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">冰岩2022秋招实习记 - 1003</h1>
+            <h1 style="display: none">冰岩2022秋招实习记 - 1005</h1>
             
             
               <div class="markdown-body">
                 
                 <h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
-<li>完整阅读文档，了解 <code>Oauth2.0</code> 的设计规范</li>
-<li>完成 <code>Refresh Token</code> 相关协议</li>
-<li>根据文档将协议修改的符合规范</li>
+<li>完成 OIDC 的 <code>Userinfo Request</code> 部分</li>
+<li>完成阶段五：实现番剧收藏功能</li>
 </ol>
 <h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
-<li>实现了 <code>refresh token</code> 的协议内容</li>
-<li>根据文档内容，“尽可能”使 <code>request</code> 和 <code>response</code> 符合规范</li>
+<li>完成了 OIDC 的 <code>Userinfo Request</code> 部分，同时还修复了一些bug</li>
+<li>基本完成了番剧收藏功能的开发，并配了一个前端界面</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天花了一上午外加下午的部分时间把 <code>Oauth2.0</code> 的官方文档基本上通览了一遍（除了 <code>Authorization Code</code> 模式以外剩下的三种模式没有读），虽然都是英文有点艰难，也不是所有地方都读懂了，但是读完还是感觉收获很大，一方面比较完整地了解了设计规范，也尽可能地去完善了自己的协议；另一方面，阅读官方文档过程中，也解答了一些之前的疑惑，因为发现官方文档讲的比较清楚，也比较严谨。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天主要完成了两部分的内容，一部分是将 OIDC 完整的实现了，另一部分是实现了阶段五的核心功能——番剧收藏。</p>
+<p>关于番剧收藏的这部分功能，为了方便起见，粗略地写了一个前端，但是因为自己前后端开发都没什么经验，所以用户体验可能比较糟糕……比如，因为没有做登录状态验证，所以需要一直输入账号和密码……</p>
+<p><strong>update:</strong> 昨天晚上0点以后断网了，所以没传上来。</p>
 
                 
               </div>
@@ -361,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>冰岩2022秋招实习记 - 1003</div>
-      <div>https://blog.kkkstra.cn/2022/10/03/bingyan2022autumn-1003/</div>
+      <div>冰岩2022秋招实习记 - 1005</div>
+      <div>https://blog.kkkstra.cn/2022/10/05/bingyan2022autumn-1005/</div>
     </div>
     <div class="license-meta">
       
@@ -374,7 +375,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月3日</div>
+          <div>2022年10月5日</div>
         </div>
       
       
@@ -404,9 +405,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/04/bingyan2022autumn-1004/" title="冰岩2022秋招实习记 - 1004">
+                      <a href="/2022/10/06/bingyan2022autumn-1006/" title="冰岩2022秋招实习记 - 1006">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1004</span>
+                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1006</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -414,8 +415,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/02/bingyan2022autumn-1002/" title="冰岩2022秋招实习日记 - 1002">
-                        <span class="hidden-mobile">冰岩2022秋招实习日记 - 1002</span>
+                      <a href="/2022/10/04/bingyan2022autumn-1004/" title="冰岩2022秋招实习记 - 1004">
+                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1004</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

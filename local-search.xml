@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>冰岩2022秋招实习记 - 1008</title>
+    <link href="/2022/10/08/bingyan2022autumn-1008/"/>
+    <url>/2022/10/08/bingyan2022autumn-1008/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>完成进阶任务二：好友功能</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>完成进阶任务二：好友功能</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>早上起来把完成进阶任务二尝试做完了，下午就要验收啦！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>冰岩2022秋招实习记 - 1007</title>
+    <link href="/2022/10/07/bingyan2022autumn-1007/"/>
+    <url>/2022/10/07/bingyan2022autumn-1007/</url>
+    
+    <content type="html"><![CDATA[<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol><li>学习密码存储及加密方式</li><li>使用bangumi的api进行搜索</li><li>完成进阶任务一：用户注册时进行邮箱验证</li></ol><h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol><li>提升安全性：将密码使用bcrypt方式加密，避免明文存储</li><li>功能开发：支持用户添加番剧收藏时从bangumi检索数据</li><li>用户注册时需要进行邮箱验证</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天一天的课，还没有水课（呜呜呜）。所以下课后，晚上就一直在写代码，今天主要做了三个功能：</p><ol><li>发现密码明文存储危险性比较大（虽然很多公司可能是这样做的），因此密码通过bcrypt进行加密存储</li><li>发现bangumi的api有返回搜索结果的功能，所以开发了支持用户添加番剧收藏时从bangumi检索数据的新功能</li><li>尝试完成进阶任务一：用户注册时需要进行邮箱验证，本来以为发邮件会很麻烦，发现直接用smtp绑定自己的邮箱就可以发了</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+      <category>冰岩2022秋招</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>冰岩2022秋招实习记 - 1006</title>
     <link href="/2022/10/06/bingyan2022autumn-1006/"/>
     <url>/2022/10/06/bingyan2022autumn-1006/</url>

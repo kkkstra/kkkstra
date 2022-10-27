@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.kkkstra.cn/2022/10/27/go%E5%AE%9E%E7%8E%B0%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2022-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.kkkstra.cn/2019/11/15/vim%E8%80%83%E5%9C%BA%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2022-10-27</lastmod>
+  </url>
+  <url>
     <loc>https://blog.kkkstra.cn/2022/10/08/bingyan2022autumn-1008/</loc>
     <lastmod>2022-10-08</lastmod>
   </url>
@@ -39,10 +47,6 @@
   <url>
     <loc>https://blog.kkkstra.cn/2022/09/20/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2022-09-26</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2019/11/15/vim%E8%80%83%E5%9C%BA%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2022-09-21</lastmod>
   </url>
   <url>
     <loc>https://blog.kkkstra.cn/2020/01/19/vim%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</loc>

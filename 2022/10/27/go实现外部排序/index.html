@@ -18,25 +18,28 @@
   <meta name="author" content="kkkstra">
   <meta name="keywords" content="blog, oi">
   
-    <meta name="description" content="Description对于给出的 $n$ 个询问，每次求有多少个数对 $(x,y)$，满足 $a \le x \le b$，$c \le y \le d$，且 $\gcd(x,y) &#x3D; k$，$\gcd(x,y)$ 函数为 $x$ 和 $y$ 的最大公约数。 其中 $1 \le n,k \le 5 \times 10^4$，$1 \le a \le b \le 5 \times 10^4">
+    <meta name="description" content="github项目地址：github.com&#x2F;patricklai46&#x2F;externalSort 什么是外部排序外排序（External sorting）是指能够处理极大量数据的排序算法。通常来说，外排序处理的数据不能一次装入内存，只能放在读写较慢的外存储器（通常是硬盘）上。外排序通常采用的是一种“排序-归并”的策略。在排序阶段，先读入能放在内存中的数据量，将其排序输出到一个临时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[HAOI2011]Problem b - 莫比乌斯反演">
-<meta property="og:url" content="https://blog.kkkstra.cn/2020/06/14/HAOI2011Problem-b-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/index.html">
+<meta property="og:title" content="go实现外部排序">
+<meta property="og:url" content="https://blog.kkkstra.cn/2022/10/27/go%E5%AE%9E%E7%8E%B0%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
-<meta property="og:description" content="Description对于给出的 $n$ 个询问，每次求有多少个数对 $(x,y)$，满足 $a \le x \le b$，$c \le y \le d$，且 $\gcd(x,y) &#x3D; k$，$\gcd(x,y)$ 函数为 $x$ 和 $y$ 的最大公约数。 其中 $1 \le n,k \le 5 \times 10^4$，$1 \le a \le b \le 5 \times 10^4">
+<meta property="og:description" content="github项目地址：github.com&#x2F;patricklai46&#x2F;externalSort 什么是外部排序外排序（External sorting）是指能够处理极大量数据的排序算法。通常来说，外排序处理的数据不能一次装入内存，只能放在读写较慢的外存储器（通常是硬盘）上。外排序通常采用的是一种“排序-归并”的策略。在排序阶段，先读入能放在内存中的数据量，将其排序输出到一个临时">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-14T11:01:57.000Z">
-<meta property="article:modified_time" content="2022-08-19T00:11:07.332Z">
+<meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/wkYjgx1s/2-1G11F9433NX.png?download=1">
+<meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/0Fafp4b8/2-1G11F94K0454.png?download=1">
+<meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/G6Hgeaxo/18092743-8710d85589da4018aabda95a1ec0ad65.jpg?download=1">
+<meta property="article:published_time" content="2022-10-27T11:56:19.000Z">
+<meta property="article:modified_time" content="2022-10-27T12:22:43.313Z">
 <meta property="article:author" content="kkkstra">
-<meta property="article:tag" content="莫比乌斯反演">
-<meta property="article:tag" content="省选">
+<meta property="article:tag" content="go">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/wkYjgx1s/2-1G11F9433NX.png?download=1">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>[HAOI2011]Problem b - 莫比乌斯反演 - kkkstra&#39;s blog</title>
+  <title>go实现外部排序 - kkkstra&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -230,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[HAOI2011]Problem b - 莫比乌斯反演"></span>
+            <span id="subtitle" data-typed-text="go实现外部排序"></span>
           
         </div>
 
@@ -241,8 +244,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-06-14 19:01" pubdate>
-          2020年6月14日 晚上
+        <time datetime="2022-10-27 19:56" pubdate>
+          2022年10月27日 晚上
         </time>
       </span>
     
@@ -253,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k 字
+          1.2k 字
         
       </span>
     
@@ -264,7 +267,7 @@
         
         
         
-          27 分钟
+          10 分钟
         
       </span>
     
@@ -302,17 +305,34 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[HAOI2011]Problem b - 莫比乌斯反演</h1>
+            <h1 style="display: none">go实现外部排序</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>对于给出的 $n$ 个询问，每次求有多少个数对 $(x,y)$，满足 $a \le x \le b$，$c \le y \le d$，且 $\gcd(x,y) &#x3D; k$，$\gcd(x,y)$ 函数为 $x$ 和 $y$ 的最大公约数。</p>
-<p>其中 $1 \le n,k \le 5 \times 10^4$，$1 \le a \le b \le 5 \times 10^4$，$1 \le c \le d \le 5 \times 10^4$。</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>首先肯定是自然而然地想到分成四块容斥，即<br>$$<br>\begin{split}<br>\sum \limits_{i&#x3D;a}^{b} \sum \limits_{j&#x3D;c}^{d} \left[ gcd(i,j) &#x3D; k \right] &amp;&#x3D; \sum \limits_{i&#x3D;1}^{b} \sum \limits_{j&#x3D;1}^{d} \left[ gcd(i,j) &#x3D;k \right] \<br>&amp;- \sum \limits_{i&#x3D;1}^{a} \sum \limits_{j&#x3D;1}^{d} \left[ gcd(i,j) &#x3D;k \right]\<br>&amp;- \sum \limits_{i&#x3D;1}^{b} \sum \limits_{j&#x3D;1}^{c} \left[ gcd(i,j) &#x3D;k \right]\<br>&amp;+ \sum \limits_{i&#x3D;1}^{a} \sum \limits_{j&#x3D;1}^{c} \left[ gcd(i,j) &#x3D;k \right]<br>\end{split}<br>$$<br>这样，每一部分都是 $\sum \limits_{i&#x3D;1}^{m} \sum \limits_{j&#x3D;1}^{m} \left[ gcd(i,j) &#x3D; k \right]$ 的形式。</p>
-<p>接下来考虑如何将式子进行变换：<br>$$<br>\sum \limits_{i&#x3D;1}^{m} \sum \limits_{j&#x3D;1}^{m} \left[ gcd(i,j) &#x3D; k \right] &#x3D; \sum \limits_{i&#x3D;1}^{\lfloor \frac{n}{k} \rfloor} \sum \limits_{j&#x3D;1}^{\lfloor \frac{m}{k} \rfloor} \left[ gcd(i,j) &#x3D; 1 \right]<br>$$<br>看到右边的 $\left[ gcd(i,j) &#x3D; 1 \right]$ 是不是感觉很熟悉？根据在<a target="_blank" rel="noopener" href="https://www.cnblogs.com/newbielyx/p/13050310.html">莫比乌斯反演学习笔记</a>中提到的<code>反演结论</code>：<br>$$<br>\left[ gcd(i,j) &#x3D; 1 \right] \iff \sum \limits_{d \mid gcd(i,j)} \mu(d)<br>$$<br> 可以继续化简：<br>$$<br>\sum \limits_{i&#x3D;1}^{\lfloor \frac{n}{k} \rfloor} \sum \limits_{j&#x3D;1}^{\lfloor \frac{m}{k} \rfloor} \sum \limits_{d \mid gcd(i,j)} \mu(d)<br>$$<br>考虑变换求和顺序：<br>$$<br>\sum \limits_{d&#x3D;1}^{\min(n,m)} \mu(d) \sum \limits_{i&#x3D;1}^{\lfloor \frac{n}{k} \rfloor} \left[ d \mid i \right] \sum \limits_{j&#x3D;1}^{\lfloor \frac{m}{k} \rfloor} \left[ d \mid j \right]<br>$$<br>易知在 $\left[ 1, n\right]$ 中约数包含 $d$ 的数有 $\lfloor \frac{n}{d} \rfloor$ 个，于是式子可以化简为：<br>$$<br>\sum \limits_{d&#x3D;1}^{\min(n,m)} \mu(d) \lfloor \frac{\lfloor \frac{n}{k} \rfloor}{d} \rfloor \lfloor \frac{\lfloor \frac{m}{k} \rfloor}{d} \rfloor<br>$$<br>再由<a target="_blank" rel="noopener" href="https://www.cnblogs.com/newbielyx/p/13050310.html">莫比乌斯反演学习笔记</a>中提到的<code>引理1</code>，可得：<br>$$<br>\sum \limits_{d&#x3D;1}^{\min(n,m)} \mu(d) \lfloor \frac{n}{kd} \rfloor \lfloor \frac{m}{kd} \rfloor<br>$$<br>所以最终，就得到了<br>$$<br>\sum \limits_{i&#x3D;a}^{b} \sum \limits_{j&#x3D;c}^{d} \left[ gcd(i,j) &#x3D; k \right] &#x3D; \sum \limits_{d&#x3D;1}^{\min(n,m)} \mu(d) \lfloor \frac{n}{kd} \rfloor \lfloor \frac{m}{kd} \rfloor<br>$$<br>这个式子就可以利用<a target="_blank" rel="noopener" href="https://www.cnblogs.com/newbielyx/p/13050267.html">数论分块</a>进行求解了。</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><code>Talk  is cheap. Show me the code. </code></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ty</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, f = <span class="hljs-number">1</span>; <span class="hljs-type">char</span> ch = <span class="hljs-built_in">getchar</span>();<br>  <span class="hljs-keyword">while</span> (ch &lt; <span class="hljs-string">&#x27;0&#x27;</span> || ch &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123; <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27;-&#x27;</span>) f = <span class="hljs-number">-1</span>; ch = <span class="hljs-built_in">getchar</span>(); &#125;<br>  <span class="hljs-keyword">while</span> (ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) &#123; x = x * <span class="hljs-number">10</span> + ch - <span class="hljs-string">&#x27;0&#x27;</span>; ch = <span class="hljs-built_in">getchar</span>(); &#125;<br>  <span class="hljs-keyword">return</span> x * f;<br>&#125;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> _ = <span class="hljs-number">5e4</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> tot, vis[_], p[_], mu[_], sum[_];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getMu</span><span class="hljs-params">(<span class="hljs-type">int</span> lim = <span class="hljs-number">5e4</span>)</span> </span>&#123;<br>  mu[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= lim; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!vis[i]) p[++tot] = i, mu[i] = <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= tot &amp;&amp; p[j] * i &lt;= lim; ++j) &#123;<br>      vis[i * p[j]] = <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (i % p[j] == <span class="hljs-number">0</span>) &#123;<br>        mu[i * p[j]] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">break</span>;<br>      &#125;<br>      mu[i * p[j]] = -mu[i];<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= lim; ++i) sum[i] = sum[i - <span class="hljs-number">1</span>] + mu[i];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">calc</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>  n /= k, m /= k;<br>  <span class="hljs-type">int</span> ret = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">1</span>, r; l &lt;= <span class="hljs-built_in">min</span>(n, m); l = r + <span class="hljs-number">1</span>) &#123;<br>    r = <span class="hljs-built_in">min</span>(n / (n / l), m / (m / l));<br>    ret += (sum[r] - sum[l - <span class="hljs-number">1</span>]) * (n / l) * (m / l);<br>  &#125;<br>  <span class="hljs-keyword">return</span> ret;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">getMu</span>();<br>  <span class="hljs-type">int</span> T = <span class="hljs-built_in">ty</span>(), a, b, c, d, k;<br>  <span class="hljs-keyword">while</span> (T--) &#123;<br>    a = <span class="hljs-built_in">ty</span>(), b = <span class="hljs-built_in">ty</span>(), c = <span class="hljs-built_in">ty</span>(), d = <span class="hljs-built_in">ty</span>(), k = <span class="hljs-built_in">ty</span>();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, <span class="hljs-built_in">calc</span>(b, d, k) - <span class="hljs-built_in">calc</span>(a - <span class="hljs-number">1</span>, d, k) - <span class="hljs-built_in">calc</span>(b, c - <span class="hljs-number">1</span>, k) +<br>                       <span class="hljs-built_in">calc</span>(a - <span class="hljs-number">1</span>, c - <span class="hljs-number">1</span>, k));<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <p>github项目地址：<a target="_blank" rel="noopener" href="https://github.com/patricklai46/externalSort">github.com&#x2F;patricklai46&#x2F;externalSort</a></p>
+<h1 id="什么是外部排序"><a href="#什么是外部排序" class="headerlink" title="什么是外部排序"></a>什么是外部排序</h1><p>外排序（External sorting）是指能够处理极大量数据的排序算法。通常来说，外排序处理的数据不能一次装入内存，只能放在读写较慢的外存储器（通常是硬盘）上。外排序通常采用的是一种“排序-归并”的策略。在排序阶段，先读入能放在内存中的数据量，将其排序输出到一个临时文件，依此进行，将待排序数据组织为多个有序的临时文件。而后在归并阶段将这些临时文件组合为一个大的有序文件，也即排序结果。</p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><ol>
+<li><p>将整个文件其等分为 K 个临时文件，然后将这 K 个文件依次进入内存，采取适当的内存排序算法对其中的记录进行排序，将得到的有序文件（初始归并段）移至外存。</p>
+</li>
+<li><p>对得到的 K 个初始归并段进行如下图的两两归并，直至得到一个完整的有序文件。</p>
+</li>
+</ol>
+<p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/wkYjgx1s/2-1G11F9433NX.png?download=1" srcset="/img/loading.gif" lazyload alt="2-1G11F9433NX.png"></p>
+<h2 id="二路归并"><a href="#二路归并" class="headerlink" title="二路归并"></a>二路归并</h2><p>通过类似于归并排序的方式，不断两两归并，直到得到一个完整的有序文件。</p>
+<blockquote>
+<p>在实际归并的过程中，由于内存容量的限制不能满足同时将 2 个归并段全部完整的读入内存进行归并，只能不断地取 2 个归并段中的每一小部分进行归并，通过不断地读数据和向外存写数据，直至 2 个归并段完成归并变为 1 个大的有序文件。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 递归实现二路归并</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">divideData</span><span class="hljs-params">(in ...&lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int32</span>)</span></span> &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int32</span> &#123;<br>	l := <span class="hljs-built_in">len</span>(in)<br>	<span class="hljs-keyword">if</span> l == <span class="hljs-number">1</span> &#123;<br>		<span class="hljs-keyword">return</span> in[<span class="hljs-number">0</span>]<br>	&#125;<br>	mid := l / <span class="hljs-number">2</span><br>	<span class="hljs-keyword">return</span> mergeData(divideData(in[:mid]...), divideData(in[mid:]...))<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="K路合并"><a href="#K路合并" class="headerlink" title="K路合并"></a>K路合并</h2><p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/0Fafp4b8/2-1G11F94K0454.png?download=1" srcset="/img/loading.gif" lazyload alt="2-1G11F94K0454.png"></p>
+<p>执行 K 路合并需要用到败者树的数据结构，如下图所示，每个叶子结点相当于一个选手，每个中间结点相当于一场比赛，每一层相当于一轮比赛。败者树的中间结点记录的是败者的标号。</p>
+<p><strong>败者树的建立：</strong> 在参赛者数组 <code>b[]</code> 的最后添加一位，存放一个参赛选手的绝对最小值（选手都是正数的话，如 -1 ）。所有中间节点都记录这个最小值的下标。然后依次调整（<code>adjust()</code>）各个选手即可。</p>
+<p><strong>败者树的调整：</strong> 当改变一个选手的值，需要调整以维持败者树的形态。败者树只需调整选手的父节点即可。当子节点的值大于父节点，则子节点记录于父节点（小为胜利，记录败者），父节点继续与其父节点比赛；若子节点小于父节点，则直接使用子节点进行下一轮比赛。</p>
+<p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/G6Hgeaxo/18092743-8710d85589da4018aabda95a1ec0ad65.jpg?download=1" srcset="/img/loading.gif" lazyload alt="18092743-8710d85589da4018aabda95a1ec0ad65.jpg"></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>具体实现见 <a target="_blank" rel="noopener" href="https://github.com/patricklai46/externalSort">github仓库</a></p>
+<p>代码结构：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|- bin</span><br>  <span class="hljs-string">|- go_build_externalSort_src_linux</span><br><span class="hljs-string">|- pkg</span><br><span class="hljs-string">|- src</span><br>  <span class="hljs-string">|- main.go        # 主程序</span><br>  <span class="hljs-string">|- generater.go   # 生成随机数据文件</span><br>  <span class="hljs-string">|- reader.go      # 读入文件</span><br>  <span class="hljs-string">|- writer.go      # 写入文件</span><br>  <span class="hljs-string">|- sorter.go      # 内部排序</span><br>  <span class="hljs-string">|- merger.go      # 合并临时数据文件</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -320,48 +340,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
-      
-        <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+        <a href="/tags/go/">#go</a>
       
     </div>
   
@@ -373,8 +356,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[HAOI2011]Problem b - 莫比乌斯反演</div>
-      <div>https://blog.kkkstra.cn/2020/06/14/HAOI2011Problem-b-莫比乌斯反演/</div>
+      <div>go实现外部排序</div>
+      <div>https://blog.kkkstra.cn/2022/10/27/go实现外部排序/</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +369,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2020年6月14日</div>
+          <div>2022年10月27日</div>
         </div>
       
       
@@ -416,18 +399,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/14/UR-5%E6%80%8E%E6%A0%B7%E8%B7%91%E5%BE%97%E6%9B%B4%E5%BF%AB-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" title="[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[UOJ Round 5]怎样跑得更快 - 莫比乌斯反演</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/06/13/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" title="莫比乌斯反演">
-                        <span class="hidden-mobile">莫比乌斯反演</span>
+                      <a href="/2022/10/08/bingyan2022autumn-1008/" title="冰岩2022秋招实习记 - 1008">
+                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1008</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

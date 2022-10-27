@@ -1,4 +1,5 @@
-https://blog.kkkstra.cn/2022/10/27/go%E5%AE%9E%E7%8E%B0%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/
+https://blog.kkkstra.cn/2022/10/27/mvc/
+https://blog.kkkstra.cn/2022/10/27/go_external_sort/
 https://blog.kkkstra.cn/2019/11/15/vim%E8%80%83%E5%9C%BA%E9%85%8D%E7%BD%AE/
 https://blog.kkkstra.cn/2022/10/08/bingyan2022autumn-1008/
 https://blog.kkkstra.cn/2022/10/07/bingyan2022autumn-1007/

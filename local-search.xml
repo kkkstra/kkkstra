@@ -4,9 +4,22 @@
   
   
   <entry>
+    <title>mvc</title>
+    <link href="/2022/10/27/mvc/"/>
+    <url>/2022/10/27/mvc/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>go实现外部排序</title>
-    <link href="/2022/10/27/go%E5%AE%9E%E7%8E%B0%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/"/>
-    <url>/2022/10/27/go%E5%AE%9E%E7%8E%B0%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/</url>
+    <link href="/2022/10/27/go_external_sort/"/>
+    <url>/2022/10/27/go_external_sort/</url>
     
     <content type="html"><![CDATA[<p>github项目地址：<a href="https://github.com/patricklai46/externalSort">github.com&#x2F;patricklai46&#x2F;externalSort</a> </p><h1 id="什么是外部排序"><a href="#什么是外部排序" class="headerlink" title="什么是外部排序"></a>什么是外部排序</h1><p>外排序（External sorting）是指能够处理极大量数据的排序算法。通常来说，外排序处理的数据不能一次装入内存，只能放在读写较慢的外存储器（通常是硬盘）上。外排序通常采用的是一种“排序-归并”的策略。在排序阶段，先读入能放在内存中的数据量，将其排序输出到一个临时文件，依此进行，将待排序数据组织为多个有序的临时文件。而后在归并阶段将这些临时文件组合为一个大的有序文件，也即排序结果。</p><h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><ol><li><p>将整个文件其等分为 K 个临时文件，然后将这 K 个文件依次进入内存，采取适当的内存排序算法对其中的记录进行排序，将得到的有序文件（初始归并段）移至外存。</p></li><li><p>对得到的 K 个初始归并段进行如下图的两两归并，直至得到一个完整的有序文件。</p></li></ol><p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/wkYjgx1s/2-1G11F9433NX.png?download=1" alt="2-1G11F9433NX.png"></p><h2 id="二路归并"><a href="#二路归并" class="headerlink" title="二路归并"></a>二路归并</h2><p>通过类似于归并排序的方式，不断两两归并，直到得到一个完整的有序文件。</p><blockquote><p>在实际归并的过程中，由于内存容量的限制不能满足同时将 2 个归并段全部完整的读入内存进行归并，只能不断地取 2 个归并段中的每一小部分进行归并，通过不断地读数据和向外存写数据，直至 2 个归并段完成归并变为 1 个大的有序文件。</p></blockquote><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 递归实现二路归并</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">divideData</span><span class="hljs-params">(in ...&lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int32</span>)</span></span> &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int32</span> &#123;<br>l := <span class="hljs-built_in">len</span>(in)<br><span class="hljs-keyword">if</span> l == <span class="hljs-number">1</span> &#123;<br><span class="hljs-keyword">return</span> in[<span class="hljs-number">0</span>]<br>&#125;<br>mid := l / <span class="hljs-number">2</span><br><span class="hljs-keyword">return</span> mergeData(divideData(in[:mid]...), divideData(in[mid:]...))<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="K路合并"><a href="#K路合并" class="headerlink" title="K路合并"></a>K路合并</h2><p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/0Fafp4b8/2-1G11F94K0454.png?download=1" alt="2-1G11F94K0454.png"></p><p>执行 K 路合并需要用到败者树的数据结构，如下图所示，每个叶子结点相当于一个选手，每个中间结点相当于一场比赛，每一层相当于一轮比赛。败者树的中间结点记录的是败者的标号。</p><p><strong>败者树的建立：</strong> 在参赛者数组 <code>b[]</code> 的最后添加一位，存放一个参赛选手的绝对最小值（选手都是正数的话，如 -1 ）。所有中间节点都记录这个最小值的下标。然后依次调整（<code>adjust()</code>）各个选手即可。</p><p><strong>败者树的调整：</strong> 当改变一个选手的值，需要调整以维持败者树的形态。败者树只需调整选手的父节点即可。当子节点的值大于父节点，则子节点记录于父节点（小为胜利，记录败者），父节点继续与其父节点比赛；若子节点小于父节点，则直接使用子节点进行下一轮比赛。</p><p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/10/27/G6Hgeaxo/18092743-8710d85589da4018aabda95a1ec0ad65.jpg?download=1" alt="18092743-8710d85589da4018aabda95a1ec0ad65.jpg"></p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>具体实现见 <a href="https://github.com/patricklai46/externalSort">github仓库</a></p><p>代码结构：</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|- bin</span><br>  <span class="hljs-string">|- go_build_externalSort_src_linux</span><br><span class="hljs-string">|- pkg</span><br><span class="hljs-string">|- src</span><br>  <span class="hljs-string">|- main.go        # 主程序</span><br>  <span class="hljs-string">|- generater.go   # 生成随机数据文件</span><br>  <span class="hljs-string">|- reader.go      # 读入文件</span><br>  <span class="hljs-string">|- writer.go      # 写入文件</span><br>  <span class="hljs-string">|- sorter.go      # 内部排序</span><br>  <span class="hljs-string">|- merger.go      # 合并临时数据文件</span><br></code></pre></td></tr></table></figure>]]></content>
     

@@ -18,6 +18,12 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>mvc</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -341,9 +347,9 @@
       
       <category>题解</category>
       
-      <category>数据结构</category>
-      
       <category>字符串</category>
+      
+      <category>数据结构</category>
       
     </categories>
     
@@ -484,9 +490,9 @@
     
     <tags>
       
-      <tag>莫比乌斯反演</tag>
-      
       <tag>省选</tag>
+      
+      <tag>莫比乌斯反演</tag>
       
     </tags>
     
@@ -685,17 +691,17 @@
     
     <tags>
       
-      <tag>AtCoder</tag>
-      
       <tag>二分图</tag>
+      
+      <tag>AtCoder</tag>
       
       <tag>省选</tag>
       
       <tag>Codeforces</tag>
       
-      <tag>网络流</tag>
-      
       <tag>POI</tag>
+      
+      <tag>网络流</tag>
       
       <tag>二维数点</tag>
       
@@ -796,9 +802,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>LibreOJ</tag>
-      
       <tag>背包</tag>
+      
+      <tag>LibreOJ</tag>
       
     </tags>
     
@@ -1192,9 +1198,9 @@
       
       <category>题解</category>
       
-      <category>数据结构</category>
-      
       <category>字符串</category>
+      
+      <category>数据结构</category>
       
     </categories>
     
@@ -1895,9 +1901,9 @@
       
       <tag>贪心</tag>
       
-      <tag>树上差分</tag>
-      
       <tag>NOIP</tag>
+      
+      <tag>树上差分</tag>
       
     </tags>
     
@@ -1959,9 +1965,9 @@
       
       <tag>线段树</tag>
       
-      <tag>树形dp</tag>
-      
       <tag>质因数分解</tag>
+      
+      <tag>树形dp</tag>
       
       <tag>优化建边</tag>
       
@@ -1994,9 +2000,9 @@
       
       <tag>状压dp</tag>
       
-      <tag>省选</tag>
-      
       <tag>构造</tag>
+      
+      <tag>省选</tag>
       
     </tags>
     
@@ -2184,9 +2190,9 @@
     
     <tags>
       
-      <tag>图论</tag>
-      
       <tag>状压dp</tag>
+      
+      <tag>图论</tag>
       
       <tag>哥德巴赫猜想</tag>
       

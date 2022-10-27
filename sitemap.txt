@@ -1,4 +1,4 @@
-https://blog.kkkstra.cn/2022/10/27/mvc/
+https://blog.kkkstra.cn/2022/10/27/mvc_mode/
 https://blog.kkkstra.cn/2022/10/27/go_external_sort/
 https://blog.kkkstra.cn/2019/11/15/vim%E8%80%83%E5%9C%BA%E9%85%8D%E7%BD%AE/
 https://blog.kkkstra.cn/2022/10/08/bingyan2022autumn-1008/
@@ -182,3 +182,5 @@ https://blog.kkkstra.cn/categories/Linux/
 https://blog.kkkstra.cn/categories/note/%E5%86%B0%E5%B2%A92022%E7%A7%8B%E6%8B%9B/
 https://blog.kkkstra.cn/categories/Linux/git/
 https://blog.kkkstra.cn/categories/Linux/vim/
+https://blog.kkkstra.cn/categories/go/
+https://blog.kkkstra.cn/categories/%E5%BC%80%E5%8F%91/

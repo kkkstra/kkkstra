@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.kkkstra.cn/2022/10/27/mvc/</loc>
+    <loc>https://blog.kkkstra.cn/2022/10/27/mvc_mode/</loc>
     
     <lastmod>2022-10-27</lastmod>
     
@@ -1446,6 +1446,20 @@
   
   <url>
     <loc>https://blog.kkkstra.cn/categories/Linux/vim/</loc>
+    <lastmod>2022-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kkkstra.cn/categories/go/</loc>
+    <lastmod>2022-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kkkstra.cn/categories/%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2022-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

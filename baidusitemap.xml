@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.kkkstra.cn/2022/09/30/bingyan2022autumn/</loc>
+    <lastmod>2022-10-27</lastmod>
+  </url>
+  <url>
     <loc>https://blog.kkkstra.cn/2022/10/27/mvc_mode/</loc>
     <lastmod>2022-10-27</lastmod>
   </url>
@@ -11,42 +15,6 @@
   <url>
     <loc>https://blog.kkkstra.cn/2019/11/15/vim%E8%80%83%E5%9C%BA%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-10-27</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/08/bingyan2022autumn-1008/</loc>
-    <lastmod>2022-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/07/bingyan2022autumn-1007/</loc>
-    <lastmod>2022-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/02/bingyan2022autumn-1002/</loc>
-    <lastmod>2022-10-07</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/01/bingyan2022autumn-1001/</loc>
-    <lastmod>2022-10-07</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/09/30/bingyan2022autumn-0930/</loc>
-    <lastmod>2022-10-07</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/06/bingyan2022autumn-1006/</loc>
-    <lastmod>2022-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/05/bingyan2022autumn-1005/</loc>
-    <lastmod>2022-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/03/bingyan2022autumn-1003/</loc>
-    <lastmod>2022-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.kkkstra.cn/2022/10/04/bingyan2022autumn-1004/</loc>
-    <lastmod>2022-10-06</lastmod>
   </url>
   <url>
     <loc>https://blog.kkkstra.cn/2022/09/20/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>

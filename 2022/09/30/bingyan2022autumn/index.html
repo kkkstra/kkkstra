@@ -18,15 +18,15 @@
   <meta name="author" content="kkkstra">
   <meta name="keywords" content="blog, oi">
   
-    <meta name="description" content="学习计划 完成阶段六：实现从对bangumi的api调用  项目进程 完成阶段六，用户可以从bangumi同步数据库 为阶段六的功能配套了一个前端  总结今天基本完成了阶段六的功能：实现从对bangumi的api调用使用户可以从bangumi同步数据库。bangumi使用的是 Authorization Code 模式的 Oauth 服务，所以阶段六实质上是做一个 Oauth Client。因为有">
+    <meta name="description" content="0930学习计划 学习git的基本使用：commit, push 等  速通python基本语法   项目进程 确定选题 OIDC服务  新建github项目 bangumoe （新建文件夹）  确定项目框架 python + django   1001学习计划 熟悉 django 框架的基本构造以及操作 将 django 项目连接到 MySQL 数据库 实现阶段一的基础功能  项目进程 新建并初">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冰岩2022秋招实习记 - 1006">
-<meta property="og:url" content="https://blog.kkkstra.cn/2022/10/06/bingyan2022autumn-1006/index.html">
+<meta property="og:title" content="冰岩2022秋招实习记">
+<meta property="og:url" content="https://blog.kkkstra.cn/2022/09/30/bingyan2022autumn/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
-<meta property="og:description" content="学习计划 完成阶段六：实现从对bangumi的api调用  项目进程 完成阶段六，用户可以从bangumi同步数据库 为阶段六的功能配套了一个前端  总结今天基本完成了阶段六的功能：实现从对bangumi的api调用使用户可以从bangumi同步数据库。bangumi使用的是 Authorization Code 模式的 Oauth 服务，所以阶段六实质上是做一个 Oauth Client。因为有">
+<meta property="og:description" content="0930学习计划 学习git的基本使用：commit, push 等  速通python基本语法   项目进程 确定选题 OIDC服务  新建github项目 bangumoe （新建文件夹）  确定项目框架 python + django   1001学习计划 熟悉 django 框架的基本构造以及操作 将 django 项目连接到 MySQL 数据库 实现阶段一的基础功能  项目进程 新建并初">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-06T15:38:11.000Z">
-<meta property="article:modified_time" content="2022-10-06T15:57:13.646Z">
+<meta property="article:published_time" content="2022-09-30T01:14:41.000Z">
+<meta property="article:modified_time" content="2022-10-27T12:55:16.262Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="blog, oi">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>冰岩2022秋招实习记 - 1006 - kkkstra&#39;s blog</title>
+  <title>冰岩2022秋招实习记 - kkkstra&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="冰岩2022秋招实习记 - 1006"></span>
+            <span id="subtitle" data-typed-text="冰岩2022秋招实习记"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-06 23:38" pubdate>
-          2022年10月6日 晚上
+        <time datetime="2022-09-30 09:14" pubdate>
+          2022年9月30日 上午
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          323 字
+          3.1k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          3 分钟
+          26 分钟
         
       </span>
     
@@ -301,19 +301,143 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">冰岩2022秋招实习记 - 1006</h1>
+            <h1 style="display: none">冰岩2022秋招实习记</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
-<li>完成阶段六：实现从对bangumi的api调用</li>
+                <h1 id="0930"><a href="#0930" class="headerlink" title="0930"></a>0930</h1><h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li><p>学习git的基本使用：<code>commit</code>, <code>push</code> 等</p>
+</li>
+<li><p>速通python基本语法</p>
+</li>
 </ol>
 <h2 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li><p>确定选题 <code>OIDC服务</code></p>
+</li>
+<li><p>新建github项目 <code>bangumoe</code> （新建文件夹）</p>
+</li>
+<li><p>确定项目框架 <code>python</code> + <code>django</code></p>
+</li>
+</ol>
+<h1 id="1001"><a href="#1001" class="headerlink" title="1001"></a>1001</h1><h2 id="学习计划-1"><a href="#学习计划-1" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>熟悉 <code>django</code> 框架的基本构造以及操作</li>
+<li>将 <code>django</code> 项目连接到 <code>MySQL</code> 数据库</li>
+<li>实现阶段一的基础功能</li>
+</ol>
+<h2 id="项目进程-1"><a href="#项目进程-1" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>新建并初始化 <code>django</code> 项目 <code>oidc</code></li>
+<li>将项目 <code>oidc</code> 连接到 <code>MySQL</code> 数据库中</li>
+<li>完成 <code>user</code> 应用中 <code>User</code> 类的构建，包括 <code>id</code>, <code>username</code>, <code>password</code>, <code>email</code>, <code>intro</code> 五个字段</li>
+<li>完成 <code>注册</code>，<code>登录</code> 和 <code>修改信息</code> 三个基本操作的 <code>api</code></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><code>django</code> 的一个项目中包含了若干个应用，每个应用相对独立，可以迁移到不同项目中，例如项目 <code>oidc</code> 中包含 <code>user</code> 这个应用</li>
+<li><code>django</code> 的基本核心是 <code>urls.py</code>, <code>models.py</code> 和 <code>views.py</code><blockquote>
+<p><code>urls.py</code> 负责识别发送过来的 <code>request</code>，并把这些请求分派给 <code>views.py</code> 中相应的请求相应函数。而在 <code>views.py</code> 中函数的执行过程中，可能会调用到数据库的数据，这时候就会调用 <code>models.py</code>。</p>
+</blockquote>
+</li>
+<li>三个基本操作的 <code>api</code> 详见 <a target="_blank" rel="noopener" href="https://github.com/patricklai46/bangumoe">bangumoe</a> 的 <code>README.md</code></li>
+</ol>
+<h1 id="1002"><a href="#1002" class="headerlink" title="1002"></a>1002</h1><h2 id="学习计划-2"><a href="#学习计划-2" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>阅读文档，了解 <code>Oauth2.0</code> 服务的原理</li>
+<li>进行 <code>Oauth2.0</code> 服务的实现设计</li>
+<li>完成阶段二：实现使用 Authorization Code模式的OAuth2.0服务</li>
+</ol>
+<h2 id="项目进程-2"><a href="#项目进程-2" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>在 <code>django</code> 中新建应用 <code>oauth</code></li>
+<li>实现了 <code>Oauth2.0</code> 服务的几个基本功能：<code>Authorization Grant</code>, <code>Access Token</code>, <code>Verify Token</code></li>
+</ol>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p><code>OAuth 2.0</code> 是目前最流行的授权机制，用来授权第三方应用，获取用户数据。</p>
+</li>
+<li><p><code>Oauth 2.0</code> 有获得令牌的四种授权方式（authorization grant）： </p>
+<blockquote>
+<ul>
+<li>授权码（authorization-code）</li>
+<li>隐藏式（implicit）</li>
+<li>密码式（password）：</li>
+<li>客户端凭证（client credentials）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>阶段二任务中实现的是第一种授权方式：授权码（authorization code）。其完整的授权流程主要包括以下几个步骤：</p>
+<blockquote>
+<ol>
+<li>A 打开 B 的授权页面</li>
+<li>验证用户是合法的之后，生成一个 authorization code，然后通过 302 跳转的方式，把这个 code 发送给 A</li>
+<li>A 用这个 code 调用 B 的 api，获得 access token</li>
+<li>A 用 access token 访问资源</li>
+</ol>
+</blockquote>
+</li>
+<li><p>本项目中实现了使用authorization code模式的Oauth2.0服务的几个api， 详见 <a target="_blank" rel="noopener" href="https://github.com/patricklai46/bangumoe">bangumoe</a> 的 <code>README.md</code>。</p>
+</li>
+</ol>
+<h1 id="1003"><a href="#1003" class="headerlink" title="1003"></a>1003</h1><h2 id="学习计划-3"><a href="#学习计划-3" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>完整阅读文档，了解 <code>Oauth2.0</code> 的设计规范</li>
+<li>完成 <code>Refresh Token</code> 相关协议</li>
+<li>根据文档将协议修改的符合规范</li>
+</ol>
+<h2 id="项目进程-3"><a href="#项目进程-3" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>实现了 <code>refresh token</code> 的协议内容</li>
+<li>根据文档内容，“尽可能”使 <code>request</code> 和 <code>response</code> 符合规范</li>
+</ol>
+<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p>今天花了一上午外加下午的部分时间把 <code>Oauth2.0</code> 的官方文档基本上通览了一遍（除了 <code>Authorization Code</code> 模式以外剩下的三种模式没有读），虽然都是英文有点艰难，也不是所有地方都读懂了，但是读完还是感觉收获很大，一方面比较完整地了解了设计规范，也尽可能地去完善了自己的协议；另一方面，阅读官方文档过程中，也解答了一些之前的疑惑，因为发现官方文档讲的比较清楚，也比较严谨。</p>
+<h1 id="1004"><a href="#1004" class="headerlink" title="1004"></a>1004</h1><h2 id="学习计划-4"><a href="#学习计划-4" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>学习 OIDC (OpenID Connect)  的协议内容</li>
+<li>实现 OIDC 身份认证（核心部分）</li>
+</ol>
+<h2 id="项目进程-4"><a href="#项目进程-4" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>完善了 <code>OAuth2.0</code> ，加入了用户授权的部分</li>
+<li>实现了 <code>OIDC</code> 的核心部分的大部分内容，<code>Userinfo Request</code> 的部分还未实现，<del>留做习题</del>，预计明天完成</li>
+</ol>
+<h2 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h2><p>今天的学习过程和前几个阶段差不多，第一眼接触到全新的协议也比较懵，于是选择了阅读<del>文档</del>博客园，大概花了一上午的时间（感觉在课上干这些效率不是那么高？）。</p>
+<p>在基本理解协议内容后，感觉 <code>OIDC</code> 的实现基本还是可做的，很大程度上都是基于 <code>Oauth</code> 的内容，因此在细节方面，以及 api 的调用方面（进行了比较多的摸索）进行修改，<code>OIDC</code> 基本上就实现了。</p>
+<p>另外说说 <code>OIDC</code> 和 <code>OAuth</code> 的区别（个人理解），<code>Oauth</code> 主要解决了授权方面的服务的问题，但无法进行身份认证，<code>OIDC</code> 在 <code>Oauth</code> 的基础之上增加了用户认证的功能，主要是引入 <code>id token</code> ，从而将用户信息传给客户端，实现身份认证的目的。</p>
+<p><strong>附：</strong>总的来说，实习四天下来，感觉收获还是非常大的，从一开始的两眼茫然，完全不觉得自己能做出来，到逐渐习惯查文档、搜罗资料，理解之后再逐步进行实现的过程，发现当把一个事情分解成很多小任务逐一完成之后，就变得容易了很多。现在回头看这几天的成果，不知不觉已经实现了很多东西，还是很有成就感的。有一个缺点就是，因为这几天是速成，加上之前也没有任何工程经验，且时间也不允许去阅读很多其他人的工程代码，所以很多是靠着自己的理解来实现，可能代码质量不是很高，而且也带来了很多之前不好的编程习惯（但是至少能跑哈哈哈）。</p>
+<h1 id="1005"><a href="#1005" class="headerlink" title="1005"></a>1005</h1><h2 id="学习计划-5"><a href="#学习计划-5" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>完成 OIDC 的 <code>Userinfo Request</code> 部分</li>
+<li>完成阶段五：实现番剧收藏功能</li>
+</ol>
+<h2 id="项目进程-5"><a href="#项目进程-5" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>完成了 OIDC 的 <code>Userinfo Request</code> 部分，同时还修复了一些bug</li>
+<li>基本完成了番剧收藏功能的开发，并配了一个前端界面</li>
+</ol>
+<h2 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h2><p>今天主要完成了两部分的内容，一部分是将 OIDC 完整的实现了，另一部分是实现了阶段五的核心功能——番剧收藏。</p>
+<p>关于番剧收藏的这部分功能，为了方便起见，粗略地写了一个前端，但是因为自己前后端开发都没什么经验，所以用户体验可能比较糟糕……比如，因为没有做登录状态验证，所以需要一直输入账号和密码……</p>
+<p><strong>update:</strong> 昨天晚上0点以后断网了，所以没传上来。</p>
+<h1 id="1006"><a href="#1006" class="headerlink" title="1006"></a>1006</h1><h2 id="学习计划-6"><a href="#学习计划-6" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>完成阶段六：实现从对bangumi的api调用</li>
+</ol>
+<h2 id="项目进程-6"><a href="#项目进程-6" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
 <li>完成阶段六，用户可以从bangumi同步数据库</li>
 <li>为阶段六的功能配套了一个前端</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天基本完成了阶段六的功能：实现从对bangumi的api调用使用户可以从bangumi同步数据库。bangumi使用的是 <code>Authorization Code</code> 模式的 <code>Oauth</code> 服务，所以阶段六实质上是做一个 <code>Oauth Client</code>。因为有了前面的铺垫，所以实现起来还是比较顺利。只是一开始没找到bangumi的api调用地址，然后对参数也翻了好一会才找全。总的来说，最后成功导入的时候，还是成就感满满的。做到阶段六，也基本把前面做的东西串联起来了，所以一步一步做下来，就把本来完全不敢想象的项目，一点点做下来啦！</p>
+<h2 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h2><p>今天基本完成了阶段六的功能：实现从对bangumi的api调用使用户可以从bangumi同步数据库。bangumi使用的是 <code>Authorization Code</code> 模式的 <code>Oauth</code> 服务，所以阶段六实质上是做一个 <code>Oauth Client</code>。因为有了前面的铺垫，所以实现起来还是比较顺利。只是一开始没找到bangumi的api调用地址，然后对参数也翻了好一会才找全。总的来说，最后成功导入的时候，还是成就感满满的。做到阶段六，也基本把前面做的东西串联起来了，所以一步一步做下来，就把本来完全不敢想象的项目，一点点做下来啦！</p>
+<h1 id="1007"><a href="#1007" class="headerlink" title="1007"></a>1007</h1><h2 id="学习计划-7"><a href="#学习计划-7" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>学习密码存储及加密方式</li>
+<li>使用bangumi的api进行搜索</li>
+<li>完成进阶任务一：用户注册时进行邮箱验证</li>
+</ol>
+<h2 id="项目进程-7"><a href="#项目进程-7" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>提升安全性：将密码使用bcrypt方式加密，避免明文存储</li>
+<li>功能开发：支持用户添加番剧收藏时从bangumi检索数据</li>
+<li>用户注册时需要进行邮箱验证</li>
+</ol>
+<h2 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h2><p>今天一天的课，还没有水课（呜呜呜）。所以下课后，晚上就一直在写代码，今天主要做了三个功能：</p>
+<ol>
+<li>发现密码明文存储危险性比较大（虽然很多公司可能是这样做的），因此密码通过bcrypt进行加密存储</li>
+<li>发现bangumi的api有返回搜索结果的功能，所以开发了支持用户添加番剧收藏时从bangumi检索数据的新功能</li>
+<li>尝试完成进阶任务一：用户注册时需要进行邮箱验证，本来以为发邮件会很麻烦，发现直接用smtp绑定自己的邮箱就可以发了</li>
+</ol>
+<h1 id="1008"><a href="#1008" class="headerlink" title="1008"></a>1008</h1><h2 id="学习计划-8"><a href="#学习计划-8" class="headerlink" title="学习计划"></a>学习计划</h2><ol>
+<li>完成进阶任务二：好友功能</li>
+</ol>
+<h2 id="项目进程-8"><a href="#项目进程-8" class="headerlink" title="项目进程"></a>项目进程</h2><ol>
+<li>完成进阶任务二：好友功能</li>
+</ol>
+<h2 id="总结-7"><a href="#总结-7" class="headerlink" title="总结"></a>总结</h2><p>早上起来把完成进阶任务二尝试做完了，下午就要验收啦！</p>
 
                 
               </div>
@@ -359,8 +483,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>冰岩2022秋招实习记 - 1006</div>
-      <div>https://blog.kkkstra.cn/2022/10/06/bingyan2022autumn-1006/</div>
+      <div>冰岩2022秋招实习记</div>
+      <div>https://blog.kkkstra.cn/2022/09/30/bingyan2022autumn/</div>
     </div>
     <div class="license-meta">
       
@@ -372,7 +496,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月6日</div>
+          <div>2022年9月30日</div>
         </div>
       
       
@@ -402,9 +526,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/07/bingyan2022autumn-1007/" title="冰岩2022秋招实习记 - 1007">
+                      <a href="/2022/10/27/go_external_sort/" title="go实现外部排序">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1007</span>
+                        <span class="hidden-mobile">go实现外部排序</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -412,8 +536,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/05/bingyan2022autumn-1005/" title="冰岩2022秋招实习记 - 1005">
-                        <span class="hidden-mobile">冰岩2022秋招实习记 - 1005</span>
+                      <a href="/2022/09/20/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="git命令总结">
+                        <span class="hidden-mobile">git命令总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

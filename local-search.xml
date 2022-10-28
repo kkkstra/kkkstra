@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>HTTP/2 Server Push（服务器推送）</title>
+    <link href="/2022/10/28/http2-server-push/"/>
+    <url>/2022/10/28/http2-server-push/</url>
+    
+    <content type="html"><![CDATA[<h1 id="传统的网页请求"><a href="#传统的网页请求" class="headerlink" title="传统的网页请求"></a>传统的网页请求</h1><p>例如有一个简单的 HTML 网页文件，里面还包含了一张样式表 <code>style.css</code> 和一个图片文件 <code>example.png</code>。为了渲染这个网页，浏览器会发出三个请求。第一个请求是index.html。</p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/index.html</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure><p>服务器收到这个请求，就把 <code>index.html</code> 发送给浏览器。浏览器发现里面包含了样式表和图片，于是再发出两个请求。</p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/style.css</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/example.png</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure><p>这种传统的网页请求方式有两个问题，一是至少需要两轮 HTTP 通信，二是收到样式文件之前，网页都会显示一片空白，这个阶段一旦超过 2 秒，用户体验就会非常不好。</p><h1 id="Sever-Push（服务器推送）"><a href="#Sever-Push（服务器推送）" class="headerlink" title="Sever Push（服务器推送）"></a>Sever Push（服务器推送）</h1><p>服务器推送（server push）指的是，还没有收到浏览器的请求，服务器就把各种资源推送给浏览器。</p><p>比如，浏览器只请求了 <code>index.html</code> ，但是服务器把 <code>index.html</code> 、 <code>style.css</code> 、 <code>example.png</code> 全部发送给浏览器。这样的话，只需要一轮 HTTP 通信，浏览器就得到了全部资源，提高了性能。</p><h2 id="go-gin实现"><a href="#go-gin实现" class="headerlink" title="go: gin实现"></a>go: gin实现</h2><p><a href="https://gin-gonic.com/zh-cn/docs/examples/http2-server-push/">官方文档</a></p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br><span class="hljs-string">&quot;html/template&quot;</span><br><span class="hljs-string">&quot;log&quot;</span><br><br><span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br>)<br><br><span class="hljs-keyword">var</span> html = template.Must(template.New(<span class="hljs-string">&quot;https&quot;</span>).Parse(<span class="hljs-string">`</span><br><span class="hljs-string">&lt;html&gt;</span><br><span class="hljs-string">&lt;head&gt;</span><br><span class="hljs-string">  &lt;title&gt;Https Test&lt;/title&gt;</span><br><span class="hljs-string">  &lt;script src=&quot;/assets/app.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-string">&lt;/head&gt;</span><br><span class="hljs-string">&lt;body&gt;</span><br><span class="hljs-string">  &lt;h1 style=&quot;color:red;&quot;&gt;Welcome, Ginner!&lt;/h1&gt;</span><br><span class="hljs-string">&lt;/body&gt;</span><br><span class="hljs-string">&lt;/html&gt;</span><br><span class="hljs-string">`</span>))<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>r := gin.Default()<br>r.Static(<span class="hljs-string">&quot;/assets&quot;</span>, <span class="hljs-string">&quot;./assets&quot;</span>)<br>r.SetHTMLTemplate(html)<br><br>r.GET(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br><span class="hljs-keyword">if</span> pusher := c.Writer.Pusher(); pusher != <span class="hljs-literal">nil</span> &#123;<br><span class="hljs-comment">// 使用 pusher.Push() 做服务器推送</span><br><span class="hljs-keyword">if</span> err := pusher.Push(<span class="hljs-string">&quot;/assets/app.js&quot;</span>, <span class="hljs-literal">nil</span>); err != <span class="hljs-literal">nil</span> &#123;<br>log.Printf(<span class="hljs-string">&quot;Failed to push: %v&quot;</span>, err)<br>&#125;<br>&#125;<br>c.HTML(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;https&quot;</span>, gin.H&#123;<br><span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>,<br>&#125;)<br>&#125;)<br><br><span class="hljs-comment">// 监听并在 https://127.0.0.1:8080 上启动服务</span><br>r.RunTLS(<span class="hljs-string">&quot;:8080&quot;</span>, <span class="hljs-string">&quot;./testdata/server.pem&quot;</span>, <span class="hljs-string">&quot;./testdata/server.key&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>后端</category>
+      
+      <category>http</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>http2</tag>
+      
+      <tag>server push</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mvc设计模式</title>
     <link href="/2022/10/27/mvc_mode/"/>
     <url>/2022/10/27/mvc_mode/</url>
@@ -12,6 +41,8 @@
     
     
     <categories>
+      
+      <category>后端</category>
       
       <category>开发</category>
       
@@ -37,6 +68,8 @@
     
     
     <categories>
+      
+      <category>后端</category>
       
       <category>go</category>
       
@@ -322,9 +355,9 @@
     
     <tags>
       
-      <tag>省选</tag>
-      
       <tag>莫比乌斯反演</tag>
+      
+      <tag>省选</tag>
       
     </tags>
     
@@ -527,13 +560,13 @@
       
       <tag>AtCoder</tag>
       
-      <tag>Codeforces</tag>
-      
       <tag>省选</tag>
       
-      <tag>POI</tag>
+      <tag>Codeforces</tag>
       
       <tag>网络流</tag>
+      
+      <tag>POI</tag>
       
       <tag>二维数点</tag>
       
@@ -634,9 +667,9 @@
       
       <tag>计数dp</tag>
       
-      <tag>LibreOJ</tag>
-      
       <tag>背包</tag>
+      
+      <tag>LibreOJ</tag>
       
     </tags>
     
@@ -1320,11 +1353,11 @@
     
     <tags>
       
+      <tag>省选</tag>
+      
       <tag>斯特林数</tag>
       
       <tag>NTT</tag>
-      
-      <tag>省选</tag>
       
     </tags>
     
@@ -1380,9 +1413,9 @@
     
     <tags>
       
-      <tag>NTT</tag>
-      
       <tag>省选</tag>
+      
+      <tag>NTT</tag>
       
       <tag>生成函数</tag>
       

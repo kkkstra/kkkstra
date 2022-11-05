@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>PostgreSQL 常用命令</title>
+    <link href="/2022/11/05/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/2022/11/05/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> dbname;<br></code></pre></td></tr></table></figure><h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">postgres=# \l<br>                                                     数据库列表<br>   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provider |       存取权限        <br><span class="hljs-comment">-----------+----------+----------+-------------+-------------+------------+-----------------+-----------------------</span><br> byitter   | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | <br> postgres  | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | <br> template0 | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | =c/postgres          +<br>           |          |          |             |             |            |                 | postgres=CTc/postgres<br> template1 | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | =c/postgres          +<br>           |          |          |             |             |            |                 | postgres=CTc/postgres<br>(<span class="hljs-number">4</span> 行记录)<br></code></pre></td></tr></table></figure><h3 id="进入数据库"><a href="#进入数据库" class="headerlink" title="进入数据库"></a>进入数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">postgres=# \c byitter<br>您现在已经连接到数据库 &quot;byitter&quot;,用户 &quot;postgres&quot;.<br></code></pre></td></tr></table></figure><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">DATABASE</span> byitter;<br></code></pre></td></tr></table></figure><h2 id="表格操作"><a href="#表格操作" class="headerlink" title="表格操作"></a>表格操作</h2><h3 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-built_in">table_name</span>(<br>   column1 datatype,<br>   column2 datatype,<br>   column3 datatype,<br>   .....<br>   columnN datatype,<br>   <span class="hljs-keyword">PRIMARY KEY</span>( 一个或多个列 )<br>);<br></code></pre></td></tr></table></figure><h3 id="删除表格"><a href="#删除表格" class="headerlink" title="删除表格"></a>删除表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-built_in">table_name</span>;<br></code></pre></td></tr></table></figure><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><blockquote><p>PostgreSQL 模式（SCHEMA）可以看着是一个表的集合。</p><p>一个模式可以包含视图、索引、数据类型、函数和操作符等。</p></blockquote><h3 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>;<br><br></code></pre></td></tr></table></figure><h3 id="创建表格-1"><a href="#创建表格-1" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>.<span class="hljs-built_in">table_name</span> (<br>...<br>);<br></code></pre></td></tr></table></figure><h3 id="删除模式"><a href="#删除模式" class="headerlink" title="删除模式"></a>删除模式</h3><p>删除一个为空的模式（其中的所有对象已经被删除）</p><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">SCHEMA</span> myschema;<br></code></pre></td></tr></table></figure><p>删除一个模式以及其中包含的所有对象</p><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">SCHEMA</span> myschema <span class="hljs-keyword">CASCADE</span>;<br></code></pre></td></tr></table></figure><h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>后端</category>
+      
+      <category>数据库</category>
+      
+      <category>PostgreSQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PostgreSQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HTTP/2 Server Push（服务器推送）</title>
     <link href="/2022/10/28/http2-server-push/"/>
     <url>/2022/10/28/http2-server-push/</url>

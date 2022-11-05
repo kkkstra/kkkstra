@@ -18,25 +18,24 @@
   <meta name="author" content="kkkstra">
   <meta name="keywords" content="blog, oi">
   
-    <meta name="description" content="传统的网页请求例如有一个简单的 HTML 网页文件，里面还包含了一张样式表 style.css 和一个图片文件 example.png。为了渲染这个网页，浏览器会发出三个请求。第一个请求是index.html。 1GET &#x2F;index.html HTTP&#x2F;1.1  服务器收到这个请求，就把 index.html 发送给浏览器。浏览器发现里面包含了样式表和图片，于是再发出两个请求。 1GET &#x2F;st">
+    <meta name="description" content="数据库操作创建数据库1CREATE DATABASE dbname;  查看数据库1234567891011postgres&#x3D;# \l                                                     数据库列表   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP&#x2F;2 Server Push（服务器推送）">
-<meta property="og:url" content="https://blog.kkkstra.cn/2022/10/28/http2-server-push/index.html">
+<meta property="og:title" content="PostgreSQL 常用命令">
+<meta property="og:url" content="https://blog.kkkstra.cn/2022/11/05/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
-<meta property="og:description" content="传统的网页请求例如有一个简单的 HTML 网页文件，里面还包含了一张样式表 style.css 和一个图片文件 example.png。为了渲染这个网页，浏览器会发出三个请求。第一个请求是index.html。 1GET &#x2F;index.html HTTP&#x2F;1.1  服务器收到这个请求，就把 index.html 发送给浏览器。浏览器发现里面包含了样式表和图片，于是再发出两个请求。 1GET &#x2F;st">
+<meta property="og:description" content="数据库操作创建数据库1CREATE DATABASE dbname;  查看数据库1234567891011postgres&#x3D;# \l                                                     数据库列表   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-28T09:28:20.000Z">
-<meta property="article:modified_time" content="2022-10-28T09:36:02.124Z">
+<meta property="article:published_time" content="2022-11-05T13:14:12.000Z">
+<meta property="article:modified_time" content="2022-11-05T13:15:29.768Z">
 <meta property="article:author" content="kkkstra">
-<meta property="article:tag" content="http2">
-<meta property="article:tag" content="server push">
+<meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>HTTP/2 Server Push（服务器推送） - kkkstra&#39;s blog</title>
+  <title>PostgreSQL 常用命令 - kkkstra&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -230,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HTTP/2 Server Push（服务器推送）"></span>
+            <span id="subtitle" data-typed-text="PostgreSQL 常用命令"></span>
           
         </div>
 
@@ -241,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-28 17:28" pubdate>
-          2022年10月28日 下午
+        <time datetime="2022-11-05 21:14" pubdate>
+          2022年11月5日 晚上
         </time>
       </span>
     
@@ -253,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1k 字
         
       </span>
     
@@ -264,7 +263,7 @@
         
         
         
-          13 分钟
+          9 分钟
         
       </span>
     
@@ -302,24 +301,38 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTTP/2 Server Push（服务器推送）</h1>
+            <h1 style="display: none">PostgreSQL 常用命令</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="传统的网页请求"><a href="#传统的网页请求" class="headerlink" title="传统的网页请求"></a>传统的网页请求</h1><p>例如有一个简单的 HTML 网页文件，里面还包含了一张样式表 <code>style.css</code> 和一个图片文件 <code>example.png</code>。为了渲染这个网页，浏览器会发出三个请求。第一个请求是index.html。</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/index.html</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure>
+                <h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> dbname;<br></code></pre></td></tr></table></figure>
 
-<p>服务器收到这个请求，就把 <code>index.html</code> 发送给浏览器。浏览器发现里面包含了样式表和图片，于是再发出两个请求。</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/style.css</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure>
+<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">postgres=# \l<br>                                                     数据库列表<br>   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provider |       存取权限        <br><span class="hljs-comment">-----------+----------+----------+-------------+-------------+------------+-----------------+-----------------------</span><br> byitter   | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | <br> postgres  | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | <br> template0 | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | =c/postgres          +<br>           |          |          |             |             |            |                 | postgres=CTc/postgres<br> template1 | postgres | UTF8     | zh_CN.UTF<span class="hljs-number">-8</span> | zh_CN.UTF<span class="hljs-number">-8</span> |            | libc            | =c/postgres          +<br>           |          |          |             |             |            |                 | postgres=CTc/postgres<br>(<span class="hljs-number">4</span> 行记录)<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/example.png</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure>
+<h3 id="进入数据库"><a href="#进入数据库" class="headerlink" title="进入数据库"></a>进入数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">postgres=# \c byitter<br>您现在已经连接到数据库 &quot;byitter&quot;,用户 &quot;postgres&quot;.<br></code></pre></td></tr></table></figure>
 
-<p>这种传统的网页请求方式有两个问题，一是至少需要两轮 HTTP 通信，二是收到样式文件之前，网页都会显示一片空白，这个阶段一旦超过 2 秒，用户体验就会非常不好。</p>
-<h1 id="Sever-Push（服务器推送）"><a href="#Sever-Push（服务器推送）" class="headerlink" title="Sever Push（服务器推送）"></a>Sever Push（服务器推送）</h1><p>服务器推送（server push）指的是，还没有收到浏览器的请求，服务器就把各种资源推送给浏览器。</p>
-<p>比如，浏览器只请求了 <code>index.html</code> ，但是服务器把 <code>index.html</code> 、 <code>style.css</code> 、 <code>example.png</code> 全部发送给浏览器。这样的话，只需要一轮 HTTP 通信，浏览器就得到了全部资源，提高了性能。</p>
-<h2 id="go-gin实现"><a href="#go-gin实现" class="headerlink" title="go: gin实现"></a>go: gin实现</h2><p><a target="_blank" rel="noopener" href="https://gin-gonic.com/zh-cn/docs/examples/http2-server-push/">官方文档</a></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;html/template&quot;</span><br>	<span class="hljs-string">&quot;log&quot;</span><br><br>	<span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br>)<br><br><span class="hljs-keyword">var</span> html = template.Must(template.New(<span class="hljs-string">&quot;https&quot;</span>).Parse(<span class="hljs-string">`</span><br><span class="hljs-string">&lt;html&gt;</span><br><span class="hljs-string">&lt;head&gt;</span><br><span class="hljs-string">  &lt;title&gt;Https Test&lt;/title&gt;</span><br><span class="hljs-string">  &lt;script src=&quot;/assets/app.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-string">&lt;/head&gt;</span><br><span class="hljs-string">&lt;body&gt;</span><br><span class="hljs-string">  &lt;h1 style=&quot;color:red;&quot;&gt;Welcome, Ginner!&lt;/h1&gt;</span><br><span class="hljs-string">&lt;/body&gt;</span><br><span class="hljs-string">&lt;/html&gt;</span><br><span class="hljs-string">`</span>))<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.Static(<span class="hljs-string">&quot;/assets&quot;</span>, <span class="hljs-string">&quot;./assets&quot;</span>)<br>	r.SetHTMLTemplate(html)<br><br>	r.GET(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		<span class="hljs-keyword">if</span> pusher := c.Writer.Pusher(); pusher != <span class="hljs-literal">nil</span> &#123;<br>			<span class="hljs-comment">// 使用 pusher.Push() 做服务器推送</span><br>			<span class="hljs-keyword">if</span> err := pusher.Push(<span class="hljs-string">&quot;/assets/app.js&quot;</span>, <span class="hljs-literal">nil</span>); err != <span class="hljs-literal">nil</span> &#123;<br>				log.Printf(<span class="hljs-string">&quot;Failed to push: %v&quot;</span>, err)<br>			&#125;<br>		&#125;<br>		c.HTML(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;https&quot;</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>,<br>		&#125;)<br>	&#125;)<br><br>	<span class="hljs-comment">// 监听并在 https://127.0.0.1:8080 上启动服务</span><br>	r.RunTLS(<span class="hljs-string">&quot;:8080&quot;</span>, <span class="hljs-string">&quot;./testdata/server.pem&quot;</span>, <span class="hljs-string">&quot;./testdata/server.key&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">DATABASE</span> byitter;<br></code></pre></td></tr></table></figure>
+
+<h2 id="表格操作"><a href="#表格操作" class="headerlink" title="表格操作"></a>表格操作</h2><h3 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-built_in">table_name</span>(<br>   column1 datatype,<br>   column2 datatype,<br>   column3 datatype,<br>   .....<br>   columnN datatype,<br>   <span class="hljs-keyword">PRIMARY KEY</span>( 一个或多个列 )<br>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="删除表格"><a href="#删除表格" class="headerlink" title="删除表格"></a>删除表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-built_in">table_name</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><blockquote>
+<p>PostgreSQL 模式（SCHEMA）可以看着是一个表的集合。</p>
+<p>一个模式可以包含视图、索引、数据类型、函数和操作符等。</p>
+</blockquote>
+<h3 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建表格-1"><a href="#创建表格-1" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>.<span class="hljs-built_in">table_name</span> (<br>	...<br>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="删除模式"><a href="#删除模式" class="headerlink" title="删除模式"></a>删除模式</h3><p>删除一个为空的模式（其中的所有对象已经被删除）</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">SCHEMA</span> myschema;<br></code></pre></td></tr></table></figure>
+
+<p>删除一个模式以及其中包含的所有对象</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">SCHEMA</span> myschema <span class="hljs-keyword">CASCADE</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2>
                 
               </div>
             
@@ -342,8 +355,15 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%90%8E%E7%AB%AF/http/" class="category-chain-item">http</a>
+  <a href="/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/" class="category-chain-item">PostgreSQL</a>
+  
+  
+
   
 
   
@@ -359,9 +379,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/http2/">#http2</a>
-      
-        <a href="/tags/server-push/">#server push</a>
+        <a href="/tags/PostgreSQL/">#PostgreSQL</a>
       
     </div>
   
@@ -373,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HTTP/2 Server Push（服务器推送）</div>
-      <div>https://blog.kkkstra.cn/2022/10/28/http2-server-push/</div>
+      <div>PostgreSQL 常用命令</div>
+      <div>https://blog.kkkstra.cn/2022/11/05/PostgreSQL常用命令/</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +404,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月28日</div>
+          <div>2022年11月5日</div>
         </div>
       
       
@@ -416,18 +434,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/05/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="PostgreSQL 常用命令">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PostgreSQL 常用命令</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/27/mvc_mode/" title="mvc设计模式">
-                        <span class="hidden-mobile">mvc设计模式</span>
+                      <a href="/2022/10/28/http2-server-push/" title="HTTP/2 Server Push（服务器推送）">
+                        <span class="hidden-mobile">HTTP/2 Server Push（服务器推送）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

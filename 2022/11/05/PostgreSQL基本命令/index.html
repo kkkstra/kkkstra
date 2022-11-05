@@ -20,13 +20,13 @@
   
     <meta name="description" content="数据库操作创建数据库1CREATE DATABASE dbname;  查看数据库1234567891011postgres&#x3D;# \l                                                     数据库列表   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PostgreSQL 常用命令">
-<meta property="og:url" content="https://blog.kkkstra.cn/2022/11/05/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="PostgreSQL 基本命令">
+<meta property="og:url" content="https://blog.kkkstra.cn/2022/11/05/PostgreSQL%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
 <meta property="og:description" content="数据库操作创建数据库1CREATE DATABASE dbname;  查看数据库1234567891011postgres&#x3D;# \l                                                     数据库列表   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-05T13:14:12.000Z">
-<meta property="article:modified_time" content="2022-11-05T13:15:29.768Z">
+<meta property="article:modified_time" content="2022-11-05T16:13:22.237Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>PostgreSQL 常用命令 - kkkstra&#39;s blog</title>
+  <title>PostgreSQL 基本命令 - kkkstra&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -229,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PostgreSQL 常用命令"></span>
+            <span id="subtitle" data-typed-text="PostgreSQL 基本命令"></span>
           
         </div>
 
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          3.6k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          9 分钟
+          31 分钟
         
       </span>
     
@@ -301,7 +301,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PostgreSQL 常用命令</h1>
+            <h1 style="display: none">PostgreSQL 基本命令</h1>
             
             
               <div class="markdown-body">
@@ -332,7 +332,76 @@
 <p>删除一个模式以及其中包含的所有对象</p>
 <figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">SCHEMA</span> myschema <span class="hljs-keyword">CASCADE</span>;<br></code></pre></td></tr></table></figure>
 
-<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h3><p>INSERT INTO 语句用于向表中插入一行或多行新记录。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-built_in">TABLE_NAME</span> (column1, column2, column3,...columnN)<br><span class="hljs-keyword">VALUES</span> (value1, value2, value3,...valueN), (value1, value2, value3,...valueN);<br></code></pre></td></tr></table></figure>
+
+<h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><p>PostgreSQL SELECT 语句用于从数据库中选取数据，并将结果存储在一个结果表中，称为结果集。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2,...columnN <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span>;<br></code></pre></td></tr></table></figure>
+
+<p>读取表中所有数据</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="WHERE-子句"><a href="#WHERE-子句" class="headerlink" title="WHERE 子句"></a>WHERE 子句</h3><p>在 SELECT ，UPDATE，DELETE语句中添加 WHERE 子句，可以对数据进行筛选。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2, columnN<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">WHERE</span> [condition1]<br></code></pre></td></tr></table></figure>
+
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> AGE &gt; (<span class="hljs-keyword">SELECT</span> AGE <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> SALARY &gt; <span class="hljs-number">65000</span>);<br></code></pre></td></tr></table></figure>
+
+<p>注意：这个子查询需满足只返回一列结果。</p>
+<h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p>更新在 PostgreSQL 数据库中的数据。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">UPDATE</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">SET</span> column1 = value1, column2 = value2...., columnN = valueN<br><span class="hljs-keyword">WHERE</span> [condition];<br></code></pre></td></tr></table></figure>
+
+<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>删除 PostgreSQL 表中的数据。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> [condition];<br></code></pre></td></tr></table></figure>
+
+<h3 id="LIMIT-子句"><a href="#LIMIT-子句" class="headerlink" title="LIMIT 子句"></a>LIMIT 子句</h3><p>限制 SELECT 语句中查询的数据的数量。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2, columnN<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">LIMIT</span> [<span class="hljs-keyword">no</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">rows</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="OFFSET-子句"><a href="#OFFSET-子句" class="headerlink" title="OFFSET 子句"></a>OFFSET 子句</h3><p>从一个特定的偏移开始提取记录。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2, columnN <br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">LIMIT</span> [<span class="hljs-keyword">no</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">rows</span>] <span class="hljs-keyword">OFFSET</span> [<span class="hljs-keyword">row</span> num]<br></code></pre></td></tr></table></figure>
+
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><p>对一列或者多列数据进行升序（ASC）或者降序（DESC）排列</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">column</span>-list<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br>[<span class="hljs-keyword">WHERE</span> condition]<br>[<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> column1, column2, .. columnN] [<span class="hljs-keyword">ASC</span> | <span class="hljs-keyword">DESC</span>];<br></code></pre></td></tr></table></figure>
+
+<h3 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h3><p>GROUP BY 语句和 SELECT 语句一起使用，用来对相同的数据进行分组。</p>
+<p>GROUP BY 在一个 SELECT 语句中，放在 WHRER 子句的后面，ORDER BY 子句的前面。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">column</span>-list<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">WHERE</span> [ conditions ]<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> column1, column2....columnN<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> column1, column2....columnN<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/postgresql/postgresql-group-by.html">应用示例</a></p>
+<h3 id="WITH-子句"><a href="#WITH-子句" class="headerlink" title="WITH 子句"></a>WITH 子句</h3><p>WITH 子句有助于将复杂的大型查询分解为更简单的表单，便于阅读。这些语句通常称为通用表表达式（Common Table Express， CTE），也可以当做一个为查询而存在的临时表。</p>
+<p><strong>大概可以类比为函数一样的存在？</strong></p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">WITH</span><br>   name_for_summary_data <span class="hljs-keyword">AS</span> (<br>      <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">Statement</span>)<br>   <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">columns</span><br>   <span class="hljs-keyword">FROM</span> name_for_summary_data<br>   <span class="hljs-keyword">WHERE</span> conditions &lt;=&gt; (<br>      <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">column</span><br>      <span class="hljs-keyword">FROM</span> name_for_summary_data)<br>   [<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">columns</span>]<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/postgresql/postgresql-with.html">应用示例</a></p>
+<h3 id="HAVING-子句"><a href="#HAVING-子句" class="headerlink" title="HAVING 子句"></a>HAVING 子句</h3><p>HAVING 子句筛选<strong>分组后的各组数据</strong>。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span><br><span class="hljs-keyword">FROM</span><br><span class="hljs-keyword">WHERE</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span><br><span class="hljs-keyword">HAVING</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span><br></code></pre></td></tr></table></figure>
+
+<p>HAVING 子句必须放置于 GROUP BY 子句后面，ORDER BY 子句前面。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2<br><span class="hljs-keyword">FROM</span> table1, table2<br><span class="hljs-keyword">WHERE</span> [ conditions ]<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> column1, column2<br><span class="hljs-keyword">HAVING</span> [ conditions ]<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> column1, column2<br></code></pre></td></tr></table></figure>
+
+<h3 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h3><p>DISTINCT 关键字与 SELECT 语句一起使用，用于去除重复记录，只获取唯一的记录。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> column1, column2,.....columnN<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">WHERE</span> [condition]<br></code></pre></td></tr></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND, OR"></a>AND, OR</h3><p>AND</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2, columnN<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">WHERE</span> [condition1] <span class="hljs-keyword">AND</span> [condition2]...<span class="hljs-keyword">AND</span> [conditionN];<br></code></pre></td></tr></table></figure>
+
+<p>OR</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> column1, column2, columnN<br><span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span><br><span class="hljs-keyword">WHERE</span> [condition1] <span class="hljs-keyword">OR</span> [condition2]...<span class="hljs-keyword">OR</span> [conditionN]<br></code></pre></td></tr></table></figure>
+
+<h3 id="NOT-NULL"><a href="#NOT-NULL" class="headerlink" title="NOT NULL"></a>NOT NULL</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h3><p>获取包含某些字符的数据，与通配符结合使用：</p>
+<ul>
+<li>百分号 <code>%</code></li>
+<li>下划线 <code>_</code></li>
+</ul>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;XXXX%&#x27;</span>;<br><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;%XXXX%&#x27;</span>;<br><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;_XXXX&#x27;</span>;<br><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">FROM</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;_XXXX_&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>LIKE 子句只能用于对字符进行比较，因此比较时，要将整型数据类型转化为字符串数据类型。</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> AGE::<span class="hljs-type">text</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;2%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="IN-NOT-IN-BETWEEN"><a href="#IN-NOT-IN-BETWEEN" class="headerlink" title="IN, NOT IN, BETWEEN"></a>IN, NOT IN, BETWEEN</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> AGE <span class="hljs-keyword">IN</span> ( <span class="hljs-number">25</span>, <span class="hljs-number">27</span> );<br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> AGE <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> ( <span class="hljs-number">25</span>, <span class="hljs-number">27</span> );<br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> COMPANY <span class="hljs-keyword">WHERE</span> AGE <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">25</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">27</span>;<br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
@@ -391,8 +460,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>PostgreSQL 常用命令</div>
-      <div>https://blog.kkkstra.cn/2022/11/05/PostgreSQL常用命令/</div>
+      <div>PostgreSQL 基本命令</div>
+      <div>https://blog.kkkstra.cn/2022/11/05/PostgreSQL基本命令/</div>
     </div>
     <div class="license-meta">
       

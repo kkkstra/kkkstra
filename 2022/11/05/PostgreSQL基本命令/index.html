@@ -26,7 +26,7 @@
 <meta property="og:description" content="数据库操作创建数据库1CREATE DATABASE dbname;  查看数据库1234567891011postgres&#x3D;# \l                                                     数据库列表   名称    |  拥有者  | 字元编码 |  校对规则   |    Ctype    | ICU Locale | Locale Provi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-05T13:14:12.000Z">
-<meta property="article:modified_time" content="2022-11-05T16:27:31.321Z">
+<meta property="article:modified_time" content="2022-11-05T16:28:28.887Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -320,7 +320,7 @@
 
 <h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>PostgreSQL 模式（SCHEMA）可以看着是一个表的集合。</p>
 <p>一个模式可以包含视图、索引、数据类型、函数和操作符等。</p>
-<h3 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>;<br><br></code></pre></td></tr></table></figure>
+<h3 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>;<br></code></pre></td></tr></table></figure>
 
 <h3 id="创建表格-1"><a href="#创建表格-1" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SCHEMA</span> <span class="hljs-built_in">schema_name</span>.<span class="hljs-built_in">table_name</span> (<br>	...<br>);<br></code></pre></td></tr></table></figure>
 

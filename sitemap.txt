@@ -1,3 +1,4 @@
+https://blog.kkkstra.cn/2022/11/07/jwt-jwk-jws/
 https://blog.kkkstra.cn/2022/11/05/PostgreSQL%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/
 https://blog.kkkstra.cn/about/index.html
 https://blog.kkkstra.cn/2022/10/28/http2-server-push/
@@ -162,6 +163,7 @@ https://blog.kkkstra.cn/tags/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/
 https://blog.kkkstra.cn/tags/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/
 https://blog.kkkstra.cn/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/
 https://blog.kkkstra.cn/tags/PostgreSQL/
+https://blog.kkkstra.cn/tags/jwt/
 https://blog.kkkstra.cn/categories/OI/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/CSP2019/
@@ -186,3 +188,4 @@ https://blog.kkkstra.cn/categories/Linux/vim/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%BC%80%E5%8F%91/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/
+https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%BC%80%E5%8F%91/jwt/

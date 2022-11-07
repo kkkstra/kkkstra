@@ -259,6 +259,85 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/01/02/JSOI2008%E7%81%AB%E6%98%9F%E4%BA%BA-Splay/" target="_blank">
+          [JSOI2008]火星人 - Splay、哈希
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/01/02/JSOI2008%E7%81%AB%E6%98%9F%E4%BA%BA-Splay/" target="_blank">
+        <div>
+          Description维护一个字符串，支持插入字符，修改字符，以及求两个后缀的$lcp$。 Solution建立一棵$Splay$来维护整个串，每个节点维护整个子树的哈希值。对于插入，直接在对应的位置插入；修改也直接修改就好；然后一路$update$。对于查询，考虑二分，然后每次查询对应区间的哈希值，$O(1)$判断即可。 查询某个区间的哈希值，用$Splay$写的话比较方便，对于区间$[l,r]
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-02 21:51" pubdate>
+              2020-01-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/OI/" class="category-chain-item">OI</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/OI/%E9%A2%98%E8%A7%A3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%93%88%E5%B8%8C/">#哈希</a>
+            
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+            
+              <a href="/tags/splay/">#splay</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/01/02/%E4%B8%A4%E9%81%93FFT%E9%A2%98%E7%9B%AE%E7%95%A5%E8%A7%A3-ZJOI2014-%E5%8A%9B%E3%80%81-AH2017-HNOI2017-%E7%A4%BC%E7%89%A9/" target="_blank">
           两道FFT题目略解 - [ZJOI2014]力、[AH2017/HNOI2017]礼物
         </a>
@@ -911,74 +990,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/NTT/">#NTT</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/12/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">
-          快速傅里叶变换(FFT)学习笔记
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2019/12/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2-FFT-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">
-        <div>
-          定义多项式系数表示法设$A(x)$表示一个$n-1$次多项式，则所有项的系数组成的$n$维向量$(a_0,a_1,a_2,\dots,a_{n-1})$唯一确定了这个多项式。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-12-21 09:53" pubdate>
-              2019-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/OI/" class="category-chain-item">OI</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/OI/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/FFT/">#FFT</a>
             
           </div>
         

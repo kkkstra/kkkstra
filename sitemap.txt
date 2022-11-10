@@ -1,3 +1,5 @@
+https://blog.kkkstra.cn/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/
+https://blog.kkkstra.cn/2022/11/10/RESTful%E6%9E%B6%E6%9E%84/
 https://blog.kkkstra.cn/2022/11/10/Go-Code-Review-Comments/
 https://blog.kkkstra.cn/2022/11/07/jwt-jwk-jws/
 https://blog.kkkstra.cn/2022/11/05/PostgreSQL%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/
@@ -165,6 +167,8 @@ https://blog.kkkstra.cn/tags/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/
 https://blog.kkkstra.cn/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/
 https://blog.kkkstra.cn/tags/PostgreSQL/
 https://blog.kkkstra.cn/tags/jwt/
+https://blog.kkkstra.cn/tags/RESTful-API/
+https://blog.kkkstra.cn/tags/RESTful/
 https://blog.kkkstra.cn/categories/OI/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/CSP2019/

@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>RESTful API设计</title>
+    <link href="/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/"/>
+    <url>/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.ruanyifeng.com/blog/2014/05/restful_api.html">RESTful API设计指南 - 阮一峰的网络日志</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>后端</category>
+      
+      <category>开发</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RESTful API</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>RESTful架构</title>
+    <link href="/2022/11/10/RESTful%E6%9E%B6%E6%9E%84/"/>
+    <url>/2022/11/10/RESTful%E6%9E%B6%E6%9E%84/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.ruanyifeng.com/blog/2011/09/restful.html">理解RESTful架构 - 阮一峰的网络日志</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>后端</category>
+      
+      <category>开发</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RESTful</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Go Code Review Comments (Go官方编程规范)</title>
     <link href="/2022/11/10/Go-Code-Review-Comments/"/>
     <url>/2022/11/10/Go-Code-Review-Comments/</url>

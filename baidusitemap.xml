@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.kkkstra.cn/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2022-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.kkkstra.cn/2022/11/10/RESTful%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2022-11-10</lastmod>
+  </url>
+  <url>
     <loc>https://blog.kkkstra.cn/2022/11/10/Go-Code-Review-Comments/</loc>
     <lastmod>2022-11-10</lastmod>
   </url>

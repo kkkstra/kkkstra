@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>vim 操作总结</title>
+    <link href="/2022/11/14/vim-operations/"/>
+    <url>/2022/11/14/vim-operations/</url>
+    
+    <content type="html"><![CDATA[<p>来源：<a href="http://www.vimgenius.com/">VIM GENIUS</a></p><h2 id="LEVEL-1"><a href="#LEVEL-1" class="headerlink" title="LEVEL 1"></a>LEVEL 1</h2><p><code>h</code> Move cursor left</p><p><code>l</code> Move cursor right</p><p><code>j</code> Move cursor down</p><p><code>k</code> Move cursor up</p><p><code>:q</code> Close file</p><p><code>:q!</code> Close file, don’t save changes</p><p><code>:w</code> Save changes to file</p><p><code>:wq or :x or ZZ</code> Save changes and close file</p><p><code>x</code> Delete character at cursor</p><p><code>i</code> Insert at cursor</p><p><code>I</code> Insert at beginning of line</p><p><code>a</code> Append at cursor</p><p><code>A</code> Append at end of line</p><p><code>escape or ctrl+[</code> Exit insert mode</p><h2 id="LEVEL-2"><a href="#LEVEL-2" class="headerlink" title="LEVEL 2"></a>LEVEL 2</h2><p><code>dw</code> Delete word</p><p><code>d$ or D</code> Delete to end of line</p><p><code>w</code> Next word</p><p><code>$</code> Go to end of text on current line</p><p><code>^</code> Go to beginning of text on current line</p><p><code>0</code> Go to beginning of current line</p><p><code>2w</code> Go two words forward</p><p><code>3e</code> Go to end of third word ahead</p><p><code>d2w</code> Delete two words</p><p><code>dd</code> Delete entire line</p><p><code>2dd</code> Delete two lines</p><p><code>u</code> Undo last change</p><p><code>U</code> Undo changes on entire line</p><p><code>ctrl+r</code> Redo changes</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>vim</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>RESTful API设计</title>
     <link href="/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/"/>
     <url>/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/</url>

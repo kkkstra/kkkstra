@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1">
 <meta property="article:published_time" content="2022-11-15T11:57:39.000Z">
-<meta property="article:modified_time" content="2022-11-15T12:00:32.873Z">
+<meta property="article:modified_time" content="2022-11-15T12:01:16.313Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="MapReduce">
@@ -318,7 +318,7 @@
 
 <h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h3 id="Execution-Overview"><a href="#Execution-Overview" class="headerlink" title="Execution Overview"></a>Execution Overview</h3><p>通过把输入数据自动划分为 M 段， <code>Map</code> 调用分布在多台计算机上。输入的各个分段可以由不同的机器并行处理。<code>Reduce</code> 调用则是通过使用一个分区函数(例如， $hash(key) mod R$ )将中间键的空间划分为 R 个块来分配的。分区的数量 (R) 和分区函数由用户指定。</p>
 <p>下图是 <code>MapReduce</code> 操作的总体流程：</p>
-<p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1" srcset="/img/loading.gif" lazyload alt="屏幕截图_20221115_111635.png"></p>
+<p><img src="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1" srcset="/img/loading.gif" lazyload alt="MapReduce Overflow"></p>
 <ol>
 <li>用户程序中的 <code>MapReduce</code> 库先将输入文件分割成 M 个片段，通常每个片段大小是 16 到 64 MB，允许用户通过可选的参数调整。然后在一个机器集群种启动多个该程序的副本。</li>
 <li>其中一个程序副本比较特殊—— master。其余的机器是 worker ，由 master 分配任务。有 M 个 <code>map</code> 任务以及 R 个 <code>reduce</code> 任务需要分配。 master 选取空闲的 worker ，并且给每个 worker 分配 <code>map</code> 或者 <code>reduce</code> 任务。</li>

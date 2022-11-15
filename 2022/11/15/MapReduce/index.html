@@ -18,16 +18,16 @@
   <meta name="author" content="kkkstra">
   <meta name="keywords" content="blog, oi">
   
-    <meta name="description" content="IntroductionMapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 map 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 reduce 函数，用于合并所有拥有相同 key 的中间值 (value) 。 Programming Model该模型的处理过程接受一组 key&#x2F;value 对输">
+    <meta name="description" content="ReferenceMapReduce: Simplified Data Processing on Large Clusters IntroductionMapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 map 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 reduce 函数，用于合并所有拥有相同 k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MapReduce">
 <meta property="og:url" content="https://blog.kkkstra.cn/2022/11/15/MapReduce/index.html">
 <meta property="og:site_name" content="kkkstra&#39;s blog">
-<meta property="og:description" content="IntroductionMapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 map 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 reduce 函数，用于合并所有拥有相同 key 的中间值 (value) 。 Programming Model该模型的处理过程接受一组 key&#x2F;value 对输">
+<meta property="og:description" content="ReferenceMapReduce: Simplified Data Processing on Large Clusters IntroductionMapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 map 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 reduce 函数，用于合并所有拥有相同 k">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1">
 <meta property="article:published_time" content="2022-11-15T11:57:39.000Z">
-<meta property="article:modified_time" content="2022-11-15T12:35:37.976Z">
+<meta property="article:modified_time" content="2022-11-15T12:59:24.990Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="MapReduce">
@@ -255,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          4.6k 字
         
       </span>
     
@@ -266,7 +266,7 @@
         
         
         
-          22 分钟
+          39 分钟
         
       </span>
     
@@ -309,10 +309,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 <code>map</code> 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 <code>reduce</code> 函数，用于合并所有拥有相同 key 的中间值 (value) 。</p>
+                <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf">MapReduce: Simplified Data Processing on Large Clusters</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 <code>map</code> 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 <code>reduce</code> 函数，用于合并所有拥有相同 key 的中间值 (value) 。</p>
 <h2 id="Programming-Model"><a href="#Programming-Model" class="headerlink" title="Programming Model"></a>Programming Model</h2><p>该模型的处理过程接受一组 key&#x2F;value 对输入，并生成一组 key&#x2F;value 对输出。MapReduce 库的用户将处理过程表示为两个函数： <code>Map</code> 和 <code>Reduce</code> 。</p>
 <p><strong>Map:</strong> 由用户编写，接受一个输入对并生成一组中间 key&#x2F;value 对。 MapReduce 库将所有具有相同 key 的中间值 (value) 组合在一起，并将它们传递给 <code>Reduce</code> 函数。</p>
-<p><strong>Reduce:</strong> 也由用户编写，接受一个中间键 (key) ，以及该键的一组值 (value) 。它把这些值组合在一起，从而形成一个规模可能更小的值的集合。通常，每次 Reduce 调用只产生零个或一个输出值。中间值通过迭代器传递给用户的 <code>reduce</code> 函数，这使得我们能够处理大到无法装入内存的值的列表。</p>
+<p>**Reduce: ** 也由用户编写，接受一个中间键 (key) ，以及该键的一组值 (value) 。它把这些值组合在一起，从而形成一个规模可能更小的值的集合。通常，每次 Reduce 调用只产生零个或一个输出值。中间值通过迭代器传递给用户的 <code>reduce</code> 函数，这使得我们能够处理大到无法装入内存的值的列表。</p>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>下面是一个计算大量文档集合中每个单词出现的次数的问题的例子，伪代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">map(String key, String value):<br>	// key: document name<br>	// value: document contents<br>	for each word w in value:<br>		EmitIntermediate(w, &quot;1&quot;);<br>		<br>reduce(String key, Iterator values):<br>	// key: a word<br>	// values: a list of counts<br>	int result = 0;<br>	for each v in values:<br>		result += ParseInt(v);<br>	Emit(AsString(result));<br></code></pre></td></tr></table></figure>
 
@@ -334,6 +335,11 @@
 <p>在 failed worker 上正在执行的 map 或 reduce 任务将被重置为 $idle$，并有等待被 master 重新调度。在 failed worker 上已经完成的 map 任务需要重新执行，因为它们的输出被存储在本地磁盘上，并且无法访问。而在 failed worker 上已经完成的 reduce 任务不需要被重新执行，因为它们的输出被存储在全局磁盘上。</p>
 <p>当有一个 map 任务由于 worker failed 从 worker A 转移到 B 上执行，所有在执行 reduce 任务的 worker 都会被通知，并且没有从 worker A 上读取完数据的 reduce 任务，将会从 B 上读取。</p>
 <h4 id="Master-Failure"><a href="#Master-Failure" class="headerlink" title="Master Failure"></a>Master Failure</h4><p>很容易能为上面描述的 master data structures 编写周期性 checkpoints。如果 master 任务终止，则可以从上一个 checkpoint 启动一个新的副本。然而，考虑到只有一个 master，master failed 的可能性并不大。因此，如果 master 终止，当前的实现中将终止 MapReduce 计算，客户端可以进行检查，如果需要，可以重启 MapReduce 操作。</p>
+<h4 id="Semantics-in-the-Presence-of-Failures"><a href="#Semantics-in-the-Presence-of-Failures" class="headerlink" title="Semantics in the Presence of Failures"></a>Semantics in the Presence of Failures</h4><p>When the user-supplied map and reduce operators are <strong>deterministic</strong> functions of their input values, our distributed implementation produces the same output as would have been produced by a non-faulting sequential execution of the entire program.<br>We rely on atomic commits of map and reduce task outputs to achieve this property. <strong>Each in-progress task writes its output to private temporary files.</strong> A reduce task produces one such file, and a map task produces R such files (one per reduce task). <strong>When a map task completes, the worker sends a message to the master and includes the names of the R temporary files in the message.</strong> If the master receives a completion message for an already completed map task, it ignores the message. Otherwise, it records the names of R files in a master data structure.<br><strong>When a reduce task completes, the reduce worker atomically renames its temporary output file to the final output file.</strong> If the same reduce task is executed on multiple machines, multiple rename calls will be executed for the same final output file. We rely on the atomic rename operation provided by the underlying file system to guarantee that the final file system state contains just the data produced by one execution of the reduce task.</p>
+<h4 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h4><p>Network bandwidth is a relatively scarce resource in our computing environment. We conserve network bandwidth by taking advantage of the fact that the input data (managed by GFS [8]) is stored on the local disks of the machines that make up our cluster. GFS divides each file into 64 MB blocks, and stores several copies of each block (typically 3 copies) on different machines. <strong>The MapReduce master takes the location information of the input files into account and attempts to schedule a map task on a machine that contains a replica of the corresponding input data. Failing that, it attempts to schedule a map task near a replica of that task’s input data (e.g., on a worker machine that is on the same network switch as the machine containing the data).</strong> When running large MapReduce operations on a significant fraction of the workers in a cluster, most input data is read locally and consumes no network bandwidth.</p>
+<h4 id="Task-Granularity"><a href="#Task-Granularity" class="headerlink" title="Task Granularity"></a>Task Granularity</h4><blockquote>
+<p><strong>Granularity:</strong> 颗粒度。颗粒度越细，表示细节越详尽，越有助于了解事情的全貌；颗粒度越粗，表示细节越少，更多的是抽象概括。</p>
+</blockquote>
 
                 
               </div>

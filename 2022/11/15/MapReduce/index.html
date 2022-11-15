@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1">
 <meta property="article:published_time" content="2022-11-15T11:57:39.000Z">
-<meta property="article:modified_time" content="2022-11-15T12:33:09.314Z">
+<meta property="article:modified_time" content="2022-11-15T12:35:37.976Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="MapReduce">
@@ -312,7 +312,7 @@
                 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MapReduce 是一种编程模型，是用于处理和生成大型数据集的关联实现。用户指定一个 <code>map</code> 函数，用于处理 key&#x2F;value 对，并生成中间 key&#x2F;value 对，以及一个 <code>reduce</code> 函数，用于合并所有拥有相同 key 的中间值 (value) 。</p>
 <h2 id="Programming-Model"><a href="#Programming-Model" class="headerlink" title="Programming Model"></a>Programming Model</h2><p>该模型的处理过程接受一组 key&#x2F;value 对输入，并生成一组 key&#x2F;value 对输出。MapReduce 库的用户将处理过程表示为两个函数： <code>Map</code> 和 <code>Reduce</code> 。</p>
 <p><strong>Map:</strong> 由用户编写，接受一个输入对并生成一组中间 key&#x2F;value 对。 MapReduce 库将所有具有相同 key 的中间值 (value) 组合在一起，并将它们传递给 <code>Reduce</code> 函数。</p>
-<p>**Reduce: ** 也由用户编写，接受一个中间键 (key) ，以及该键的一组值 (value) 。它把这些值组合在一起，从而形成一个规模可能更小的值的集合。通常，每次 Reduce 调用只产生零个或一个输出值。中间值通过迭代器传递给用户的 <code>reduce</code> 函数，这使得我们能够处理大到无法装入内存的值的列表。</p>
+<p><strong>Reduce:</strong> 也由用户编写，接受一个中间键 (key) ，以及该键的一组值 (value) 。它把这些值组合在一起，从而形成一个规模可能更小的值的集合。通常，每次 Reduce 调用只产生零个或一个输出值。中间值通过迭代器传递给用户的 <code>reduce</code> 函数，这使得我们能够处理大到无法装入内存的值的列表。</p>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>下面是一个计算大量文档集合中每个单词出现的次数的问题的例子，伪代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pseudocode">map(String key, String value):<br>	// key: document name<br>	// value: document contents<br>	for each word w in value:<br>		EmitIntermediate(w, &quot;1&quot;);<br>		<br>reduce(String key, Iterator values):<br>	// key: a word<br>	// values: a list of counts<br>	int result = 0;<br>	for each v in values:<br>		result += ParseInt(v);<br>	Emit(AsString(result));<br></code></pre></td></tr></table></figure>
 

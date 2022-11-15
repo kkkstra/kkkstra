@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1">
 <meta property="article:published_time" content="2022-11-15T11:57:39.000Z">
-<meta property="article:modified_time" content="2022-11-15T12:59:24.990Z">
+<meta property="article:modified_time" content="2022-11-15T13:22:33.828Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="MapReduce">
@@ -255,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          5k 字
         
       </span>
     
@@ -266,7 +266,7 @@
         
         
         
-          39 分钟
+          42 分钟
         
       </span>
     
@@ -336,11 +336,15 @@
 <p>当有一个 map 任务由于 worker failed 从 worker A 转移到 B 上执行，所有在执行 reduce 任务的 worker 都会被通知，并且没有从 worker A 上读取完数据的 reduce 任务，将会从 B 上读取。</p>
 <h4 id="Master-Failure"><a href="#Master-Failure" class="headerlink" title="Master Failure"></a>Master Failure</h4><p>很容易能为上面描述的 master data structures 编写周期性 checkpoints。如果 master 任务终止，则可以从上一个 checkpoint 启动一个新的副本。然而，考虑到只有一个 master，master failed 的可能性并不大。因此，如果 master 终止，当前的实现中将终止 MapReduce 计算，客户端可以进行检查，如果需要，可以重启 MapReduce 操作。</p>
 <h4 id="Semantics-in-the-Presence-of-Failures"><a href="#Semantics-in-the-Presence-of-Failures" class="headerlink" title="Semantics in the Presence of Failures"></a>Semantics in the Presence of Failures</h4><p>When the user-supplied map and reduce operators are <strong>deterministic</strong> functions of their input values, our distributed implementation produces the same output as would have been produced by a non-faulting sequential execution of the entire program.<br>We rely on atomic commits of map and reduce task outputs to achieve this property. <strong>Each in-progress task writes its output to private temporary files.</strong> A reduce task produces one such file, and a map task produces R such files (one per reduce task). <strong>When a map task completes, the worker sends a message to the master and includes the names of the R temporary files in the message.</strong> If the master receives a completion message for an already completed map task, it ignores the message. Otherwise, it records the names of R files in a master data structure.<br><strong>When a reduce task completes, the reduce worker atomically renames its temporary output file to the final output file.</strong> If the same reduce task is executed on multiple machines, multiple rename calls will be executed for the same final output file. We rely on the atomic rename operation provided by the underlying file system to guarantee that the final file system state contains just the data produced by one execution of the reduce task.</p>
-<h4 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h4><p>Network bandwidth is a relatively scarce resource in our computing environment. We conserve network bandwidth by taking advantage of the fact that the input data (managed by GFS [8]) is stored on the local disks of the machines that make up our cluster. GFS divides each file into 64 MB blocks, and stores several copies of each block (typically 3 copies) on different machines. <strong>The MapReduce master takes the location information of the input files into account and attempts to schedule a map task on a machine that contains a replica of the corresponding input data. Failing that, it attempts to schedule a map task near a replica of that task’s input data (e.g., on a worker machine that is on the same network switch as the machine containing the data).</strong> When running large MapReduce operations on a significant fraction of the workers in a cluster, most input data is read locally and consumes no network bandwidth.</p>
+<h4 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h4><p>Network bandwidth is a relatively scarce resource in our computing environment. We conserve network bandwidth by taking advantage of the fact that the input data (managed by GFS [8]) is stored on the local disks of the machines that make up our cluster. GFS divides each file into 64 MB blocks, and <strong>stores several copies of each block (typically 3 copies)</strong> on different machines. <strong>The MapReduce master takes the location information of the input files into account and attempts to schedule a map task on a machine that contains a replica of the corresponding input data. Failing that, it attempts to schedule a map task near a replica of that task’s input data (e.g., on a worker machine that is on the same network switch as the machine containing the data).</strong> When running large MapReduce operations on a significant fraction of the workers in a cluster, most input data is read locally and consumes no network bandwidth.</p>
 <h4 id="Task-Granularity"><a href="#Task-Granularity" class="headerlink" title="Task Granularity"></a>Task Granularity</h4><blockquote>
 <p><strong>Granularity:</strong> 颗粒度。颗粒度越细，表示细节越详尽，越有助于了解事情的全貌；颗粒度越粗，表示细节越少，更多的是抽象概括。</p>
 </blockquote>
-
+<p>我们将 map 操作分割成 M 个片段，把 reduce 操作分割成 R个片段。理想上，M 和 R 应该远大于 worker 的数量。让每个 worker 执行多个任务可以改善动态负载均衡，并且在 worker failure 时也可以快速恢复：多个已经完成的 map 任务可以分散到其他 worker 上。</p>
+<p>通常，每个输入文件片段大概设置在 16 到 64 MB，而 R 设置为期望使用的 worker 的小倍数。例如使用 2000 台机器时，M &#x3D; 200, 000，R &#x3D; 5, 000。</p>
+<h4 id="Backup-Tasks"><a href="#Backup-Tasks" class="headerlink" title="Backup Tasks"></a>Backup Tasks</h4><p>导致 MapReduce 操作总时间延长的一个常见原因是“straggler”：计算机需要异常长的时间来完成计算中最后几个映射或 reduce 任务中的一个。</p>
+<p>我们有一个机制来缓解掉队的问题。当一个 MapReduce 操作接近完成时，master 调度剩余正在进行的任务的备份执行。只要主执行或备份执行完成，任务就被标记为已完成。</p>
+<h2 id="Refinements"><a href="#Refinements" class="headerlink" title="Refinements"></a>Refinements</h2>
                 
               </div>
             

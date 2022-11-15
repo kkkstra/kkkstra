@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cloud.kkkstra.cn/d/B2WQYWpj/2022/11/15/0jMioBCT/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221115_111635.png?download=1">
 <meta property="article:published_time" content="2022-11-15T11:57:39.000Z">
-<meta property="article:modified_time" content="2022-11-15T13:24:17.269Z">
+<meta property="article:modified_time" content="2022-11-15T13:24:45.024Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="分布式">
 <meta property="article:tag" content="MapReduce">
@@ -341,7 +341,7 @@
 <p><strong>Granularity:</strong> 颗粒度。颗粒度越细，表示细节越详尽，越有助于了解事情的全貌；颗粒度越粗，表示细节越少，更多的是抽象概括。</p>
 </blockquote>
 <p>我们将 map 操作分割成 M 个片段，把 reduce 操作分割成 R个片段。理想上，M 和 R 应该远大于 worker 的数量。让每个 worker 执行多个任务可以改善动态负载均衡，并且在 worker failure 时也可以快速恢复：多个已经完成的 map 任务可以分散到其他 worker 上。</p>
-<p>通常，每个输入文件片段大概设置在 16 到 64 MB，而 R 设置为期望使用的 worker 的小倍数。例如使用 2000 台机器时，M&#x3D;200, 000，R&#x3D;5, 000。</p>
+<p>通常，每个输入文件片段大概设置在 16 到 64 MB，而 R 设置为期望使用的 worker 的小倍数。例如使用 2000 台机器时，M&#x3D;200,000，R&#x3D;5,000。</p>
 <h4 id="Backup-Tasks"><a href="#Backup-Tasks" class="headerlink" title="Backup Tasks"></a>Backup Tasks</h4><p>导致 MapReduce 操作总时间延长的一个常见原因是“straggler”：计算机需要异常长的时间来完成计算中最后几个映射或 reduce 任务中的一个。</p>
 <p>我们有一个机制来缓解掉队的问题。当一个 MapReduce 操作接近完成时，master 调度剩余正在进行的任务的备份执行。只要主执行或备份执行完成，任务就被标记为已完成。</p>
 <h2 id="Refinements"><a href="#Refinements" class="headerlink" title="Refinements"></a>Refinements</h2>

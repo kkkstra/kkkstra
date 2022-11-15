@@ -1,3 +1,4 @@
+https://blog.kkkstra.cn/2022/11/15/MapReduce/
 https://blog.kkkstra.cn/2022/11/14/vim-operations/
 https://blog.kkkstra.cn/2022/11/10/RESTful-API%E8%AE%BE%E8%AE%A1/
 https://blog.kkkstra.cn/2022/11/10/RESTful%E6%9E%B6%E6%9E%84/
@@ -170,6 +171,8 @@ https://blog.kkkstra.cn/tags/PostgreSQL/
 https://blog.kkkstra.cn/tags/jwt/
 https://blog.kkkstra.cn/tags/RESTful-API/
 https://blog.kkkstra.cn/tags/RESTful/
+https://blog.kkkstra.cn/tags/%E5%88%86%E5%B8%83%E5%BC%8F/
+https://blog.kkkstra.cn/tags/MapReduce/
 https://blog.kkkstra.cn/categories/OI/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/
 https://blog.kkkstra.cn/categories/OI/%E8%80%83%E8%AF%95/CSP2019/
@@ -195,3 +198,4 @@ https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%BC%80%E5%8F%91/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%BC%80%E5%8F%91/jwt/
+https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%88%86%E5%B8%83%E5%BC%8F/

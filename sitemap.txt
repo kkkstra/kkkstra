@@ -1,3 +1,4 @@
+https://blog.kkkstra.cn/2022/12/16/CF838D2/
 https://blog.kkkstra.cn/2022/12/13/Whatever-It-Takes-%E3%80%90%E6%80%AA%E5%A5%87%E7%89%A9%E8%AF%AD-Nancy-Wheeler%E3%80%91/
 https://blog.kkkstra.cn/2022/11/15/MapReduce/
 https://blog.kkkstra.cn/2022/11/14/vim-operations/
@@ -203,3 +204,6 @@ https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%BC%80%E5%8F%91/jwt/
 https://blog.kkkstra.cn/categories/%E5%90%8E%E7%AB%AF/%E5%88%86%E5%B8%83%E5%BC%8F/
 https://blog.kkkstra.cn/categories/%E7%94%9F%E6%B4%BB/
 https://blog.kkkstra.cn/categories/%E7%94%9F%E6%B4%BB/%E5%BD%B1%E8%A7%86/
+https://blog.kkkstra.cn/categories/Algorithm/
+https://blog.kkkstra.cn/categories/Algorithm/Contest/
+https://blog.kkkstra.cn/categories/Algorithm/Contest/Codeforces/

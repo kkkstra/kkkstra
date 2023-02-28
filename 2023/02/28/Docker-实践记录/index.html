@@ -26,7 +26,7 @@
 <meta property="og:description" content="Docker 实践记录1 一个最简单的hello-world项目项目结构：GET http:&#x2F;&#x2F;localhost:8080&#x2F;hello 返回 &amp;#123;&quot;msg&quot;:&quot;hello docker&quot;&amp;#125; 123456.├── Dockerfile└── src    ├── go.mod    ├── go.sum    └── main.go  第一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-27T16:20:33.000Z">
-<meta property="article:modified_time" content="2023-02-27T16:21:42.542Z">
+<meta property="article:modified_time" content="2023-02-28T00:45:59.457Z">
 <meta property="article:author" content="kkkstra">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
@@ -263,7 +263,7 @@
         
         
         
-          15 分钟
+          16 分钟
         
       </span>
     
@@ -332,6 +332,7 @@
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> golang:alpine AS builder<br><span class="hljs-keyword">ENV</span> GO111MODULE=on \<br>  GOPROXY=https://goproxy.cn,direct<br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./src /src</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /src</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> go build -o /bin/hello-world</span><br><br><span class="hljs-keyword">FROM</span> alpine:latest<br><span class="hljs-keyword">COPY</span><span class="language-bash"> --from=builder /bin/hello-world /bin/hello-world</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> /bin/hello-world</span><br></code></pre></td></tr></table></figure>
 
 <p>完美解决！</p>
+<p><strong>后续：</strong> 关于跨平台编译的问题，可以参考 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1778126">手把手教你实现Golang跨平台编译</a></p>
 
                 
               </div>
